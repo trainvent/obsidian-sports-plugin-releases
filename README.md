@@ -18,6 +18,24 @@ Sports is available in Obsidian's community plugins directory.
 Requires **Obsidian 1.11.4 or later** on desktop. Mobile is not supported.
 Garmin integration is experimental and uses unofficial endpoints.
 
+## Finish a plan
+
+Select **Finish plan** in the dashboard or Sports settings. The destination defaults
+to `Archive/<plan name>` and can be changed. **Finish and move notes** moves the
+current notes there, disconnects the workbook, and clears the active plan.
+
+Each finished folder includes `settings.md`, which keeps its original workbook
+link, sheet names, imported plan, and generated-note baselines. These saved plans
+are separate from the 10 rotating recovery copies and do not expire automatically.
+The workbook itself, Garmin connection, and plugin preferences are retained.
+
+In Sports settings, select **Restore from folder**, enter the finished folder,
+and select **Read saved plan**. You can copy its workbook link without restoring.
+**Restore plan** moves the notes back and restores the saved plan and link.
+Finish any active plan first; existing destination folders are never overwritten.
+Workbook sync stays paused until you select **Sync now**, so you can inspect or
+replace the recovered link first. To start a new plan instead, select a workbook.
+
 ## What you can do
 
 - **Plan:** connect goals, training parts, weekly targets, and dated sessions.
@@ -47,20 +65,20 @@ Charts render locally without another community plugin or chart service.
 6. Record training in the workbook, recalculate and save if it uses formulas,
    then sync again.
 
-The XLSX template is an empty copy of the full six-sheet example, retaining its
+The XLSX template is an empty copy of the full five-sheet example, retaining its
 tables and formatting, with all cell formulas and cached calculation results removed.
 Keep every sheet and table when filling the template. Optional features may have
 empty data; remove structure only when deliberately requested. Agree on recurring
 activities and scoring with your agent, then check workbook completeness using
 [Workbook.md](Workbook.md#check-before-returning-the-workbook).
-Both blank formats use the full six-sheet layout. The example contains a filled
-12-week calisthenics plan, exercise library, loads, and scoring. It is a worked
+Both blank formats use the full five-sheet layout. The example contains a filled
+12-week calisthenics plan, exercise library, section weights, and scoring. It is a worked
 example to adapt, not a personalized training recommendation.
 
 In the example, adjust the set values to what you did, clear unused sets, and
 select TRUE under **Session done**. FALSE or blank leaves the prefilled targets
 unrecorded. Positive Cal-Intervals rounds are recorded with Session done;
-zero or blank means that circuit was not done. Leave actual kg blank until recorded.
+zero or blank means that circuit was not done. Enter optional kg in each section’s **Weight** field and update it before completing the session.
 
 Enable **Show regular activities** to include your Recurring schedule in the
 dashboard and weekly notes. It is off by default. Recurring entries describe
@@ -85,15 +103,15 @@ made by Trainvent. Save changes to the cloud workbook before syncing Sports.
 | Filled example | [Training-Example.xlsx](templates/Training-Example.xlsx) | [Training-Example.ods](templates/Training-Example.ods) |
 
 The XLSX and ODS templates and filled examples include Strategy, Daily, Recurring,
-Scoring, Library, and Loads. Both blank templates keep the full layout without
+Scoring and Library. Both blank templates keep the full layout without
 training data or cell formulas. The example’s
 exercises and five set columns are illustrations; the
 importer supports custom layouts described in the guides. To adapt a workbook with a chatbot, give it a
 copy and the workbook guide. Preserve recorded history and stable session IDs.
 
 Sports reads saved formula results and does not recalculate spreadsheets.
-Recalculate and save in your spreadsheet editor before syncing. Keep Library,
-Loads, and Scoring tab names: they are discovered automatically.
+Recalculate and save in your spreadsheet editor before syncing. Keep Library
+and Scoring tab names: they are discovered automatically.
 A workbook guide is copied into your notes folder; existing guide edits are preserved.
 The tracking guide is also available from the dashboard and command palette.
 
@@ -131,7 +149,7 @@ shared tags for grouping, with direct links beside the content they refer to.
 
 | Note | Properties |
 | --- | --- |
-| Goal | `goal_id`, `category`, `result_column`, `garmin_types` |
+| Goal | `goal_id`, `category`, `garmin_types` |
 | Routine | `targets`: links to its goal notes |
 | Day | `date`, `week`: link to its weekly note |
 | Week | `week_start`, `week_end`, `program_week`, `phase` |
@@ -202,7 +220,7 @@ Choose the recovery action that matches the problem:
 
 A cache reset keeps settings and note files, but clears imported workbook/Garmin
 data and saved generated-section baselines. Existing target notes are backed up
-to `Backups/<timestamp>/` inside your notes folder before their generated sections
+in hidden plugin storage before their generated sections
 are rebuilt. Reflections outside those sections and unrelated properties stay in
 place. Changes inside a rebuilt section survive in its backup, not in the new output.
 
@@ -213,8 +231,9 @@ still need repair; a reset does not bypass those checks. Results absent from bot
 the workbook and Garmin cannot be restored by syncing.
 
 Backups are recovery copies, not active notes or sync inputs. Normal sync does
-not create them. After checking the rebuilt notes, you can delete old backups;
-Sports does not remove them automatically. Keep managed note filenames stable.
+not create them. At most 10 recovery copies are retained; each new copy replaces
+the oldest when storage is full.
+Keep managed note filenames stable.
 See [the workbook guide](Workbook.md#sync-recovery) for recovery details.
 
 ## Training charts
@@ -319,3 +338,39 @@ your Obsidian and Sports versions, the error, and steps to reproduce it. Remove
 private share links, credentials, and personal training data from attachments.
 You can also use [Trainvent support](https://next.trainvent.com/de/software-support/)
 or [sponsor development](https://github.com/sponsors/trainvent).
+
+### Calendar subscriptions
+
+In **Sports settings → Schedule**, select **ICS calendar** as the schedule source and add an ICS subscription link from a dedicated training calendar, then select **Sync now**. For Google Calendar, use the calendar’s secret address in iCal format. For Nextcloud, paste the public calendar share link or an ICS subscription/export link. Public calendar share links are converted to ICS exports automatically; private CalDAV URLs requiring login are not supported. HTTPS and `webcal://` links are supported (`webcal` is downloaded over HTTPS).
+
+Choose either **Workbook weekly schedule** or **ICS calendar**. The inactive source is not synchronized or displayed; workbook strategy and training logs remain available with either choice.
+
+Calendar events appear in the dashboard, Today widget, Calendar note and weekly notes. Refresh uses **Sync on startup** and **Sync interval**. Changes and deletions replace the cached calendar events after a successful download; failed downloads retain the previous cache. ICS is read-only: create, move and delete events in Google Calendar or Nextcloud. It does not mark workouts completed or change the workbook.
+
+Each refresh imports event start dates from the past 30 days through the next 365 days, including recurring events and exceptions. Timed events use the device’s timezone; all-day events retain their calendar date. Multi-day events appear on their starting day. Dates beyond this window require a later refresh. Feeds are limited to 5 MB and recurrence expansion to 50,000 occurrences per refresh.
+
+The subscription URL and imported event details are stored locally in the vault’s plugin data and may be copied by vault sync or backups. Treat a secret subscription link like a password. Requests go directly to the configured calendar provider; no vault data is uploaded. Clear the link and sync to disconnect and remove imported events from generated notes. Generated notes follow the usual edit-protection rules.
+
+### Calendar plans and Garmin recordings
+
+Weekly notes, daily notes, the dashboard and the Today widget group a Garmin activity inside its scheduled workout tile when the sport is compatible and the recording substantially overlaps the planned time. For example, an 08:00–09:00 swim can contain an 08:10–09:00 Garmin recording. The tile keeps planned minutes and recorded measurements separate. Unmatched activities get their own tiles; equally plausible matches remain separate. All-day events and entries without a duration are not matched automatically.
+
+Matching supports both ICS calendar events and the workbook’s weekly schedule. Links are recalculated from the current source data after refresh; they do not edit the calendar, Garmin records, manual completion, or analytics totals. Several recordings can belong to one planned event, but a recording is shown only once. Existing note edits and reflections keep their usual protections.
+
+### Calendar goal links
+
+Add a line to an event’s description to associate it with a Strategy goal:
+
+```text
+goal-id: swimming
+```
+
+Use the exact `goal_id` from Strategy, rather than its display title. Multiple goals use `goal-ids: swimming, running`. The event appears on that goal’s page and in routines connected to it through Strategy’s part-to-goal links or Garmin type mapping. For example, a custom goal with Garmin types `swimming` feeds **Routines/Swimming**. These links also help match Garmin recordings when an event has a generic title such as “Morning practice.”
+
+Exact Strategy goal IDs in descriptions also work without a label: `swimming` or `Tsve swimming`. IDs must stand alone, separated by whitespace, commas or semicolons; partial words are not matched. A labelled `goal-id:` takes priority. Only these IDs route calendar events to goals and routines. Event titles and goal display titles can use any language; descriptions without a known ID stay unassigned. Events remain visible in the main calendar regardless. The key line is hidden in workout tiles. On routine and goal pages, matching recordings share the event’s dated table row. Weekly and daily notes keep them inside the event tile.
+
+### Compact sport pages and templates
+
+Routine and goal pages use compact tables. **Recurring schedule** lists each calendar series once with its weekdays, time and recurrence. **Dated sessions** contains one-off events, moved occurrences, and recorded sessions; a linked Garmin recording stays on its planned event’s row. Unrecorded recurring occurrences are not repeated as dated rows. Weekly and daily notes retain their workout tiles.
+
+Sports creates an editable **Templates/Sport entries.md** inside the Sports notes folder. Open it with **Sports: Open sport entry template**. Use it with Obsidian’s core Templates plugin to start your own sport notes; if your Templates folder is elsewhere, copy it there. Existing template edits are preserved. Keep personal entries outside the plugin’s generated sections.

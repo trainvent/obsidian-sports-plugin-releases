@@ -8,9 +8,9 @@ starting point in XLSX or ODS:
 
 | Option | Contents | Choose it when |
 | --- | --- | --- |
-| **Blank XLSX template** (`Training-Template.xlsx`) | All six example sheets, tables and formatting; training data and formulas cleared | You want to fill the full workbook yourself or with a chatbot |
-| **Blank ODS template** (`Training-Template.ods`) | All six sheets, tables and formatting; training data and formulas cleared | You prefer LibreOffice Calc or ODS |
-| **Example workbook** (`Training-Example`) | A filled 12-week plan, library, loads, and scoring | You want to learn the format or adapt a working example |
+| **Blank XLSX template** (`Training-Template.xlsx`) | All five example sheets, tables and formatting; training data and formulas cleared | You want to fill the full workbook yourself or with a chatbot |
+| **Blank ODS template** (`Training-Template.ods`) | All five sheets, tables and formatting; training data and formulas cleared | You prefer LibreOffice Calc or ODS |
+| **Example workbook** (`Training-Example`) | A filled 12-week plan, library, exercise weights, and scoring | You want to learn the format or adapt a working example |
 
 Use this guide with either file. Adapt goals, exercises, schedule, equipment and
 training volume before uploading and syncing. The example is not a personalized
@@ -52,7 +52,7 @@ structure only when the user explicitly requests it.
    (20 minutes, not 1200 seconds) and seconds for short holds. Intensity ratings and
    Growth per kg are optional for tracking, but required inputs where the agreed
    scoring method uses them. Do not invent measured resistance for bands. Describe
-   the band in Equipment Notes and the prescription; Loads accepts added kg only.
+   the band in Equipment Notes and the prescription; Weight accepts added kg only.
 5. Agree on scoring before filling the workbook. If requested, populate Scoring's
    exercise targets, formulas and per-session summaries, and Daily's planned
    intensity. Scoring Date/Session must match Daily Date/exact Title, not Block.
@@ -63,12 +63,12 @@ structure only when the user explicitly requests it.
    upload it, configure the sheet mappings and select **Sync now**.
 
 The XLSX template retains the full example layout, including A/B/C set columns,
-Cal-Intervals, Library, Loads, Scoring, Plan summary and Plan recap. These labels
+Cal-Intervals, Library, Scoring, Plan summary and Plan recap. These labels
 and calculation slots are structure, not prescribed exercises. Training data and
 all cell formulas/cached results are empty; layout defaults remain editable.
 Enter dates and prescriptions directly. Build only the calculations agreed with
 the user. The later formula examples describe the filled example, not formulas
-already present in this template. The ODS template has the same full six-sheet
+already present in this template. The ODS template has the same full five-sheet
 layout. See [Tracking.md](Tracking.md) for alternative tracking layouts when a
 user requests a redesign.
 
@@ -88,7 +88,7 @@ input. Do not silently choose a reduced workbook.
 | Recurring | Keep weekdays and headers; leave Activity empty only when no schedule is agreed | Fill the repeating activities and identify where results are recorded |
 | Scoring | Keep title, headers, assumptions and native table | Add agreed calculations and cached results; no fabricated actual performance |
 | Library | Keep exercise/equipment/interval headers | Add references actually used, with ratings only when scoring needs them |
-| Loads | Keep Added load and its headers; no rows needed without added kg | Record known planned kg and leave actual kg blank until measured |
+| Daily Weight | Leave blank for unweighted sections | Enter kg for the section and update it to the weight used before completing the session |
 
 Unused Cal-Intervals or set inputs can remain blank without erasing their headers.
 If removal or a new tracking layout is requested, check formulas, table ranges,
@@ -115,7 +115,7 @@ features are still missing.
 ### Check before returning the workbook
 
 Compare every supplied sheet with the original, including all Strategy sections,
-Scoring's header/assumptions, Library sections and Loads. Preserve native Excel
+Scoring's header/assumptions, Library sections and Daily Weight fields. Preserve native Excel
 tables and their header ranges, not just visible text. Write beneath headers;
 for example Equipment's first entry is Library!A62, not A61.
 
@@ -137,7 +137,7 @@ alone does not establish that the requested workbook is complete.
 ## Reading the filled example
 
 **Am / Bm** are the A / B sessions with added mass (`m`). The underlying block
-stays A or B; planned and actual added kg are recorded in **Loads**.
+stays A or B; added kg is entered in each section’s **Weight** field.
 
 ## Example workbook color key
 
@@ -184,7 +184,7 @@ Leave unused section data empty; remove structure only at the user’s request:
 | Section | Headers |
 | --- | --- |
 | Plan | `schema_version`, `plan_id`, `plan_name`, `timezone`, `start_date`, `max_sets`, `max_reps` |
-| Goals | `goal_id`, `title`, `benchmark`, `baseline`, `test`, `category`, `result_column`, `garmin_types` |
+| Goals | `goal_id`, `title`, `benchmark`, `baseline`, `test`, `category`, `garmin_types` |
 | Parts | `part_id`, `version`, `title`, `prescription`, `goal_ids` |
 | Week plans | `Week`, `Start`, `Phase`, `Focus`, `Targets`, `Advance when`, `Minutes`, `A`, `B` |
 | Plan summary | `Metric`, `Value` |
@@ -207,18 +207,15 @@ measurements or achievements.
 Each goal creates a note at `Goals/<goal_id>.md` under the configured Sports notes
 folder. Keep the ID stable so reviews stay attached when renaming a goal. The
 review area is outside the generated section and is preserved on every sync.
-Goal category, result-column mapping and Garmin types appear in note properties;
+Goal category and Garmin types appear in note properties;
 baseline, target and test standard stay in the body. These properties follow the
 workbook on sync. Edit their values in Strategy; unrelated custom properties are preserved.
 
-The optional `result_column` and `garmin_types` fields control two independent
-sources. **Both sources work for every goal, regardless of its category.**
+Tracking results and Garmin activities are independent sources available to every goal.
+Results match the goal ID/title and the muscle-up, HSPU and pistol aliases when
+there is one unambiguous match. Nonempty results are copied with date, session
+status and shared session notes.
 
-- `result_column`: the exact tracking-sheet column name, such as `HSPU result`.
-  It must end with ` result`. Only nonempty entries in that column are copied to
-  the goal note, with date, session status and shared session notes. Without an
-  explicit mapping, the plugin matches the goal ID/title and the example's
-  muscle-up, HSPU and pistol aliases when there is one unambiguous match.
 - `garmin_types`: comma-separated stable Garmin activity type keys. `running`
   matches running, track/trail/indoor/treadmill running and supported run variants.
   `swimming` matches pool and open-water swimming. Other keys match exactly.
@@ -226,8 +223,7 @@ sources. **Both sources work for every goal, regardless of its category.**
   explicit mapping, goals named/identified as running or swimming are detected.
   Custom goals should use explicit type keys to avoid guessing from goal prose.
 - A running aspiration can have `Running result` and `running`; a swimming
-  maintenance goal can have `Swimming result` and `swimming`. Adding a manual
-  mapping also requires adding that exact result column to Daily.
+  maintenance goal can have `Swimming result` and `swimming`. The corresponding result column must exist in Daily.
 - The example includes swimming as a maintenance goal. Its starting routine is
   reported background, not a recorded performance or a change to Recurring.
 
@@ -388,7 +384,7 @@ properties, a weekly-note link on each day, and dated links in logs and plans.
 
 | Note | Managed properties | Source |
 | --- | --- | --- |
-| `Goals/<goal_id>.md` | `goal_id`, `category`, `result_column`, `garmin_types` | Goals table and resolved source mappings |
+| `Goals/<goal_id>.md` | `goal_id`, `category`, `garmin_types` | Goals table and resolved source mappings |
 | `Routines/<name>.md` | `targets` (list of goal links) | Part/goal relationships; running and swimming goal mappings |
 | `Analytics/Days/YYYY-MM-DD.md` | `date`, `week` (weekly-note link) | Entry date and its Monday-start week |
 | `Weeks/YYYY-MM-DD.md` | `week_start`, `week_end`, `program_week`, `phase` | Calendar dates and matching Week plans row |
@@ -474,11 +470,10 @@ workbook refresh does not end recovery for those notes. Successfully recovered
 notes regain normal edit protection. Malformed or duplicate markers still stop
 a note from being rewritten; repair them from a known good copy first.
 
-Backups live under `Backups/<timestamp>/` in the configured notes folder. They
-preserve the full pre-rebuild note, including any edits inside generated sections.
-Reflections outside the markers and unrelated custom properties stay in the active
-note. Normal sync does not create backups, and the plugin does not read them as
-training data. You can remove old backups after checking the recovered notes.
+Recovery copies are stored in the plugin’s hidden `recovery-backups.json`, not
+inside the notes folder. The newest 10 copies are retained; adding another removes
+the oldest. Each copy records its original note path, timestamp and full content.
+Normal sync does not create recovery copies or use them as training data.
 
 A reset clears cached history too. Keep completed results in the workbook and
 retain any notes or backups containing information absent from the source.
@@ -535,15 +530,15 @@ unchanged XLSX layout, Equipment is the section label at **A60**, headers are
 **A61:D61**, and the first equipment entry belongs in **A62:D62**.
 For resistance bands, leave Min kg and Max kg blank unless you have a meaningful
 measured range. Describe the band/resistance in Notes and name it in the workout
-prescription. Loads is for added kilograms; bands do not require a Loads entry.
+prescription. Weight is for added kilograms; bands do not require a weight value.
 Base intensity and Growth per kg may stay blank when you are not using scoring.
 
 | Table | Headers |
 | --- | --- |
-| Exercise arsenal | `Group`, `Exercise`, `Base intensity (0–10)`, `Unit`, `Growth per kg` |
+| Exercise arsenal | `Group`, `Exercise`, `Unit`, `Base intensity (0–10)`, `Growth per kg` |
 | Equipment | `Equipment`, `Min kg`, `Max kg`, `Notes` |
 
-The XLSX arsenal occupies **Library!A2:E58**. Base intensity is in **C**, units in
+The XLSX arsenal occupies **Library!A2:E58**. Units are in **C**, base intensity in
 **D**, and growth per kg in **E**. Growth is an editable relative multiplier:
 4% means each added kg increases the exercise rating by 4% of its base rating.
 The seeded rates are planning estimates, not measured physiological effects.
@@ -551,30 +546,25 @@ Pulling and muscle-up exercises start at 4%/kg; upright band transition drills
 and pistol variations at 3%/kg; push-ups, squats and dips at 2%/kg.
 Pike push-ups, handstands/HSPU, low-bar drills, inverted work and mobility
 leave this field blank. A blank rate leaves the base intensity unchanged.
-Rates do not prescribe vest use: only entries in Loads add planned weight.
+Rates do not prescribe vest use: only Daily Weight entries add planned weight.
 Weighted and unweighted work share the same exercise entry; there are no separate
 vest variants. The Cal-Intervals definition supplies its own work seconds.
 
-**Loads** is a sparse table, not a second full training log. Add a row only for
-an exercise with added weight; Daily gains no extra columns. Keep its tab name.
+### Exercise weights
 
-| Table | Headers |
-| --- | --- |
-| Added load | `Date`, `Session`, `Exercise`, `Equipment`, `Planned kg`, `Actual kg`, `Notes` |
+Each Daily section (**A**, **B**, **C**, or a custom exercise group) can have a
+**Weight** subcolumn after its set fields. Enter kilograms, or leave it blank.
+The value applies to every set in that section; zero explicitly means bodyweight.
+There is no separate Loads sheet. Keep **Weight** beneath its group heading so
+Sports can associate it with the matching exercise in Plan.
 
-Date and Session must identify one Daily session; Exercise must match its
-prescription or a Cal-Intervals exercise in Library. Only one load row per exercise per
-session is supported. Copy a row and edit it to add another weighted exercise.
-The lookup ranges cover rows 3–1000. To increase that capacity, extend the
-ranges in Scoring too.
+The example uses 6 kg for pull-ups in **A** and dips in **B** on three sessions.
+Cal-Intervals remains unweighted. Edit the weight to what you actually use before
+selecting **Session done**. Until completion, kg appears only as planned weight;
+a completed section records the entered weight alongside its set results.
 
-The example equipment includes a **6–10 kg weight vest**. Three sessions pair **3 × 3
-vest pull-ups** and **3 × 5 vest dips** at 6 kg, then remove the vest before the
-unweighted Cal-Intervals circuit. Adapt the equipment and loads to your training.
-Set planned kg to 0 or remove the load row for bodyweight. Leave actual kg blank
-until recorded; **Session done does not invent an actual weight**. Actual 0 means
-bodyweight. A Done flag is still required before a load appears as a recorded
-result in the exercise comparison.
+Scoring reads Weight directly from Daily: **M** for A, **S** for B and **Y** for C
+in the example layout. Library still supplies exercise ratings and growth per kg.
 
 ### Duration units
 
@@ -603,7 +593,7 @@ session_intensity = ROUND(SUM(loaded_intensity_i × volume_weight_i)
                           / SUM(volume_weight_i), 1)
 ```
 
-For example, a base rating of 5 at 2%/kg becomes **5.6 at 6 kg**. With no load row,
+For example, a base rating of 5 at 2%/kg becomes **5.6 at 6 kg**. With Weight left blank,
 planned kg is 0 and the base rating is unchanged. Ratings are capped at 10 before
 averaging. More sets changes volume weighting, rather than summing ratings.
 
@@ -618,7 +608,7 @@ planned kg, growth and loaded intensity. **N:O** holds volume and contribution.
 =MIN(10,J5*(1+K5*L5))
 ```
 
-**Scoring!P5** combines its session rows; **Daily!Z3** links to that result:
+**Scoring!P5** combines its session rows; **Daily!AC3** links to that result:
 
 ```excel
 =IF(COUNT(O5:O8)<>COUNT(N5:N8),"",IF(SUM(N5:N8)=0,0,ROUND(SUM(O5:O8)/SUM(N5:N8),1)))
@@ -677,6 +667,22 @@ workbook link. Sports imports saved cell values, including formula results; it
 does not evaluate formulas. Verify calculated intensity and Done values after
 conversion. Choose **Download XLSX** or **Download ODS** in settings. Both start next Monday.
 Both starting points use a manual TRUE/FALSE **Session done** dropdown. In the
-filled example, Notes topics, Loads, Library, Scoring and Cal-Intervals use the
-same structure in both formats. Both blank templates keep all six sheets and
+filled example, Notes topics, Weight fields, Library, Scoring and Cal-Intervals use the
+same structure in both formats. Both blank templates keep all five sheets and
 their tables, formatting and controls, with training data and cell formulas cleared.
+
+## Calendar goal links
+
+Use a goal’s exact `goal_id` in a calendar event’s description:
+
+```text
+goal-id: swimming
+```
+
+For several goals, use `goal-ids: swimming, running`. Calendar events then appear
+on the linked goal pages and in related Routines. Swimming and Running use each
+goal’s `garmin_types` mapping; other routines follow the Parts/PartGoals links.
+Exact IDs also work directly in descriptions: `swimming` or `Tsve swimming`.
+Separate IDs with whitespace, commas or semicolons. A labelled `goal-id:` takes
+priority. Event titles and goal display titles can use any language; descriptions
+without a known Strategy ID stay unassigned.
