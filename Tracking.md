@@ -7,7 +7,7 @@ your selected tracking tab; its name does not have to be Daily.
 
 Start with **Settings → Sports → Workbook guide → Open guide**. Choose **Blank
 template** for empty training inputs or **Example workbook** for filled workouts
-and scoring. Both blank formats retain the full six-sheet structure without
+and scoring. Both blank formats retain the full five-sheet structure without
 training data or cell formulas. Use [Workbook.md](Workbook.md)
 to fill or adapt your file, manually or with a chatbot, before uploading and syncing.
 
@@ -193,12 +193,14 @@ never overwritten by template downloads. Apply new formulas to a copy preserving
 recorded history, or use the template for a new plan.
 
 
-## Added weights without widening Daily
+## Optional exercise weights
 
-Use the **Loads** tab only for weighted exercises. Each row identifies a date,
-session, exercise and equipment, with planned and actual kg side by side.
-Bodyweight sessions need no rows. Exercise ratings and growth per kg live in
-**Library**, alongside equipment limits. Actual kg stays blank until recorded;
-Done does not copy planned kg into it. Added load appears in a separate kg chart.
-The weighted intensity formula and the end-of-plan recap are described in
-[Workbook.md](Workbook.md).
+Each exercise section in Daily has an optional **Weight** column after its set
+fields. Enter kilograms for that section, or leave it blank for unweighted work.
+Zero is an explicit bodyweight value. The weight applies to all sets in the section.
+Before completion it is planned weight; after selecting **Session done**, it is
+also the recorded weight. Adjust it to the weight actually used before completing
+the session. Rep and time results remain separate from kg comparisons.
+
+Scoring reads these fields directly. Exercise ratings and growth per kg remain in
+**Library**. See [Workbook.md](Workbook.md) for the intensity calculation.
