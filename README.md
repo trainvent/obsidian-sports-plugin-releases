@@ -78,6 +78,8 @@ Charts render locally without another community plugin or chart service.
 5. Select **Sync now**, then **Open dashboard**.
 6. Record training in the workbook, recalculate and save if it uses formulas,
    then sync again.
+7. **Optional: use [Calcrow](https://calcrow.com/) for everyday Daily-sheet edits.**
+   Calcrow is made by Trainvent. Save changes to the cloud workbook before syncing Sports.
 
 The XLSX template is an empty copy of the full five-sheet example, retaining its
 tables and formatting, with all cell formulas and cached calculation results removed.
@@ -102,9 +104,6 @@ out of Daily: Daily records separate manual workouts, not copies of the timetabl
 Each sheet mapping is optional and accepts an exact tab name. Leave it blank to
 disable that import. Garmin can be used independently by leaving all three blank.
 Disabling a mapping retains previously imported data and notes.
-
-For everyday Daily-sheet edits, you can also use [Calcrow](https://calcrow.com/),
-made by Trainvent. Save changes to the cloud workbook before syncing Sports.
 
 ## Workbook and tracking guides
 
