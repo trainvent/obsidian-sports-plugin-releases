@@ -91,8 +91,7 @@ Charts render locally without another community plugin or chart service.
 | [Troubleshooting](Troubleshooting.md) | Cloud links, sync timing, missing data, note conflicts, and recovery |
 
 Guides are also available under `Guide/` in your Sports notes folder. Open the
-workbook guide in settings, the tracking guide from the dashboard, or any guide
-from the command palette. Each guide updates its generated section while keeping
+workbook guide in settings or any guide from the command palette. Each guide updates its generated section while keeping
 personal notes outside it.
 
 | Starting point | XLSX | ODS |
