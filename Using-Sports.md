@@ -5,6 +5,12 @@
 Start in **Open dashboard** or `Overview.md`. Plan in weekly notes, record results
 in the workbook, and write personal commentary outside generated sections.
 
+The dashboard shows Monday through Sunday. Use the arrows to move by a week,
+**This week** to return to today, and a day in the strip to jump to its sessions.
+**Week note** opens the selected day's week. **Plans**, **Stats**, and **History**
+open upcoming plans, analytics, and the training log. The gear opens Sports settings;
+plan completion and guides are available there or through the command palette.
+
 ## In this guide
 
 - [Your notes](#your-notes)
@@ -244,7 +250,7 @@ stops Coach requests; disconnecting stops all Garmin requests.
 
 ## Finish or restore a plan
 
-Select **Finish plan** in the dashboard or Sports settings. The destination defaults
+Select **Finish plan** in Sports settings. The destination defaults
 to `Archive/<plan name>` and can be changed. **Finish and move notes** moves the
 current notes there, disconnects the workbook, and clears the active plan.
 

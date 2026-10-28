@@ -41,8 +41,8 @@ fifteen seconds so the spreadsheet does not interpret it as fifteen minutes.
 
 ## Review the result
 
-Select **Open training log** or the dated day note for sets, notes, and session
-coverage. Use the weekly note for your review and **Open analytics** for trends.
+Select **History** in the dashboard or open the dated day note for sets, notes, and session
+coverage. Use the weekly note for your review and **Stats** for trends.
 See [Using Sports](Using-Sports.md#your-notes) for the full note map and
 [training charts](Using-Sports.md#training-charts) for chart scales.
 
