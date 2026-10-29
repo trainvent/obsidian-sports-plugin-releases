@@ -53,7 +53,8 @@ are documented in [Scoring and Library](Workbook.md#scoring-and-library).
 
 ## Alternative Daily layouts
 
-A/B/C, Cal-Intervals, and five set columns are examples, not required exercise
+The filled example uses A–E exercise groups; the blank template starts with A/B/C.
+Group names, Cal-Intervals, and five set columns are examples, not required exercise
 names or limits. The plugin reads the tab selected under **Tracking sheet**.
 Preserve the supplied layout while filling it. When redesigning, keep session IDs
 and recorded history, and adapt any dependent formulas, tables, and validation.
@@ -154,8 +155,10 @@ does not infer exercise relationships or automatically score a regime.
 
 Use human-sized units: a run lasting 20 minutes is Unit `minutes`, Amount per set
 `20`, not `seconds` and `1200`. Short holds can stay in seconds. Keep target and
-result in the same unit. If scoring needs seconds for its volume weighting,
-convert inside that formula without changing the visible input unit. A running
+result in the same unit. For example, `Handstand walk: 3 x 3 m` uses three set
+fields with metres, including decimal distances. Sports displays them as metres.
+The filled example weights planned intensity by sets,
+without converting time into reps. A running
 activity kept only in Recurring uses its Minutes field and needs no Scoring row.
 
 For manual grouped tracking, `A) Easy run: 1 x 20 minutes` supplies a minute target;

@@ -11,7 +11,7 @@ starting point in XLSX or ODS:
 
 | Option | Contents | Choose it when |
 | --- | --- | --- |
-| **Blank XLSX template** (`Training-Template.xlsx`) | All five example sheets, tables and formatting; training data and formulas cleared | You want to fill the full workbook yourself or with a chatbot |
+| **Blank XLSX template** (`Training-Template.xlsx`) | Five sheets with a generic three-group Daily layout; training data and formulas cleared | You want to fill the workbook yourself or with a chatbot |
 | **Blank ODS template** (`Training-Template.ods`) | All five sheets, tables and formatting; training data and formulas cleared | You prefer LibreOffice Calc or ODS |
 | **Example workbook** (`Training-Example`) | A filled 12-week plan, library, exercise weights, and scoring | You want to learn the format or adapt a working example |
 
@@ -75,7 +75,7 @@ structure only when the user explicitly requests it.
 6. Save calculated formula results, verify the workbook as described below, then
    upload it, configure the sheet mappings and select **Sync now**.
 
-The XLSX template retains the full example layout, including A/B/C set columns,
+The blank template retains five sheets, including A/B/C set columns,
 Cal-Intervals, Library, Scoring, Plan summary and Plan recap. These labels
 and calculation slots are structure, not prescribed exercises. Training data and
 all cell formulas/cached results are empty; layout defaults remain editable.
@@ -99,7 +99,7 @@ input. Do not silently choose a reduced workbook.
 | Plan summary | Keep Metric/Value headers and metric labels | Add summary formulas suited to the plan; unrecorded performance stays blank |
 | Plan recap | Keep Prompt/Response headers and prompts | Leave future reflections blank; record useful setup decisions without inventing outcomes |
 | Recurring | Keep weekdays and headers; leave Activity empty only when no schedule is agreed | Fill the repeating activities and identify where results are recorded |
-| Scoring | Keep title, headers, assumptions and native table | Add agreed calculations and cached results; no fabricated actual performance |
+| Scoring | Keep title, headers, native table and any supplied settings area | Add agreed calculations and cached results; no fabricated actual performance |
 | Library | Keep exercise/equipment/interval headers | Add references actually used, with ratings only when scoring needs them |
 | Daily Weight | Leave blank for unweighted sections | Enter kg for the section and update it to the weight used before completing the session |
 
@@ -128,7 +128,7 @@ features are still missing.
 ### Check before returning the workbook
 
 Compare every supplied sheet with the original, including all Strategy sections,
-Scoring's header/assumptions, Library sections and Daily Weight fields. Preserve native Excel
+Scoring's headers and tables, Library sections and Daily Weight fields. Preserve native Excel
 tables and their header ranges, not just visible text. Write beneath headers;
 for example Equipment's first entry is Library!A62, not A61.
 
@@ -149,8 +149,13 @@ alone does not establish that the requested workbook is complete.
 
 ## Reading the filled example
 
-**Am / Bm** are the A / B sessions with added mass (`m`). The underlying block
-stays A or B; added kg is entered in each section’s **Weight** field.
+The filled example has three weekly strength/movement sessions and optional
+easy technique practice. Friday includes Cal-Intervals. Weeks 4 and 8 reduce
+volume; week 12 records tests. Added Weight fields start blank.
+
+Daily's A/B plan text references that week's blocks in **Strategy!H:I**.
+Edit those blocks to change the shared exercise text. Warm-up and rest instructions
+remain in Daily. These text links do not change set inputs or Scoring targets.
 
 ## Example workbook color key
 
@@ -163,7 +168,7 @@ stays A or B; added kg is entered in each section’s **Weight** field.
 Both editable and reference areas alternate row tones to help you follow a session
 across the sheet. Colors are cues, not access restrictions.
 
-In **Daily**, actual minutes, Session done, A/B/C entries, Cal-Intervals, Notes,
+In **Daily**, actual minutes, Session done, exercise-group entries, Cal-Intervals, Notes,
 Notes topic, and effort inputs are editable. Dates, plans, titles and planned minutes stay
 neutral. In **Recurring**, start/end times, activity, recorded-by and notes are
 green; the calculated Minutes column stays neutral. Strategy's `max_sets` and
@@ -277,23 +282,25 @@ notes. Keep the weekly schedule in Recurring only. For legacy workbooks with a `
 
 ## Daily
 
-The supplied workbook uses one row per manual session and two header rows.
-A/B/C, Cal-Intervals, and five numbered set fields are examples, not required
+The supplied workbooks use one row per manual session and two header rows.
+The filled example has groups A–E; the blank template starts with A/B/C.
+These group names, Cal-Intervals, and five numbered set fields are examples, not required
 exercise names or limits. Keep this layout when filling the template; see
 [Tracking](Tracking.md#alternative-daily-layouts) when redesigning it.
 
-| Columns | Row 2 headings | Use |
+| Field | Filled example columns | Blank template columns |
 | --- | --- | --- |
-| A–F | Date, Block, Plan, Title, Planned minutes, Actual minutes | Session identity, prescription, and duration |
-| G | Session done | Manual session completion |
-| H–L, N–R, T–X | 1, 2, 3, 4, 5 | Set inputs for groups A, B, and C |
-| M, S, Y | Weight | Added kg for each exercise group |
-| Z | Rounds | Cal-Intervals rounds |
-| AA–AB | Notes, Notes topic | Session commentary and its destination |
-| AC–AD | Planned intensity, Effort rating | Planned demand and optional felt effort |
+| Date, Block, Plan, Title, Planned minutes, Actual minutes | A–F | A–F |
+| Session done | G | G |
+| A/B/C set inputs 1–5 | H–L, N–R, T–X | H–L, N–R, T–X |
+| D/E set inputs 1–5 | Z–AD, AF–AJ | Add groups if needed |
+| Weight per group | M, S, Y, AE, AK | M, S, Y |
+| Cal-Intervals rounds | AL | Z |
+| Notes, Notes topic | AM–AN | AA–AB |
+| Planned intensity, Effort rating | AO–AP | AC–AD |
 
-These column letters describe the unchanged template. Preserve group headings
-and subcolumn alignment when adding or moving fields.
+The same column positions apply to XLSX and ODS. Preserve group headings and
+subcolumn alignment when adding or moving fields.
 
 **Session identity:** Date plus Block identifies a session unless you add an
 explicit Session ID. Use distinct stable IDs for sessions sharing a date and
@@ -301,7 +308,7 @@ block. Block refers to a Strategy Parts `part_id`; use Part version when that ID
 has several versions. Blank or `empty` Block means no linked strategy part.
 
 **Plan:** put each exercise on its own actual line, with its group name matching
-the input columns. Session Block A/B and exercise groups A/B/C are separate labels.
+the input columns. Session Block A/B and exercise groups A–E are separate labels.
 Keep warm-up, tempo, rest, and other instructions on separate lines:
 
 ```text
@@ -342,7 +349,7 @@ sections against accidental edits; change plans in the workbook instead.
 [Training charts](Using-Sports.md#training-charts) explains how these values are displayed.
 
 The example includes a **Scoring** formula sheet. Keep the plugin's three import
-mappings on Strategy, Daily, and Recurring. The XLSX example uses one Scoring
+mappings on Strategy, Daily, and Recurring. The filled example uses one Scoring
 table for exercise targets, results, intensity and performance. Scoring is read
 automatically alongside Daily; keep its tab name.
 
@@ -417,59 +424,56 @@ The value applies to every set in that section; zero explicitly means bodyweight
 There is no separate Loads sheet. Keep **Weight** beneath its group heading so
 Sports can associate it with the matching exercise in Plan.
 
-The example uses 6 kg for pull-ups in **A** and dips in **B** on three sessions.
-Cal-Intervals remains unweighted. Edit the weight to what you actually use before
+The example has no preset added loads. Cal-Intervals remains unweighted.
+Enter the weight you actually use before
 selecting **Session done**. Until completion, kg appears only as planned weight;
 a completed section records the entered weight alongside its set results.
 
-Scoring reads Weight directly from Daily: **M** for A, **S** for B and **Y** for C
-in the example layout. Library still supplies exercise ratings and growth per kg.
+Scoring reads Weight directly from Daily: **M, S, Y, AE, AK** for groups A–E
+in the filled example. Library supplies exercise ratings and growth per kg.
 
 ### Duration units
 
-Use the same visible unit for each target and result. Time conversion for scoring
-belongs inside the formula. See [Duration and load conventions](Tracking.md#duration-and-load-conventions)
+Use the same visible unit for each target and result. Handstand walking uses metres;
+timed practice uses seconds or minutes. See [Duration and load conventions](Tracking.md#duration-and-load-conventions)
 for numeric and clock-style inputs.
 
 ### Load-adjusted intensity formula
 
 ```text
 loaded_intensity_i = MIN(10, base_intensity_i × (1 + planned_kg_i × growth_per_kg_i))
-planned_amount_i = sets_i × reps_or_seconds_per_set_i
-volume_weight_i = planned_amount_i                 for reps
-volume_weight_i = 2 × planned_amount_i             for reps per leg
-volume_weight_i = planned_amount_i / seconds_per_rep for seconds
-volume_weight_i = planned_amount_i * 60 / seconds_per_rep for minutes
-session_intensity = ROUND(SUM(loaded_intensity_i × volume_weight_i)
-                          / SUM(volume_weight_i), 1)
+set_weight_i = prescribed_sets_i
+circuit_set_weight = rounds × station_count
+circuit_intensity = SUM(station_intensity × work_seconds) / SUM(work_seconds)
+session_intensity = ROUND(SUM(loaded_intensity_i × set_weight_i)
+                          / SUM(set_weight_i), 1)
 ```
 
 For example, a base rating of 5 at 2%/kg becomes **5.6 at 6 kg**. With Weight left blank,
 planned kg is 0 and the base rating is unchanged. Ratings are capped at 10 before
-averaging. More sets changes volume weighting, rather than summing ratings.
+averaging. The filled example weights ratings by prescribed sets. Reps, metres,
+and seconds remain separate targets; none is converted into another unit.
 
-The **Assumptions** table below the Scoring calculations holds the editable
-timed-work conversion: **Scoring!B177**, initially 3 seconds per rep equivalent.
-In the unified XLSX table, **C:F** holds exercise, unit, sets and amount per set;
+In the Scoring table, **C:F** holds exercise, unit, sets and amount per set;
 **G:I** holds target, result and exercise performance; **J:M** holds base intensity,
-planned kg, growth and loaded intensity. **N:O** holds volume and contribution.
+planned kg, growth and loaded intensity. **N:O** holds set weight and contribution.
 **P:S** contains the session summary on its first row. For example:
 
 ```excel
 =MIN(10,J5*(1+K5*L5))
 ```
 
-**Scoring!P5** combines its session rows; **Daily!AC3** links to that result:
+**Scoring!P3** combines its session rows; **Daily!AO3** links to that result:
 
 ```excel
-=IF(COUNT(O5:O8)<>COUNT(N5:N8),"",IF(SUM(N5:N8)=0,0,ROUND(SUM(O5:O8)/SUM(N5:N8),1)))
+=IF(COUNT(O3:O7)<>COUNT(N3:N7),"",ROUND(SUM(O3:O7)/SUM(N3:N7),1))
 ```
 
 Changing plan prose does not rewrite Scoring’s sets or amounts. Update them and
 the performance targets together. **Library!A65:F70** defines Cal-Intervals once:
 four exercises, each with editable work and rest seconds. The initial timing is
-30 seconds work + 20 seconds rest. The single Scoring row multiplies per-round
-volume and contribution by its planned rounds; rest is excluded from intensity.
+30 seconds work + 20 seconds rest. Station intensity is weighted by its share of
+work time; planned rounds multiply the number of station sets. Rest is excluded.
 Missing or duplicate exercise matches and invalid inputs
 leave intensity unavailable. Rep/time performance and felt effort remain
 separate; added kg is shown as its own comparison metric, not added to reps.
