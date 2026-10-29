@@ -1,8 +1,6 @@
-<div align="center">
+<img align="right" src="assets/LeLogo_white.svg" alt="Trainvent logo" width="64" height="64">
 
-<img src="assets/LeLogo_white.svg" alt="Trainvent logo" width="160" height="160">
-
-<h1>Sports</h1>
+## Sports
 
 <p><strong>Your training. Your progress. Your Obsidian vault.</strong></p>
 
@@ -29,8 +27,6 @@
 </p>
 
 <p>Built by <a href="https://github.com/trainvent">Trainvent</a></p>
-
-</div>
 
 ---
 
@@ -101,7 +97,9 @@ personal notes outside it.
 
 Both blank formats retain all five sheets, tables, and formatting, with training
 data and cell formulas cleared. The filled example includes a 12-week calisthenics
-plan and working calculations. Adapt it to your needs before training.
+and movement plan, five exercise groups, Cal-Intervals, and set-based intensity
+calculations. Daily A/B plan text links to the weekly Strategy blocks. Both
+formats contain the same data. Adapt the example to your needs before training.
 
 ## Optional connections
 
