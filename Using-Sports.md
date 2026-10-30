@@ -1,15 +1,19 @@
 # Using Sports
 
-[Workbook](Workbook.md) · [Tracking](Tracking.md) · [Using Sports](Using-Sports.md) · [Troubleshooting](Troubleshooting.md)
-
-Start in **Open dashboard** or `Overview.md`. Plan in weekly notes, record results
+Start in **Open dashboard**, or add a `sports-today` block to your own homepage. Plan in weekly notes, record results
 in the workbook, and write personal commentary outside generated sections.
 
 The dashboard shows Monday through Sunday. Use the arrows to move by a week,
-**This week** to return to today, and a day in the strip to jump to its sessions.
-**Week note** opens the selected day's week. **Plans**, **Stats**, and **History**
-open upcoming plans, analytics, and the training log. The gear opens Sports settings;
-plan completion and guides are available there or through the command palette.
+**Today** to return to today, and a day in the strip to jump to its sessions.
+**This week**, **Stats**, **Log**, and **Plans**
+open the weekly note, trends, training log, and plans. The gear opens Sports settings;
+Finish, restore, and guide commands are available through the command palette.
+
+## Settings
+
+**Connections** contains **Workbook**, **Garmin**, and **Sync**. Under Workbook,
+**Setup** holds the guide and templates; **Sources** sets sheet names and the schedule source.
+**Display** controls charts and the dashboard. **Advanced** contains recovery tools.
 
 ## In this guide
 
@@ -22,43 +26,50 @@ plan completion and guides are available there or through the command palette.
 
 ## Your notes
 
+Use your homepage embed or dashboard for recent progress and upcoming training, Log for past training days, and Stats for trends. Plans and Strategy stay under Structure. Stats links to Sheet and Garmin charts through its **related** property.
+
 The default notes folder is `Sports/`. Files are created as their source data becomes available.
 
 | Path | Contents |
 | --- | --- |
-| `Overview.md` | Starting page with today, this week, and navigation |
-| `Sports.base` | Sortable Weeks and Routines views over note properties |
-| `Stats.md` | Source totals and training trends |
-| `Weeks/YYYY-MM-DD.md` | Primary weekly planning, results, and review |
+| `Structure/Sports.base` (existing browser) | Sortable Weeks and Routines views over note properties |
+| `Analytics/Stats.md` | Source totals and training trends |
+| `Journal/Weeks/YYYY-MM-DD.md` | Primary weekly planning, results, and review |
 | `Structure/Plans.md` | Goals, weekly progression, and upcoming sessions |
 | `Structure/Strategy.md` | Program structure and recurring schedule |
-| `Structure/Calendar.md` | Upcoming workbook sessions, selected schedule, and optional Coach workouts |
-| `Analytics/Log.md` | Manual results and Garmin activities, grouped by date |
+| `Log.md` | Training entries: select the date for its day note, or the training name for its routine |
+| `Journal/Days/YYYY-MM-DD.md` | Session details, sets, recordings, and personal reflections |
 | `Analytics/Sheet.md` | Planned intensity, performance, and felt-effort trends |
-| `Analytics/Smartwatch.md` | Garmin volume, running, and swimming graphs |
-| `Analytics/Days/_Index.md` and `Analytics/Days/YYYY-MM-DD.md` | Day index, session details, sets, and reflections |
+| `Analytics/Garmin.md` | Garmin volume, running, and swimming graphs |
 | `Goals/<goal_id>.md` | Goal targets, mapped results, matching activities, and reviews |
-| `Routines/` | Routine explanations, exercises, and progressions |
+| `Routines/` | Routine explanations, exercises, and progressions; linked from Plans and Log |
 | `Guide/` | Workbook, Tracking, Using Sports, and Troubleshooting |
 
 Weekly notes cover the current week, imported sessions, and Week plans.
-Day notes under Analytics cover today and earlier dates with workbook or Garmin
-entries, plus enabled calendar events. Start in Weeks for planning; use Analytics/Days to review recorded days.
+Day notes under Journal cover today and earlier dates with workbook or Garmin
+entries, plus enabled calendar events. Opening a future day in the dashboard also creates its planned day note. Start in Journal/Weeks for planning; use Log to find recorded days.
 Goal categories distinguish aspiration and maintenance; either can use workbook
 results and Garmin activities. Configure their source mappings in Strategy.
 
+Imported training is managed by Sports. Write personal observations in the reflection or review sections below it. Workbook completion, Garmin recordings, and goal achievement are independent.
+
+You can rename or move managed notes within this vault. Delete an optional generated note to stop updating it; **Settings → Sports → Advanced → Recreate missing notes** restores deleted pages. Routines appear only when represented in your plan or imported training. Older notes are retained with your writing when their routine leaves the plan.
+
+Overview, Calendar, the routines index, and the separate days index are no longer generated. An unchanged Overview with no personal writing is removed; customized copies are archived. Other existing managed copies are preserved in `Archive/Previous pages/`, including personal writing. Strategy and detailed chart pages remain available.
+
 ## Properties and tags
 
-Overview provides general navigation. Generated notes do not repeat navigation
-bars. Keep links where they describe a relationship: goal links in routine
+The dashboard and your homepage embed provide navigation. Stats and guides use **related** properties for connected notes; Plans links to routines and dated sessions. Keep links where they describe a relationship: goal links in routine
 properties, a weekly-note link on each day, and dated links in logs and plans.
 
 | Note | Managed properties | Source |
 | --- | --- | --- |
+| `Analytics/Stats.md` | `related` (Sheet and Garmin links) | Detailed chart pages |
+| `Guide/` | `related` (other guide links) | Companion guides |
 | `Goals/<goal_id>.md` | `goal_id`, `category`, `garmin_types` | Goals table and resolved source mappings |
 | `Routines/<name>.md` | `targets` (list of goal links) | Part/goal relationships; running and swimming goal mappings |
-| `Analytics/Days/YYYY-MM-DD.md` | `date`, `week` (weekly-note link) | Entry date and its Monday-start week |
-| `Weeks/YYYY-MM-DD.md` | `week_start`, `week_end`, `program_week`, `phase` | Calendar dates and matching Week plans row |
+| `Journal/Days/YYYY-MM-DD.md` | `date`, `week` (weekly-note link) | Entry date and its Monday-start week |
+| `Journal/Weeks/YYYY-MM-DD.md` | `week_start`, `week_end`, `program_week`, `phase` | Calendar dates and matching Week plans row |
 
 Goal categories appear as **Aspiration** or **Maintenance**. Baseline, target, and
 test standard remain in the goal body. Empty optional properties are omitted;
@@ -84,11 +95,10 @@ Unrelated custom properties are preserved.
 
 | Shared tag | Pages |
 | --- | --- |
-| `sports` | Overview |
-| `sports/planning` | Plans, Strategy, Calendar, routine index, routines, weeks |
+| `sports/planning` | Plans, Strategy, routines, weeks |
 | `sports/goals` | Plans, goals, routines |
-| `sports/training` | Log, day index, days, weeks |
-| `sports/analytics` | Stats, Sheet, Smartwatch |
+| `sports/training` | Log, days, weeks |
+| `sports/analytics` | Stats, Sheet, Garmin |
 | `sports/guide` | All four guides |
 | `sports/running`, `sports/swimming` | Matching routines and goals with those resolved Garmin types |
 
@@ -98,14 +108,13 @@ tags and keeping your custom tags. Use your own tag names for personal grouping.
 
 ### Browse weeks and routines
 
-Select **Browse weeks and routines** in Overview to open `Sports.base`. Its
+If you used the previous Sports browser, it now lives at `Structure/Sports.base`. Its
 **Weeks** view shows dates, program week and phase; **Routines** shows linked goals.
 Enable Obsidian's **Bases** core plugin to use these sortable tables. Only notes
 in your current Sports folder are included; backups and the routine index are excluded.
 
 The base reads existing properties and needs no separate sync. Customize its
-columns, sorting and filters freely: Sports creates the file only when missing
-and preserves existing base files. Workbook-managed property edits made through
+columns, sorting and filters freely: Sports preserves existing Base views and updates their folder references during migration. Workbook-managed property edits made through
 a base are still replaced on sync. Edit the workbook to change those values.
 
 ### Add today to another note
@@ -117,8 +126,7 @@ Paste this fenced block into your dashboard note:
 ```
 ````
 
-It shows today's sessions, Garmin activities, the enabled schedule, and
-a link to the weekly note in Reading view or Live Preview.
+It shows today's training and the next sessions. Enable **Settings → Sports → Display → Show recent training** to include recent results and the seven-day summary. Stats, Log, and the weekly note are reachable from the same block in Reading view or Live Preview.
 
 ## Training charts
 
@@ -130,7 +138,7 @@ other units use separate charts. Row-based tracking uses the configured aggregat
 
 **Stats** keeps workbook and Garmin totals separate and compares felt effort with
 available watch HR zones. The same workout can appear in both sources.
-**Analytics/Smartwatch** shows recorded volume, running and swimming pace, heart
+**Analytics/Garmin** shows recorded volume, running and swimming pace, heart
 rate, and available zone data. Garmin recordings never complete manual sessions.
 
 The example's Scoring sheet supplies planned intensity (0–10), performance (%),
@@ -152,7 +160,7 @@ Sheet shows three time-series charts, all with dates on the horizontal axis:
 Performance is scaled per session before taking the daily median. Other series
 use the median of available session values per date. Intensity
 can appear before performance or effort is recorded. Missing values are not
-recorded zeros. Session coverage and felt-effort ratings remain in Log and dated day notes.
+recorded zeros. Session coverage and felt-effort ratings remain in dated day notes, reached from Log.
 The separate axes compare trends across different units, not equal values.
 A score measures target attainment, not absolute training quality. Keep
 commentary outside protected generated sections.
@@ -164,14 +172,14 @@ Source mode shows readable code blocks; no external chart service is used.
 
 Enable **Show schedule** to include the selected schedule in the dashboard and
 weekly notes. It is off by default; changing **Schedule source** enables it.
-Choose **Workbook weekly schedule** or **ICS calendar**. The inactive source is
+Choose **Workbook recurrence** or **ICS calendar**. The inactive source is
 not synchronized or displayed. Recurring entries describe plans, not completions.
 
 ### Connect an ICS calendar
 
-In **Sports settings → Schedule**, select **ICS calendar** as the schedule source and add an ICS subscription link from a dedicated training calendar, then select **Sync now**. For Google Calendar, use the calendar’s secret address in iCal format. For Nextcloud, paste the public calendar share link or an ICS subscription/export link. Public calendar share links are converted to ICS exports automatically; private CalDAV URLs requiring login are not supported. HTTPS and `webcal://` links are supported (`webcal` is downloaded over HTTPS).
+In **Settings → Sports → Connections → Workbook → Sources**, select **ICS calendar** as the schedule source and add an ICS subscription link from a dedicated training calendar, then select **Sync now**. For Google Calendar, use the calendar’s secret address in iCal format. For Nextcloud, paste the public calendar share link or an ICS subscription/export link. Public calendar share links are converted to ICS exports automatically; private CalDAV URLs requiring login are not supported. HTTPS and `webcal://` links are supported (`webcal` is downloaded over HTTPS).
 
-Calendar events appear in the dashboard, Today widget, Calendar note and weekly notes. Refresh uses **Sync on startup** and **Sync interval**. Changes and deletions replace the cached calendar events after a successful download; failed downloads retain the previous cache. ICS is read-only: create, move and delete events in Google Calendar or Nextcloud. It does not mark workouts completed or change the workbook.
+Calendar events appear in the dashboard, Today widget and weekly notes. Refresh uses **Sync on startup** and **Sync interval**. Changes and deletions replace the cached calendar events after a successful download; failed downloads retain the previous cache. ICS is read-only: create, move and delete events in Google Calendar or Nextcloud. It does not mark workouts completed or change the workbook.
 
 Each refresh imports event start dates from the past 30 days through the next 365 days, including recurring events and exceptions. Timed events use the device’s timezone; all-day events retain their calendar date. Multi-day events appear on their starting day. Dates beyond this window require a later refresh. Feeds are limited to 5 MB and recurrence expansion to 50,000 occurrences per refresh.
 
@@ -195,15 +203,14 @@ Use the exact `goal_id` from Strategy, rather than its display title. Multiple g
 
 Exact Strategy goal IDs in descriptions also work without a label: `swimming` or `Tsve swimming`. IDs must stand alone, separated by whitespace, commas or semicolons; partial words are not matched. A labelled `goal-id:` takes priority. Only these IDs route calendar events to goals and routines. Event titles and goal display titles can use any language; descriptions without a known ID stay unassigned. Events remain visible in the main calendar regardless. The key line is hidden in workout tiles. On routine and goal pages, matching recordings share the event’s dated table row. Weekly and daily notes keep them inside the event tile.
 
-### Compact sport pages and templates
+### Compact sport pages
 
 Routine and goal pages use compact tables. **Recurring schedule** lists each calendar series once with its weekdays, time and recurrence. **Dated sessions** contains one-off events, moved occurrences, and recorded sessions; a linked Garmin recording stays on its planned event’s row. Unrecorded recurring occurrences are not repeated as dated rows. Weekly and daily notes retain their workout tiles.
 
-Sports creates an editable **Templates/Sport entries.md** inside the Sports notes folder. Open it with **Sports: Open sport entry template**. Use it with Obsidian’s core Templates plugin to start your own sport notes; if your Templates folder is elsewhere, copy it there. Existing template edits are preserved. Keep personal entries outside the plugin’s generated sections.
 
 ## Garmin activity sync
 
-On desktop, select **Settings → Sports → Connect Garmin**. Sign in with your
+On desktop, select **Settings → Sports → Connections → Garmin → Connect Garmin**. Sign in with your
 Garmin email and password, then enter the verification code if requested. No Python,
 terminal commands or separate installation are required. This connection is experimental
 until sign-in, MFA and token refresh have been checked with a live account.
@@ -242,7 +249,7 @@ keep their existing edit protection.
 ### Optional Garmin Coach plans
 
 Enable **Show Garmin Coach plans** to include published adaptive Coach workout
-summaries for the next 28 days in Plans and Calendar. This is off by default and
+summaries for the next 28 days in Plans. This is off by default and
 still needs live-account verification. Full workout steps, self-scheduled workouts,
 and static training plans are excluded. Check Garmin Connect for the current prescription.
 Failed refreshes retain cached summaries with a warning. Turning the setting off
@@ -250,16 +257,16 @@ stops Coach requests; disconnecting stops all Garmin requests.
 
 ## Finish or restore a plan
 
-Select **Finish plan** in Sports settings. The destination defaults
+Run **Sports: Finish plan** from the command palette. The destination defaults
 to `Archive/<plan name>` and can be changed. **Finish and move notes** moves the
-current notes there, disconnects the workbook, and clears the active plan.
+current notes there (including managed notes moved elsewhere in the vault), disconnects the workbook, and clears the active plan.
 
 Each finished folder includes `settings.md`, which keeps its original workbook
 link, sheet names, imported plan, and generated-note baselines. These saved plans
 are separate from the 10 rotating recovery copies and do not expire automatically.
 The workbook itself, Garmin connection, and plugin preferences are retained.
 
-In Sports settings, select **Restore from folder**, enter the finished folder,
+Run **Sports: Restore from folder** from the command palette, enter the finished folder,
 and select **Read saved plan**. You can copy its workbook link without restoring.
 **Restore plan** moves the notes back and restores the saved plan and link.
 Finish any active plan first; existing destination folders are never overwritten.

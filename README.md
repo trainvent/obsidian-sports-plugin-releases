@@ -60,18 +60,18 @@ Charts render locally without another community plugin or chart service.
 
 ## Get started
 
-1. Open **Settings → Sports → Workbook guide → Open guide**. Read
+1. Open **Settings → Sports → Connections → Workbook → Setup → Open guide**. Read
    [Workbook.md](Workbook.md) before adapting a file; it is also saved under
    `Guide/Workbook.md` in your Sports notes folder.
-2. Choose **Blank template** to build your own plan or **Example workbook** to
+2. Under **Setup**, choose **Blank template** to build your own plan or **Example workbook** to
    learn from a filled plan. Both offer **Download XLSX** and **Download ODS**.
 3. Use the guide to fill or adapt the file to your goals, availability, equipment,
    and preferred activities. You can do this yourself or give the file and guide
    to your chatbot. Keep future results blank.
 4. Upload the completed file to Nextcloud or another service with an HTTPS
    download link. Paste it into **Cloud workbook link** and keep the sheet
-   mappings **Strategy**, **Daily**, and **Recurring**.
-5. Select **Sync now**, then **Open dashboard**.
+   mappings under **Sources** at **Strategy**, **Daily**, and **Recurring**.
+5. Select **Connections → Sync → Sync now**, then **Display → Open dashboard**.
 6. Record training in the workbook, recalculate and save if it uses formulas,
    then sync again.
 7. **Optional: use [Calcrow](https://calcrow.com/) for everyday Daily-sheet edits.**
@@ -103,10 +103,10 @@ formats contain the same data. Adapt the example to your needs before training.
 
 ## Optional connections
 
-- **Garmin:** connect in settings to import recorded activities. This can run
+- **Garmin:** connect under **Connections → Garmin** to import recorded activities. This can run
   without a workbook. See [Garmin activity sync](Using-Sports.md#garmin-activity-sync)
   for setup, stored data, and the experimental Coach option.
-- **Calendar:** select **ICS calendar** under **Schedule** for a Google Calendar,
+- **Calendar:** select **ICS calendar** under **Connections → Workbook → Sources** for a Google Calendar,
   Nextcloud, or other ICS training feed. See [Schedules and calendars](Using-Sports.md#schedules-and-calendars).
 
 ## Current limits
