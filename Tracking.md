@@ -1,7 +1,5 @@
 # Record your training
 
-[Workbook](Workbook.md) · [Tracking](Tracking.md) · [Using Sports](Using-Sports.md) · [Troubleshooting](Troubleshooting.md)
-
 Use the supplied Daily layout first. Customize it only when the way you record
 training needs to change. For initial setup and sheet definitions, use the
 [workbook guide](Workbook.md).

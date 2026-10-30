@@ -1,7 +1,5 @@
 # Troubleshooting
 
-[Workbook](Workbook.md) · [Tracking](Tracking.md) · [Using Sports](Using-Sports.md) · [Troubleshooting](Troubleshooting.md)
-
 ## Choose the next action
 
 | Problem | Start here |
@@ -24,14 +22,14 @@ to the same HTTPS server.
 ## Sync timing
 
 Startup sync is enabled and the default interval is ten minutes. Choose five,
-ten, or fifteen minutes, one hour, or **Manual only** in settings. Startup sync
+ten, or fifteen minutes, one hour, or **Manual only** under **Connections → Sync**. Startup sync
 has its own toggle. Automatic sync runs while Obsidian is open; closed apps and
 suspension stop or delay it. Garmin automatic refresh runs at most hourly.
 Failed downloads or invalid imports retain the previous dataset.
 
 ## Check the import
 
-- Check the exact tab names in **Strategy sheet**, **Tracking sheet**, and
+- Under **Connections → Workbook → Sources**, check the exact tab names in **Strategy sheet**, **Tracking sheet**, and
   **Weekly schedule sheet**. A blank mapping disables that import and retains
   previously imported data and notes.
 - Recalculate and save formulas in your spreadsheet editor. Sports reads saved
