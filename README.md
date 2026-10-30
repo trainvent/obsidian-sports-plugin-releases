@@ -77,6 +77,26 @@ Charts render locally without another community plugin or chart service.
 7. **Optional: use [Calcrow](https://calcrow.com/) for everyday Daily-sheet edits.**
    Calcrow is made by Trainvent. Save changes to the cloud workbook before syncing Sports.
 
+## Add training to your dashboard
+
+For today’s training, upcoming sessions, and links to This week, Stats, and Log:
+
+````markdown
+```sports-dashboard
+```
+````
+
+For today’s training only:
+
+````markdown
+```sports-today
+```
+````
+
+Both work in Reading view and Live Preview. Select the date to open its day note,
+even on a day without training. Existing `sports-today` blocks now show only today;
+use `sports-dashboard` to keep the full widget. See [embed options](Using-Sports.md#embed-training-in-another-note).
+
 ## Guides
 
 | Guide | Use it for |

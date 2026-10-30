@@ -1,6 +1,6 @@
 # Using Sports
 
-Start in **Open dashboard**, or add a `sports-today` block to your own homepage. Plan in weekly notes, record results
+Start in **Open dashboard**, or add a `sports-dashboard` block to your own homepage. Plan in weekly notes, record results
 in the workbook, and write personal commentary outside generated sections.
 
 The dashboard shows Monday through Sunday. Use the arrows to move by a week,
@@ -117,23 +117,34 @@ The base reads existing properties and needs no separate sync. Customize its
 columns, sorting and filters freely: Sports preserves existing Base views and updates their folder references during migration. Workbook-managed property edits made through
 a base are still replaced on sync. Edit the workbook to change those values.
 
-### Add today to another note
+### Embed training in another note
 
-Paste this fenced block into your dashboard note:
+Use the full widget for today, upcoming sessions, and **This week**, **Stats**, and **Log** links:
+
+````markdown
+```sports-dashboard
+```
+````
+
+Enable **Settings → Sports → Display → Show recent training** to include recent results and the seven-day summary.
+
+For just today’s training, without navigation, recent results, or upcoming sessions:
 
 ````markdown
 ```sports-today
 ```
 ````
 
-It shows today's training and the next sessions. Enable **Settings → Sports → Display → Show recent training** to include recent results and the seven-day summary. Stats, Log, and the weekly note are reachable from the same block in Reading view or Live Preview.
+Both render in Reading view and Live Preview. Select a date to open its day note, even when no training is planned or recorded.
+Existing `sports-today` blocks now show only today; change them to `sports-dashboard` to keep the full widget.
 
 ## Training charts
 
 Exercise comparisons show explicit targets and recorded results, with each unit
-kept separate. Day notes include set tables and plan/result charts: purple hollow
-marks show plans, green marks show results. Reps/rounds and time use separate axes;
-other units use separate charts. Row-based tracking uses the configured aggregation
+kept separate. Day notes include set tables and plan/result charts: accent outlines
+show plans; green bars show results. Each plot supports two unit types with independent left and right axes.
+Reps/rounds share a count axis; time uses min:ss. A third unit type gets a separate plot.
+Exercise order stays unchanged within each plot; heights across different units are not comparable. Row-based tracking uses the configured aggregation
 (total by default); individual set values remain available. Partial totals are labelled.
 
 **Stats** keeps workbook and Garmin totals separate and compares felt effort with
@@ -179,7 +190,7 @@ not synchronized or displayed. Recurring entries describe plans, not completions
 
 In **Settings → Sports → Connections → Workbook → Sources**, select **ICS calendar** as the schedule source and add an ICS subscription link from a dedicated training calendar, then select **Sync now**. For Google Calendar, use the calendar’s secret address in iCal format. For Nextcloud, paste the public calendar share link or an ICS subscription/export link. Public calendar share links are converted to ICS exports automatically; private CalDAV URLs requiring login are not supported. HTTPS and `webcal://` links are supported (`webcal` is downloaded over HTTPS).
 
-Calendar events appear in the dashboard, Today widget and weekly notes. Refresh uses **Sync on startup** and **Sync interval**. Changes and deletions replace the cached calendar events after a successful download; failed downloads retain the previous cache. ICS is read-only: create, move and delete events in Google Calendar or Nextcloud. It does not mark workouts completed or change the workbook.
+Calendar events appear in the dashboard, embedded widgets and weekly notes. Refresh uses **Sync on startup** and **Sync interval**. Changes and deletions replace the cached calendar events after a successful download; failed downloads retain the previous cache. ICS is read-only: create, move and delete events in Google Calendar or Nextcloud. It does not mark workouts completed or change the workbook.
 
 Each refresh imports event start dates from the past 30 days through the next 365 days, including recurring events and exceptions. Timed events use the device’s timezone; all-day events retain their calendar date. Multi-day events appear on their starting day. Dates beyond this window require a later refresh. Feeds are limited to 5 MB and recurrence expansion to 50,000 occurrences per refresh.
 
@@ -187,7 +198,7 @@ The subscription URL and imported event details are stored locally in the vault�
 
 ### Match calendar plans and Garmin recordings
 
-Weekly notes, daily notes, the dashboard and the Today widget group a Garmin activity inside its scheduled workout tile when the sport is compatible and the recording substantially overlaps the planned time. For example, an 08:00–09:00 swim can contain an 08:10–09:00 Garmin recording. The tile keeps planned minutes and recorded measurements separate. Unmatched activities get their own tiles; equally plausible matches remain separate. All-day events and entries without a duration are not matched automatically.
+Weekly notes, daily notes, the dashboard and embedded widgets group a Garmin activity inside its scheduled workout tile when the sport is compatible and the recording substantially overlaps the planned time. For example, an 08:00–09:00 swim can contain an 08:10–09:00 Garmin recording. The tile keeps planned minutes and recorded measurements separate. Unmatched activities get their own tiles; equally plausible matches remain separate. All-day events and entries without a duration are not matched automatically.
 
 Matching supports both ICS calendar events and the workbook’s weekly schedule. Links are recalculated from the current source data after refresh; they do not edit the calendar, Garmin records, manual completion, or analytics totals. Several recordings can belong to one planned event, but a recording is shown only once. Existing note edits and reflections keep their usual protections.
 
