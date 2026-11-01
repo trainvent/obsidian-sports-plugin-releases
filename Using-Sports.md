@@ -13,7 +13,7 @@ Finish, restore, and guide commands are available through the command palette.
 
 **Connections** contains **Workbook**, **Garmin**, and **Sync**. Under Workbook,
 **Setup** holds the guide and templates; **Sources** sets sheet names and the schedule source.
-**Display** controls charts and the dashboard. **Advanced** contains recovery tools.
+**Display** controls charts and the dashboard. **Advanced → Set defaults** resets sync and display preferences and sets Garmin history to 90 days ago, keeping your notes folder, source setup, and data. **Advanced** also contains recovery tools.
 
 ## In this guide
 
@@ -29,6 +29,8 @@ Finish, restore, and guide commands are available through the command palette.
 Use your homepage embed or dashboard for recent progress and upcoming training, Log for past training days, and Stats for trends. Plans and Strategy stay under Structure. Stats links to Sheet and Garmin charts through its **related** property.
 
 The default notes folder is `Sports/`. Files are created as their source data becomes available.
+
+After reflecting on a week, tick **reviewed** in the weekly note's properties. The Sunday review button changes to **✓ Week reviewed** in the dashboard and full widget. Untick it to restore the reminder. Sync preserves your choice.
 
 | Path | Contents |
 | --- | --- |
