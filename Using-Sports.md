@@ -11,9 +11,10 @@ Finish, restore, and guide commands are available through the command palette.
 
 ## Settings
 
-**Connections** contains **Workbook**, **Garmin**, and **Sync**. Under Workbook,
-**Setup** holds the guide and templates; **Sources** sets sheet names and the schedule source.
-**Display** controls charts and the dashboard. **Advanced → Set defaults** resets sync and display preferences and sets Garmin history to 90 days ago, keeping your notes folder, source setup, and data. **Advanced** also contains recovery tools.
+**Sources** contains **Workbook**, **Schedule**, **Smartwatch**, and **Sync**. Under Smartwatch, choose
+your **Device** first; only that device's settings are shown. Several devices can be active at once. Under Workbook,
+**Setup** holds the guide and templates; **Sheets** sets sheet names.
+**Display** controls the notes folder, charts and the dashboard. **Advanced → Set defaults** resets sync and display preferences and sets the Garmin and Google Health history to 90 days ago, keeping your notes folder, source setup, and data. **Advanced** also contains recovery tools.
 
 ## In this guide
 
@@ -22,11 +23,13 @@ Finish, restore, and guide commands are available through the command palette.
 - [Training charts](#training-charts)
 - [Schedules and calendars](#schedules-and-calendars)
 - [Garmin activity sync](#garmin-activity-sync)
+- [Google Health activity sync](#google-health-activity-sync)
+- [Workout files (Apple Watch and other watches)](#workout-files-apple-watch-and-other-watches)
 - [Finish or restore a plan](#finish-or-restore-a-plan)
 
 ## Your notes
 
-Use your homepage embed or dashboard for recent progress and upcoming training, Log for past training days, and Stats for trends. Plans and Strategy stay under Structure. Stats links to Sheet and Garmin charts through its **related** property.
+Use your homepage embed or dashboard for recent progress and upcoming training, Log for past training days, and Stats for trends. Plans and Strategy stay under Structure. Stats links to Sheet and Watch charts through its **related** property.
 
 The default notes folder is `Sports/`. Files are created as their source data becomes available.
 
@@ -42,18 +45,18 @@ After reflecting on a week, tick **reviewed** in the weekly note's properties. T
 | `Log.md` | Training entries: select the date for its day note, or the training name for its routine |
 | `Journal/Days/YYYY-MM-DD.md` | Session details, sets, recordings, and personal reflections |
 | `Analytics/Sheet.md` | Planned intensity, performance, and felt-effort trends |
-| `Analytics/Garmin.md` | Garmin volume, running, and swimming graphs |
+| `Analytics/Watch.md` | Watch volume, running, and swimming graphs |
 | `Goals/<goal_id>.md` | Goal targets, mapped results, matching activities, and reviews |
 | `Routines/` | Routine explanations, exercises, and progressions; linked from Plans and Log |
 | `Guide/` | Workbook, Tracking, Using Sports, and Troubleshooting |
 
 Weekly notes cover the current week, imported sessions, and Week plans.
-Day notes under Journal cover today and earlier dates with workbook or Garmin
+Day notes under Journal cover today and earlier dates with workbook or watch
 entries, plus enabled calendar events. Opening a future day in the dashboard also creates its planned day note. Start in Journal/Weeks for planning; use Log to find recorded days.
 Goal categories distinguish aspiration and maintenance; either can use workbook
-results and Garmin activities. Configure their source mappings in Strategy.
+results and watch activities. Configure their source mappings in Strategy.
 
-Imported training is managed by Sports. Write personal observations in the reflection or review sections below it. Workbook completion, Garmin recordings, and goal achievement are independent.
+Imported training is managed by Sports. Write personal observations in the reflection or review sections below it. Workbook completion, watch recordings, and goal achievement are independent.
 
 You can rename or move managed notes within this vault. Delete an optional generated note to stop updating it; **Settings → Sports → Advanced → Recreate missing notes** restores deleted pages. Routines appear only when represented in your plan or imported training. Older notes are retained with your writing when their routine leaves the plan.
 
@@ -66,7 +69,7 @@ properties, a weekly-note link on each day, and dated links in logs and plans.
 
 | Note | Managed properties | Source |
 | --- | --- | --- |
-| `Analytics/Stats.md` | `related` (Sheet and Garmin links) | Detailed chart pages |
+| `Analytics/Stats.md` | `related` (Sheet and Watch links) | Detailed chart pages |
 | `Guide/` | `related` (other guide links) | Companion guides |
 | `Goals/<goal_id>.md` | `goal_id`, `category`, `garmin_types` | Goals table and resolved source mappings |
 | `Routines/<name>.md` | `targets` (list of goal links) | Part/goal relationships; running and swimming goal mappings |
@@ -100,7 +103,7 @@ Unrelated custom properties are preserved.
 | `sports/planning` | Plans, Strategy, routines, weeks |
 | `sports/goals` | Plans, goals, routines |
 | `sports/training` | Log, days, weeks |
-| `sports/analytics` | Stats, Sheet, Garmin |
+| `sports/analytics` | Stats, Sheet, Watch |
 | `sports/guide` | All four guides |
 | `sports/running`, `sports/swimming` | Matching routines and goals with those resolved Garmin types |
 
@@ -149,10 +152,10 @@ Reps/rounds share a count axis; time uses min:ss. A third unit type gets a separ
 Exercise order stays unchanged within each plot; heights across different units are not comparable. Row-based tracking uses the configured aggregation
 (total by default); individual set values remain available. Partial totals are labelled.
 
-**Stats** keeps workbook and Garmin totals separate and compares felt effort with
+**Stats** keeps workbook and watch totals separate and compares felt effort with
 available watch HR zones. The same workout can appear in both sources.
-**Analytics/Garmin** shows recorded volume, running and swimming pace, heart
-rate, and available zone data. Garmin recordings never complete manual sessions.
+**Analytics/Watch** shows recorded volume, running and swimming pace, heart
+rate, and available zone data. Watch recordings never complete manual sessions.
 
 The example's Scoring sheet supplies planned intensity (0–10), performance (%),
 and metric coverage. Optional Effort rating (1–5) records how hard training felt.
@@ -190,7 +193,7 @@ not synchronized or displayed. Recurring entries describe plans, not completions
 
 ### Connect an ICS calendar
 
-In **Settings → Sports → Connections → Workbook → Sources**, select **ICS calendar** as the schedule source and add an ICS subscription link from a dedicated training calendar, then select **Sync now**. For Google Calendar, use the calendar’s secret address in iCal format. For Nextcloud, paste the public calendar share link or an ICS subscription/export link. Public calendar share links are converted to ICS exports automatically; private CalDAV URLs requiring login are not supported. HTTPS and `webcal://` links are supported (`webcal` is downloaded over HTTPS).
+In **Settings → Sports → Sources → Schedule**, select **ICS calendar** as the schedule source and add an ICS subscription link from a dedicated training calendar, then select **Sync now**. For Google Calendar, use the calendar’s secret address in iCal format. For Nextcloud, paste the public calendar share link or an ICS subscription/export link. Public calendar share links are converted to ICS exports automatically; private CalDAV URLs requiring login are not supported. HTTPS and `webcal://` links are supported (`webcal` is downloaded over HTTPS).
 
 Calendar events appear in the dashboard, embedded widgets and weekly notes. Refresh uses **Sync on startup** and **Sync interval**. Changes and deletions replace the cached calendar events after a successful download; failed downloads retain the previous cache. ICS is read-only: create, move and delete events in Google Calendar or Nextcloud. It does not mark workouts completed or change the workbook.
 
@@ -198,9 +201,9 @@ Each refresh imports event start dates from the past 30 days through the next 36
 
 The subscription URL and imported event details are stored locally in the vault’s plugin data and may be copied by vault sync or backups. Treat a secret subscription link like a password. Requests go directly to the configured calendar provider; no vault data is uploaded. Clear the link and sync to disconnect and remove imported events from generated notes. Generated notes follow the usual edit-protection rules.
 
-### Match calendar plans and Garmin recordings
+### Match calendar plans and watch recordings
 
-Weekly notes, daily notes, the dashboard and embedded widgets group a Garmin activity inside its scheduled workout tile when the sport is compatible and the recording substantially overlaps the planned time. For example, an 08:00–09:00 swim can contain an 08:10–09:00 Garmin recording. The tile keeps planned minutes and recorded measurements separate. Unmatched activities get their own tiles; equally plausible matches remain separate. All-day events and entries without a duration are not matched automatically.
+Weekly notes, daily notes, the dashboard and embedded widgets group a watch activity inside its scheduled workout tile when the sport is compatible and the recording substantially overlaps the planned time. For example, an 08:00–09:00 swim can contain an 08:10–09:00 Garmin recording. The tile keeps planned minutes and recorded measurements separate. Unmatched activities get their own tiles; equally plausible matches remain separate. All-day events and entries without a duration are not matched automatically.
 
 Matching supports both ICS calendar events and the workbook’s weekly schedule. Links are recalculated from the current source data after refresh; they do not edit the calendar, Garmin records, manual completion, or analytics totals. Several recordings can belong to one planned event, but a recording is shown only once. Existing note edits and reflections keep their usual protections.
 
@@ -223,7 +226,7 @@ Routine and goal pages use compact tables. **Recurring schedule** lists each cal
 
 ## Garmin activity sync
 
-On desktop, select **Settings → Sports → Connections → Garmin → Connect Garmin**. Sign in with your
+On desktop, select **Settings → Sports → Sources → Smartwatch**, choose **Garmin** as device, then select **Connect Garmin**. Sign in with your
 Garmin email and password, then enter the verification code if requested. No Python,
 terminal commands or separate installation are required. This connection is experimental
 until sign-in, MFA and token refresh have been checked with a live account.
@@ -268,6 +271,41 @@ and static training plans are excluded. Check Garmin Connect for the current pre
 Failed refreshes retain cached summaries with a warning. Turning the setting off
 stops Coach requests; disconnecting stops all Garmin requests.
 
+## Google Health activity sync
+
+Workouts recorded in Google Health, for example from a Fitbit or Pixel Watch, come
+through your Google account. First set up the Google Health app on your phone with
+that account. Then, on desktop, select
+**Settings → Sports → Sources → Smartwatch**, choose **Google Health** as device, then select **Connect Google Health** and sign in to
+Google in your browser. Sports only asks to read your activity and fitness data.
+
+Sign-in tokens are kept in Obsidian's secret storage, separately from plugin settings
+and notes. Sports requests workouts from Google at most once an hour, from
+**Google Health history start** (90 days ago by default). It keeps the start time, sport,
+name, active duration, distance and average heart rate; routes are never requested.
+**Disconnect** removes the saved sign-in; cached activities stay until you clear them.
+
+While the Google app is in testing, only invited accounts can connect, and Google asks
+you to sign in again every 7 days. See the [privacy policy](https://sports.trainvent.com/privacy/) for details.
+
+## Workout files (Apple Watch and other watches)
+
+Apple Watch and most other watches can't connect directly, but they can export
+workouts as FIT, TCX or GPX files. Put those files in a vault folder and enter
+it under **Settings → Sports → Sources → Smartwatch** after choosing **Apple Watch and others** as device.
+Subfolders are included.
+
+For Apple Watch, an iPhone app such as HealthFit or RunGap can export workouts
+automatically to a folder in iCloud Drive. Choose that folder as your vault folder
+or as a subfolder of it. Polar, Suunto, Coros, Wahoo and Strava offer similar exports.
+
+Each sync reads only new or changed files. Sports keeps the start time, sport, duration,
+distance and average heart rate; routes and individual track points are never kept.
+Heart-rate zones aren't imported from files. Activities appear wherever other watch
+activities do: in Log, day and week notes, routines, charts and the dashboard.
+If the same workout comes from Garmin and from a file, or from two files, it's shown once.
+Files that can't be read are skipped with a warning; other activities stay visible.
+
 ## Finish or restore a plan
 
 Run **Sports: Finish plan** from the command palette. The destination defaults
@@ -277,7 +315,7 @@ current notes there (including managed notes moved elsewhere in the vault), disc
 Each finished folder includes `settings.md`, which keeps its original workbook
 link, sheet names, imported plan, and generated-note baselines. These saved plans
 are separate from the 10 rotating recovery copies and do not expire automatically.
-The workbook itself, Garmin connection, and plugin preferences are retained.
+The workbook itself, watch connections, and plugin preferences are retained.
 
 Run **Sports: Restore from folder** from the command palette, enter the finished folder,
 and select **Read saved plan**. You can copy its workbook link without restoring.

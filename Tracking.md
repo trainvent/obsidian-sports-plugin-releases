@@ -22,7 +22,7 @@ Session done marks the whole session completed in the supplied files. They have
 no separate Status column. Weight applies to every set in its exercise section;
 before completion it is planned weight, and after completion it is recorded weight.
 
-Keep Recurring activities in Recurring. A calendar entry or Garmin recording does
+Keep Recurring activities in Recurring. A calendar entry or watch recording does
 not complete a manual Daily session. Future results and unknown measurements stay
 blank; zero is a recorded value.
 
@@ -30,7 +30,7 @@ blank; zero is a recorded value.
 
 Use **Notes topic** to route a reflection. General stays with the session;
 Muscle-up, HSPU, and Pistol also appear on their selected goal page. Skills A,
-Skills B, Technique, Swimming, Running, and Cal-Intervals route to the corresponding
+Skills B, T, Swimming, Running, and Cal-Intervals route to the corresponding
 routine. Notes are commentary, not measured goal results.
 
 For timed set inputs, use a number in the prescription's unit or a clock-style

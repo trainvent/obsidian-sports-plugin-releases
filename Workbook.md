@@ -1,5 +1,9 @@
 # Adapting the Sports workbook
 
+German XLSX templates translate sheet names, section titles, column headings and standard choices.
+Sports accepts either language regardless of the Obsidian UI language. Internal table names,
+user IDs and Garmin type keys stay stable. This guide uses the English labels.
+
 Use this guide to fill the supplied template or adapt a workbook. For daily
 recording, see [Tracking](Tracking.md); for note navigation and integrations, see
 [Using Sports](Using-Sports.md).
@@ -175,7 +179,7 @@ green; the calculated Minutes column stays neutral. Strategy's `max_sets` and
 ## Keep the workbook contract
 
 - Save as `.xlsx` or `.ods`, under 5 MB. Do not add macros or external workbook links.
-- Keep the tabs **Strategy**, **Recurring**, **Daily**. Under **Settings → Sports → Connections → Workbook → Sources**, select
+- Keep the tabs **Strategy**, **Recurring**, **Daily**. Under **Settings → Sports → Sources → Workbook → Sheets**, select
   **Strategy** as the strategy sheet and **Daily** as the tracking sheet.
   Select **Recurring** as the weekly schedule sheet. Each mapping accepts an exact
   tab name; leave a mapping blank to disable that import. Older workbooks with **Training log** remain supported.

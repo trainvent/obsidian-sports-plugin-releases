@@ -23,7 +23,8 @@
   <a href="#get-started">Get started</a> &nbsp;·&nbsp;
   <a href="#guides">Guides</a> &nbsp;·&nbsp;
   <a href="#optional-connections">Connections</a> &nbsp;·&nbsp;
-  <a href="#help-and-support">Get help</a>
+  <a href="#help-and-support">Get help</a> &nbsp;·&nbsp;
+  <a href="README.de.md">Deutsch</a>
 </p>
 
 <p>Built by <a href="https://github.com/trainvent">Trainvent</a></p>
@@ -123,9 +124,13 @@ formats contain the same data. Adapt the example to your needs before training.
 
 ## Optional connections
 
-- **Garmin:** connect under **Connections → Garmin** to import recorded activities. This can run
+- **Garmin:** connect under **Sources → Smartwatch → Garmin** to import recorded activities. This can run
   without a workbook. See [Garmin activity sync](Using-Sports.md#garmin-activity-sync)
   for setup, stored data, and the experimental Coach option.
+- **Google Health (Fitbit, Pixel Watch):** connect under **Sources → Smartwatch → Google Health** with your Google account. See
+  [Google Health activity sync](Using-Sports.md#google-health-activity-sync).
+- **Apple Watch and other watches:** export workouts as FIT, TCX or GPX files into a vault folder and
+  choose it under **Sources → Smartwatch → Apple Watch and others**. See [Workout files](Using-Sports.md#workout-files-apple-watch-and-other-watches).
 - **Calendar:** select **ICS calendar** under **Connections → Workbook → Sources** for a Google Calendar,
   Nextcloud, or other ICS training feed. See [Schedules and calendars](Using-Sports.md#schedules-and-calendars).
 
@@ -143,7 +148,8 @@ Development is maintained in a separate private repository.
 ## Privacy
 
 External requests start after you configure a cloud workbook link, select an ICS
-calendar with a subscription link, or connect Garmin. Workbook sync downloads only the configured HTTPS source and never uploads
+calendar with a subscription link, or connect Garmin or Google Health. Google Health data is read from Google's
+Health API (`health.googleapis.com`) with read-only access to activity and fitness data. Workbook sync downloads only the configured HTTPS source and never uploads
 or edits it. The share URL is saved in plugin settings and may grant access to
 anyone with the link. The generated template is offered as a browser download;
 the plugin does not read or write files outside the vault.
@@ -155,7 +161,8 @@ Finished-plan `settings.md` files retain the workbook link, imported plan, and
 generated-section baselines in the archive folder. Recovery copies retain full
 note contents in hidden plugin storage. These files may travel with vault sync
 or backups; remove private links and training data before sharing them.
-Garmin tokens use Obsidian secret storage; credentials are never saved. No
+Garmin and Google Health tokens use Obsidian secret storage; credentials are never saved.
+See the full [privacy policy](https://sports.trainvent.com/privacy/) and the [Sports homepage](https://sports.trainvent.com/). No
 telemetry is collected. Plugin settings and compiled output are excluded from
 version control.
 
