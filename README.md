@@ -129,8 +129,8 @@ formats contain the same data. Adapt the example to your needs before training.
   for setup, stored data, and the experimental Coach option.
 - **Google Health (Fitbit, Pixel Watch):** connect under **Sources → Smartwatch → Google Health** with your Google account. See
   [Google Health activity sync](Using-Sports.md#google-health-activity-sync).
-- **Apple Watch and other watches:** export workouts as FIT, TCX or GPX files into a vault folder and
-  choose it under **Sources → Smartwatch → Apple Watch and others**. See [Workout files](Using-Sports.md#workout-files-apple-watch-and-other-watches).
+- **Apple Watch and other watches:** save workouts as FIT, TCX or GPX files to a shared Dropbox or Nextcloud folder,
+  for example with HealthFit, and paste its link under **Sources → Smartwatch → Apple Watch and others**. See [Workout files](Using-Sports.md#workout-files-apple-watch-and-other-watches).
 - **Calendar:** select **ICS calendar** under **Connections → Workbook → Sources** for a Google Calendar,
   Nextcloud, or other ICS training feed. See [Schedules and calendars](Using-Sports.md#schedules-and-calendars).
 
@@ -148,22 +148,25 @@ Development is maintained in a separate private repository.
 ## Privacy
 
 External requests start after you configure a cloud workbook link, select an ICS
-calendar with a subscription link, or connect Garmin or Google Health. Google Health data is read from Google's
-Health API (`health.googleapis.com`) with read-only access to activity and fitness data. Workbook sync downloads only the configured HTTPS source and never uploads
-or edits it. The share URL is saved in plugin settings and may grant access to
+calendar with a subscription link, add a workout folder link, or connect Garmin or Google Health. Google Health data is read from Google's
+Health API (`health.googleapis.com`) with read-only access to activity and fitness data. Workbook and workout folder syncs download only the configured HTTPS source and never upload
+to or edit it. Share URLs are saved in plugin settings and may grant access to
 anyone with the link. The generated template is offered as a browser download;
 the plugin does not read or write files outside the vault.
 
 Imported training data, sync preferences, and generated-block baselines are stored
 in vault-local plugin settings. These may travel with your vault sync provider.
 Generated notes and guides are written through Obsidian's vault API.
+To find Sports notes you moved while the plugin was off, Sports checks the file list and
+Obsidian's cached note properties for its own `sports_id` and `sports_uid`; it does not read
+other notes. It writes to the clipboard only when you select a copy button and never reads it.
 Finished-plan `settings.md` files retain the workbook link, imported plan, and
 generated-section baselines in the archive folder. Recovery copies retain full
 note contents in hidden plugin storage. These files may travel with vault sync
 or backups; remove private links and training data before sharing them.
 Garmin and Google Health tokens use Obsidian secret storage; credentials are never saved.
 See the full [privacy policy](https://sports.trainvent.com/privacy/) and the [Sports homepage](https://sports.trainvent.com/). No
-telemetry is collected. Plugin settings and compiled output are excluded from
+telemetry is collected. **Settings → Contact** has a link to [GitHub Sponsors](https://github.com/sponsors/leonmarq); there are no other ads. Plugin settings and compiled output are excluded from
 version control.
 
 ## License and attribution

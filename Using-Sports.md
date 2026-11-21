@@ -290,18 +290,23 @@ you to sign in again every 7 days. See the [privacy policy](https://sports.train
 
 ## Workout files (Apple Watch and other watches)
 
-Apple Watch and most other watches can't connect directly, but they can export
-workouts as FIT, TCX or GPX files. Put those files in a vault folder and enter
-it under **Settings → Sports → Sources → Smartwatch** after choosing **Apple Watch and others** as device.
-Subfolders are included.
+Apple Watch and most other watches can't connect directly, but they can save
+workouts as FIT, TCX or GPX files. Keep those files in a shared Dropbox or Nextcloud
+folder and paste the folder's share link under **Settings → Sports → Sources → Smartwatch**
+after choosing **Apple Watch and others** as device. Subfolders are included.
 
-For Apple Watch, an iPhone app such as HealthFit or RunGap can export workouts
-automatically to a folder in iCloud Drive. Choose that folder as your vault folder
-or as a subfolder of it. Polar, Suunto, Coros, Wahoo and Strava offer similar exports.
+For Apple Watch, the iPhone app HealthFit can save each new workout automatically to Dropbox.
+In Dropbox, share the folder HealthFit saves to and copy its link. The link must allow
+downloads without a login or password. Google Drive, OneDrive and iCloud Drive links
+don't work, because their folders can't be downloaded without signing in.
+Polar, Suunto, Coros, Wahoo and Strava offer similar exports.
 
-Each sync reads only new or changed files. Sports keeps the start time, sport, duration,
+On desktop, Sports downloads the folder at most once an hour and reads the files in memory;
+nothing is written to your vault. Sports keeps the start time, sport, duration,
 distance and average heart rate; routes and individual track points are never kept.
-Heart-rate zones aren't imported from files. Activities appear wherever other watch
+Heart-rate zones aren't imported from files. Workouts stay imported after you delete
+their files from the shared folder, so you can remove old files to keep the download
+small. The folder download is limited to 100 MB. Activities appear wherever other watch
 activities do: in Log, day and week notes, routines, charts and the dashboard.
 If the same workout comes from Garmin and from a file, or from two files, it's shown once.
 Files that can't be read are skipped with a warning; other activities stay visible.
