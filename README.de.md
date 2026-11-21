@@ -128,8 +128,8 @@ Passe das Beispiel vor dem Training an deine Bedürfnisse an.
   [Garmin-Aktivitäten synchronisieren](de/Sports-verwenden.md#garmin-aktivitäten-synchronisieren).
 - **Google Health (Fitbit, Pixel Watch):** Verbinde dich unter **Quellen → Smartwatch → Google Health** mit deinem Google-Konto. Siehe
   [Google-Health-Aktivitäten synchronisieren](de/Sports-verwenden.md#google-health-aktivitäten-synchronisieren).
-- **Apple Watch und andere Uhren:** Exportiere Trainings als FIT-, TCX- oder GPX-Dateien in einen Vault-Ordner und
-  wähle ihn unter **Quellen → Smartwatch → Apple Watch und andere**. Siehe [Trainingsdateien](de/Sports-verwenden.md#trainingsdateien-apple-watch-und-andere-uhren).
+- **Apple Watch und andere Uhren:** Speichere Trainings als FIT-, TCX- oder GPX-Dateien in einem freigegebenen Dropbox- oder Nextcloud-Ordner,
+  zum Beispiel mit HealthFit, und füge seinen Link unter **Quellen → Smartwatch → Apple Watch und andere** ein. Siehe [Trainingsdateien](de/Sports-verwenden.md#trainingsdateien-apple-watch-und-andere-uhren).
 - **Kalender:** Wähle unter **Quellen → Zeitplan** den **ICS-Kalender** für einen Trainings-Feed aus Google Calendar,
   Nextcloud oder einer anderen ICS-Quelle. Siehe [Zeitpläne und Kalender](de/Sports-verwenden.md#zeitpläne-und-kalender).
 
@@ -145,22 +145,26 @@ Passe das Beispiel vor dem Training an deine Bedürfnisse an.
 ## Datenschutz
 
 Externe Anfragen beginnen erst, wenn du einen Cloud-Link zur Arbeitsmappe einrichtest, einen ICS-Kalender
-mit Abonnementlink wählst oder Garmin bzw. Google Health verbindest. Google-Health-Daten werden über Googles
-Health API (`health.googleapis.com`) mit reinem Lesezugriff auf Aktivitäts- und Fitnessdaten abgerufen. Die Synchronisierung lädt nur die eingestellte HTTPS-Quelle herunter und lädt nie etwas hoch
-oder ändert sie. Der Freigabelink wird in den Plugin-Einstellungen gespeichert und kann jedem Zugriff geben,
-der ihn kennt. Die Vorlage wird als Browser-Download angeboten;
+mit Abonnementlink wählst, einen Link zum Trainingsordner einträgst oder Garmin bzw. Google Health verbindest. Google-Health-Daten werden über Googles
+Health API (`health.googleapis.com`) mit reinem Lesezugriff auf Aktivitäts- und Fitnessdaten abgerufen. Die Synchronisierung von Arbeitsmappe und Trainingsordner lädt nur die eingestellte HTTPS-Quelle herunter und lädt nie etwas hoch
+oder ändert sie. Freigabelinks werden in den Plugin-Einstellungen gespeichert und können jedem Zugriff geben,
+der sie kennt. Die Vorlage wird als Browser-Download angeboten;
 das Plugin liest und schreibt keine Dateien außerhalb des Vaults.
 
 Importierte Trainingsdaten, Synchronisierungseinstellungen und die Grundlagen der erstellten Abschnitte werden
 in den Plugin-Einstellungen im Vault gespeichert. Sie können mit deinem Vault-Synchronisierungsdienst übertragen werden.
 Erstellte Notizen und Anleitungen werden über die Vault-Schnittstelle von Obsidian geschrieben.
+Um Sports-Notizen wiederzufinden, die du bei ausgeschaltetem Plugin verschoben hast, prüft Sports die
+Dateiliste und die von Obsidian zwischengespeicherten Eigenschaften auf seine eigenen `sports_id` und
+`sports_uid`; andere Notizen liest es nicht. In die Zwischenablage schreibt es nur, wenn du eine
+Kopieren-Schaltfläche wählst, und liest sie nie.
 Die Dateien `settings.md` abgeschlossener Pläne behalten Link zur Arbeitsmappe, importierten Plan und
 Grundlagen der erstellten Abschnitte im Archivordner. Sicherungskopien behalten den vollständigen
 Notizinhalt im versteckten Plugin-Speicher. Diese Dateien können mit Vault-Synchronisierung
 oder Sicherungen übertragen werden; entferne private Links und Trainingsdaten, bevor du sie teilst.
 Garmin- und Google-Health-Token liegen im geschützten Speicher von Obsidian; Zugangsdaten werden nie gespeichert.
 Siehe die vollständige [Datenschutzerklärung](https://sports.trainvent.com/de/privacy/) und die [Sports-Website](https://sports.trainvent.com/de/). Es werden keine
-Nutzungsdaten erhoben.
+Nutzungsdaten erhoben. **Einstellungen → Kontakt** enthält einen Link zu [GitHub Sponsors](https://github.com/sponsors/leonmarq); andere Werbung gibt es nicht.
 
 ## Lizenz und Hinweise
 

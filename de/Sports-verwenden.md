@@ -291,17 +291,23 @@ verlangt alle 7 Tage eine neue Anmeldung. Einzelheiten stehen in der [Datenschut
 ## Trainingsdateien (Apple Watch und andere Uhren)
 
 Die Apple Watch und die meisten anderen Uhren lassen sich nicht direkt verbinden,
-können Trainings aber als FIT-, TCX- oder GPX-Dateien exportieren. Lege diese Dateien in einen
-Ordner im Vault und trage ihn unter **Einstellungen → Sports → Quellen → Smartwatch** ein, nachdem du **Apple Watch und andere** als Gerät gewählt hast.
+können Trainings aber als FIT-, TCX- oder GPX-Dateien speichern. Lege diese Dateien in einen
+freigegebenen Dropbox- oder Nextcloud-Ordner und füge den Freigabelink des Ordners unter
+**Einstellungen → Sports → Quellen → Smartwatch** ein, nachdem du **Apple Watch und andere** als Gerät gewählt hast.
 Unterordner werden mitgelesen.
 
-Für die Apple Watch kann eine iPhone-App wie HealthFit oder RunGap Trainings automatisch
-in einen iCloud-Drive-Ordner exportieren. Wähle diesen Ordner als Vault-Ordner oder als
-Unterordner davon. Polar, Suunto, Coros, Wahoo und Strava bieten ähnliche Exporte.
+Für die Apple Watch kann die iPhone-App HealthFit jedes neue Training automatisch in Dropbox speichern.
+Gib in Dropbox den Ordner frei, in den HealthFit speichert, und kopiere den Link. Der Link muss
+Downloads ohne Anmeldung oder Passwort erlauben. Links von Google Drive, OneDrive und iCloud Drive
+funktionieren nicht, weil sich deren Ordner nicht ohne Anmeldung herunterladen lassen.
+Polar, Suunto, Coros, Wahoo und Strava bieten ähnliche Exporte.
 
-Jede Synchronisierung liest nur neue oder geänderte Dateien. Sports übernimmt Startzeit,
+Am Desktop lädt Sports den Ordner höchstens einmal pro Stunde herunter und liest die Dateien im Speicher;
+in deinen Vault wird nichts geschrieben. Sports übernimmt Startzeit,
 Sportart, Dauer, Distanz und durchschnittliche Herzfrequenz; Routen und einzelne Trackpunkte
-werden nie gespeichert. Herzfrequenzzonen werden aus Dateien nicht importiert. Die Aktivitäten
+werden nie gespeichert. Herzfrequenzzonen werden aus Dateien nicht importiert. Trainings bleiben
+importiert, wenn du ihre Dateien aus dem freigegebenen Ordner löschst. So kannst du alte Dateien
+entfernen, damit der Download klein bleibt. Der Ordner-Download ist auf 100 MB begrenzt. Die Aktivitäten
 erscheinen überall dort, wo auch andere Uhr-Aktivitäten erscheinen: im Log, in Tages- und Wochennotizen,
 Routinen, Diagrammen und im Dashboard. Kommt dasselbe Training von Garmin und aus einer Datei
 oder aus zwei Dateien, wird es nur einmal angezeigt. Nicht lesbare Dateien werden mit einer

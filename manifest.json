@@ -1,11 +1,11 @@
 {
 	"id": "sports",
 	"name": "Sports",
-	"version": "0.6.1",
+	"version": "0.7.0",
 	"minAppVersion": "1.11.4",
 	"description": "Plan fitness and sports training from spreadsheets, track workouts and exercise progress, and review training logs for calisthenics, running, and swimming, with optional Garmin Connect, Google Health and workout file (FIT, TCX, GPX) imports.",
 	"author": "Trainvent",
 	"authorUrl": "https://github.com/trainvent",
 	"isDesktopOnly": true,
-	"fundingUrl": "https://github.com/sponsors/trainvent"
+	"fundingUrl": "https://github.com/sponsors/leonmarq"
 }
