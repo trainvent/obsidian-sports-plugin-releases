@@ -70,7 +70,7 @@ Charts render locally without another community plugin or chart service.
    and preferred activities. You can do this yourself or give the file and guide
    to your chatbot. Keep future results blank.
 4. Upload the completed file to Nextcloud or another service with an HTTPS
-   download link. Paste it into **Cloud workbook link** and keep the sheet
+   download link. Paste it into **Cloud file** and keep the sheet
    mappings under **Sources** at **Strategy**, **Daily**, and **Recurring**.
 5. Select **Connections → Sync → Sync now**, then **Display → Open dashboard**.
 6. Record training in the workbook, recalculate and save if it uses formulas,
@@ -129,8 +129,8 @@ formats contain the same data. Adapt the example to your needs before training.
   for setup, stored data, and the experimental Coach option.
 - **Google Health (Fitbit, Pixel Watch):** connect under **Sources → Smartwatch → Google Health** with your Google account. See
   [Google Health activity sync](Using-Sports.md#google-health-activity-sync).
-- **Apple Watch and other watches:** save workouts as FIT, TCX or GPX files to a shared Dropbox or Nextcloud folder,
-  for example with HealthFit, and paste its link under **Sources → Smartwatch → Apple Watch and others**. See [Workout files](Using-Sports.md#workout-files-apple-watch-and-other-watches).
+- **Apple Watch and other watches:** save workouts as FIT, TCX or GPX files to a shared cloud folder,
+  for example with HealthFit and Dropbox, and paste its link into **Cloud folder** under **Sources → Smartwatch → Apple Watch and others**. See [Workout files](Using-Sports.md#workout-files-apple-watch-and-other-watches).
 - **Calendar:** select **ICS calendar** under **Connections → Workbook → Sources** for a Google Calendar,
   Nextcloud, or other ICS training feed. See [Schedules and calendars](Using-Sports.md#schedules-and-calendars).
 
@@ -147,9 +147,9 @@ Development is maintained in a separate private repository.
 
 ## Privacy
 
-External requests start after you configure a cloud workbook link, select an ICS
-calendar with a subscription link, add a workout folder link, or connect Garmin or Google Health. Google Health data is read from Google's
-Health API (`health.googleapis.com`) with read-only access to activity and fitness data. Workbook and workout folder syncs download only the configured HTTPS source and never upload
+External requests start after you add a cloud file, select an ICS
+calendar with a subscription link, add a cloud folder, or connect Garmin or Google Health. Google Health data is read from Google's
+Health API (`health.googleapis.com`) with read-only access to activity and fitness data. Cloud file and cloud folder syncs download only the configured HTTPS source and never upload
 to or edit it. Share URLs are saved in plugin settings and may grant access to
 anyone with the link. The generated template is offered as a browser download;
 the plugin does not read or write files outside the vault.

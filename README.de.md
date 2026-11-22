@@ -70,7 +70,7 @@ Diagramme werden lokal gezeichnet, ohne weiteres Community-Plugin oder Diagrammd
    und deine Sportarten an. Das kannst du selbst tun oder Datei und Anleitung
    deinem Chatbot geben. Lass künftige Ergebnisse leer.
 4. Lade die fertige Datei zu Nextcloud oder einem anderen Dienst mit HTTPS-Download-Link hoch. Füge den Link unter
-   **Cloud-Link zur Arbeitsmappe** ein und lass die Blattzuordnungen unter **Blätter** und **Zeitplan**
+   **Cloud-Datei** ein und lass die Blattzuordnungen unter **Blätter** und **Zeitplan**
    auf **Strategie**, **Trainingstagebuch** und **Wochenplan**.
 5. Wähle **Jetzt synchronisieren** und dann in der Befehlspalette **Sports: Dashboard öffnen**.
 6. Erfasse Training in der Arbeitsmappe, berechne neu und speichere, falls sie Formeln verwendet,
@@ -128,8 +128,8 @@ Passe das Beispiel vor dem Training an deine Bedürfnisse an.
   [Garmin-Aktivitäten synchronisieren](de/Sports-verwenden.md#garmin-aktivitäten-synchronisieren).
 - **Google Health (Fitbit, Pixel Watch):** Verbinde dich unter **Quellen → Armbanduhr → Google Health** mit deinem Google-Konto. Siehe
   [Google-Health-Aktivitäten synchronisieren](de/Sports-verwenden.md#google-health-aktivitäten-synchronisieren).
-- **Apple Watch und andere Uhren:** Speichere Trainings als FIT-, TCX- oder GPX-Dateien in einem freigegebenen Dropbox- oder Nextcloud-Ordner,
-  zum Beispiel mit HealthFit, und füge seinen Link unter **Quellen → Armbanduhr → Apple Watch und andere** ein. Siehe [Trainingsdateien](de/Sports-verwenden.md#trainingsdateien-apple-watch-und-andere-uhren).
+- **Apple Watch und andere Uhren:** Speichere Trainings als FIT-, TCX- oder GPX-Dateien in einem freigegebenen Cloud-Ordner,
+  zum Beispiel mit HealthFit und Dropbox, und füge seinen Link unter **Quellen → Armbanduhr → Apple Watch und andere** in **Cloud-Ordner** ein. Siehe [Trainingsdateien](de/Sports-verwenden.md#trainingsdateien-apple-watch-und-andere-uhren).
 - **Kalender:** Wähle unter **Quellen → Zeitplan** den **ICS-Kalender** für einen Trainings-Feed aus Google Calendar,
   Nextcloud oder einer anderen ICS-Quelle. Siehe [Zeitpläne und Kalender](de/Sports-verwenden.md#zeitpläne-und-kalender).
 
@@ -144,9 +144,9 @@ Passe das Beispiel vor dem Training an deine Bedürfnisse an.
 
 ## Datenschutz
 
-Externe Anfragen beginnen erst, wenn du einen Cloud-Link zur Arbeitsmappe einrichtest, einen ICS-Kalender
-mit Abonnementlink wählst, einen Link zum Trainingsordner einträgst oder Garmin bzw. Google Health verbindest. Google-Health-Daten werden über Googles
-Health API (`health.googleapis.com`) mit reinem Lesezugriff auf Aktivitäts- und Fitnessdaten abgerufen. Die Synchronisierung von Arbeitsmappe und Trainingsordner lädt nur die eingestellte HTTPS-Quelle herunter und lädt nie etwas hoch
+Externe Anfragen beginnen erst, wenn du eine Cloud-Datei einrichtest, einen ICS-Kalender
+mit Abonnementlink wählst, einen Cloud-Ordner einträgst oder Garmin bzw. Google Health verbindest. Google-Health-Daten werden über Googles
+Health API (`health.googleapis.com`) mit reinem Lesezugriff auf Aktivitäts- und Fitnessdaten abgerufen. Die Synchronisierung von Cloud-Datei und Cloud-Ordner lädt nur die eingestellte HTTPS-Quelle herunter und lädt nie etwas hoch
 oder ändert sie. Freigabelinks werden in den Plugin-Einstellungen gespeichert und können jedem Zugriff geben,
 der sie kennt. Die Vorlage wird als Browser-Download angeboten;
 das Plugin liest und schreibt keine Dateien außerhalb des Vaults.
