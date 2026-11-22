@@ -291,8 +291,8 @@ you to sign in again every 7 days. See the [privacy policy](https://sports.train
 ## Workout files (Apple Watch and other watches)
 
 Apple Watch and most other watches can't connect directly, but they can save
-workouts as FIT, TCX or GPX files. Keep those files in a shared Dropbox or Nextcloud
-folder and paste the folder's share link under **Settings → Sports → Sources → Smartwatch**
+workouts as FIT, TCX or GPX files. Keep those files in a shared cloud folder
+and paste its share link into **Cloud folder** under **Settings → Sports → Sources → Smartwatch**
 after choosing **Apple Watch and others** as device. Subfolders are included.
 
 For Apple Watch, the iPhone app HealthFit can save each new workout automatically to Dropbox.

@@ -292,8 +292,8 @@ verlangt alle 7 Tage eine neue Anmeldung. Einzelheiten stehen in der [Datenschut
 
 Die Apple Watch und die meisten anderen Uhren lassen sich nicht direkt verbinden,
 können Trainings aber als FIT-, TCX- oder GPX-Dateien speichern. Lege diese Dateien in einen
-freigegebenen Dropbox- oder Nextcloud-Ordner und füge den Freigabelink des Ordners unter
-**Einstellungen → Sports → Quellen → Armbanduhr** ein, nachdem du **Apple Watch und andere** als Gerät gewählt hast.
+freigegebenen Cloud-Ordner und füge seinen Freigabelink unter
+**Einstellungen → Sports → Quellen → Armbanduhr** in **Cloud-Ordner** ein, nachdem du **Apple Watch und andere** als Gerät gewählt hast.
 Unterordner werden mitgelesen.
 
 Für die Apple Watch kann die iPhone-App HealthFit jedes neue Training automatisch in Dropbox speichern.
