@@ -123,13 +123,13 @@ Passe das Beispiel vor dem Training an deine Bedürfnisse an.
 
 ## Optionale Verbindungen
 
-- **Garmin:** Verbinde dich unter **Quellen → Smartwatch → Garmin**, um aufgezeichnete Aktivitäten zu importieren. Das funktioniert
+- **Garmin:** Verbinde dich unter **Quellen → Armbanduhr → Garmin**, um aufgezeichnete Aktivitäten zu importieren. Das funktioniert
   auch ohne Arbeitsmappe. Einrichtung, gespeicherte Daten und die experimentelle Coach-Option beschreibt
   [Garmin-Aktivitäten synchronisieren](de/Sports-verwenden.md#garmin-aktivitäten-synchronisieren).
-- **Google Health (Fitbit, Pixel Watch):** Verbinde dich unter **Quellen → Smartwatch → Google Health** mit deinem Google-Konto. Siehe
+- **Google Health (Fitbit, Pixel Watch):** Verbinde dich unter **Quellen → Armbanduhr → Google Health** mit deinem Google-Konto. Siehe
   [Google-Health-Aktivitäten synchronisieren](de/Sports-verwenden.md#google-health-aktivitäten-synchronisieren).
 - **Apple Watch und andere Uhren:** Speichere Trainings als FIT-, TCX- oder GPX-Dateien in einem freigegebenen Dropbox- oder Nextcloud-Ordner,
-  zum Beispiel mit HealthFit, und füge seinen Link unter **Quellen → Smartwatch → Apple Watch und andere** ein. Siehe [Trainingsdateien](de/Sports-verwenden.md#trainingsdateien-apple-watch-und-andere-uhren).
+  zum Beispiel mit HealthFit, und füge seinen Link unter **Quellen → Armbanduhr → Apple Watch und andere** ein. Siehe [Trainingsdateien](de/Sports-verwenden.md#trainingsdateien-apple-watch-und-andere-uhren).
 - **Kalender:** Wähle unter **Quellen → Zeitplan** den **ICS-Kalender** für einen Trainings-Feed aus Google Calendar,
   Nextcloud oder einer anderen ICS-Quelle. Siehe [Zeitpläne und Kalender](de/Sports-verwenden.md#zeitpläne-und-kalender).
 
