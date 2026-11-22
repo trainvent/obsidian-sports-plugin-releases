@@ -79,7 +79,7 @@ und laufen nicht ab; siehe [Plan abschließen oder wiederherstellen](Sports-verw
 ## Verbindungsprobleme
 
 **Garmin:** Eine fehlgeschlagene Aktualisierung behält zwischengespeicherte Aktivitäten mit einer Warnung. Schlägt die Anmeldung
-oder die Token-Erneuerung fehl, verbinde neu unter **Einstellungen → Sports → Quellen → Smartwatch → Garmin → Garmin neu verbinden**.
+oder die Token-Erneuerung fehl, verbinde neu unter **Einstellungen → Sports → Quellen → Armbanduhr → Garmin → Garmin neu verbinden**.
 Die Anbindung nutzt inoffizielle Schnittstellen und kann von Änderungen bei Garmin
 oder Anmeldebeschränkungen betroffen sein. **Trennen** entfernt die Token und beendet die Anfragen;
 zwischengespeicherte Aktivitäten bleiben, bis du sie löschst. Siehe [Garmin-Aktivitäten synchronisieren](Sports-verwenden.md#garmin-aktivitäten-synchronisieren).

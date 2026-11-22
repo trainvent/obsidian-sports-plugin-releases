@@ -11,7 +11,7 @@ Abschließen, Wiederherstellen und die Anleitungen erreichst du über die Befehl
 
 ## Einstellungen
 
-**Quellen** enthält **Arbeitsmappe**, **Zeitplan**, **Smartwatch** und **Synchronisieren**. Unter Smartwatch wählst du zuerst
+**Quellen** enthält **Arbeitsmappe**, **Zeitplan**, **Armbanduhr** und **Synchronisieren**. Unter Armbanduhr wählst du zuerst
 dein **Gerät**; danach erscheinen nur dessen Einstellungen. Mehrere Geräte können gleichzeitig aktiv sein. Unter Arbeitsmappe
 liegen in **Einrichtung** die Anleitung und die Vorlagen, in **Blätter** die Blattnamen.
 **Anzeige** steuert Notizordner, Diagramme und Dashboard. **Erweitert → Standardwerte setzen** setzt Synchronisierungs- und Anzeigeeinstellungen zurück und stellt den Verlauf von Garmin und Google Health auf vor 90 Tagen. Notizordner, Quellen und Daten bleiben erhalten. **Erweitert** enthält außerdem die Wiederherstellungswerkzeuge.
@@ -29,7 +29,7 @@ liegen in **Einrichtung** die Anleitung und die Vorlagen, in **Blätter** die Bl
 
 ## Deine Notizen
 
-Nutze die Einbettung auf deiner Startseite oder das Dashboard für aktuelle Fortschritte und anstehendes Training, das Protokoll für vergangene Trainingstage und die Statistik für Trends. Pläne und Strategie liegen unter Struktur. Die Statistik verlinkt über ihre Eigenschaft **related** auf die Diagramme aus Tabelle und Uhr.
+Nutze die Einbettung auf deiner Startseite oder das Dashboard für aktuelle Fortschritte und anstehendes Training, das Protokoll für vergangene Trainingstage und die Statistik für Trends. Pläne und Strategie liegen unter Struktur. Die Statistik verlinkt über ihre Eigenschaft **related** auf die Diagramme aus Tabelle und Armbanduhr.
 
 Der Standard-Notizordner ist `Sports/`. Dateien entstehen, sobald ihre Quelldaten vorliegen. Ordner- und Notiznamen folgen der Sprache von Obsidian. Wechselst du die Sprache, verschiebt Sports Notizen an ihrem Standardort an den neuen Standardort. Notizen, die du selbst verschoben hast, bleiben, wo sie sind.
 
@@ -45,7 +45,7 @@ Nachdem du über eine Woche nachgedacht hast, hake **reviewed** in den Eigenscha
 | `Protokoll.md` | Trainingseinträge: Wähle das Datum für die Tagesnotiz oder den Trainingsnamen für die Routine |
 | `Journal/Tage/JJJJ-MM-TT.md` | Details der Einheiten, Sätze, Aufzeichnungen und eigene Reflexion |
 | `Auswertung/Tabelle.md` | Trends für geplante Intensität, Leistung und gefühlte Anstrengung |
-| `Auswertung/Uhr.md` | Uhr-Umfang sowie Lauf- und Schwimmdiagramme |
+| `Auswertung/Armbanduhr.md` | Uhr-Umfang sowie Lauf- und Schwimmdiagramme |
 | `Ziele/<goal_id>.md` | Zielwerte, zugeordnete Ergebnisse, passende Aktivitäten und Rückblicke |
 | `Routinen/` | Erklärungen, Übungen und Steigerungen je Routine; verlinkt aus Plänen und Protokoll |
 | `Anleitung/` | Arbeitsmappe, Erfassung, Sports verwenden und Fehlerbehebung |
@@ -69,7 +69,7 @@ der Routinen, ein Link zur Wochennotiz an jedem Tag und datierte Links in Protok
 
 | Notiz | Verwaltete Eigenschaften | Quelle |
 | --- | --- | --- |
-| `Auswertung/Statistik.md` | `related` (Links zu Tabelle und Uhr) | Ausführliche Diagrammseiten |
+| `Auswertung/Statistik.md` | `related` (Links zu Tabelle und Armbanduhr) | Ausführliche Diagrammseiten |
 | `Anleitung/` | `related` (Links zu den anderen Anleitungen) | Begleitende Anleitungen |
 | `Ziele/<goal_id>.md` | `goal_id`, `category`, `garmin_types` | Tabelle Goals und aufgelöste Quellenzuordnung |
 | `Routinen/<Name>.md` | `targets` (Liste von Ziel-Links) | Beziehungen zwischen Teilen und Zielen; Lauf- und Schwimmziele |
@@ -103,7 +103,7 @@ Andere eigene Eigenschaften bleiben erhalten. Eigenschaftsnamen und Tags bleiben
 | `sports/planning` | Pläne, Strategie, Routinen, Wochen |
 | `sports/goals` | Pläne, Ziele, Routinen |
 | `sports/training` | Protokoll, Tage, Wochen |
-| `sports/analytics` | Statistik, Tabelle, Uhr |
+| `sports/analytics` | Statistik, Tabelle, Armbanduhr |
 | `sports/guide` | Alle vier Anleitungen |
 | `sports/running`, `sports/swimming` | Passende Routinen und Ziele mit diesen aufgelösten Garmin-Typen |
 
@@ -154,7 +154,7 @@ Die Reihenfolge der Übungen bleibt in jedem Diagramm erhalten; Höhen verschied
 
 **Statistik** hält Summen aus Arbeitsmappe und Uhr getrennt und vergleicht die gefühlte Anstrengung mit
 vorhandenen HF-Zonen der Uhr. Dasselbe Training kann in beiden Quellen erscheinen.
-**Auswertung/Uhr** zeigt aufgezeichneten Umfang, Lauf- und Schwimmpace, Herzfrequenz
+**Auswertung/Armbanduhr** zeigt aufgezeichneten Umfang, Lauf- und Schwimmpace, Herzfrequenz
 und vorhandene Zonendaten. Uhr-Aufzeichnungen erledigen nie manuelle Einheiten.
 
 Das Blatt Bewertung im Beispiel liefert geplante Intensität (0–10), Leistung (%)
@@ -226,7 +226,7 @@ Routinen- und Zielseiten verwenden kompakte Tabellen. **Wiederkehrender Zeitplan
 
 ## Garmin-Aktivitäten synchronisieren
 
-Wähle am Desktop **Einstellungen → Sports → Quellen → Smartwatch**, wähle **Garmin** als Gerät und dann **Garmin verbinden**. Melde dich mit
+Wähle am Desktop **Einstellungen → Sports → Quellen → Armbanduhr**, wähle **Garmin** als Gerät und dann **Garmin verbinden**. Melde dich mit
 E-Mail-Adresse und Passwort deines Garmin-Kontos an und gib bei Bedarf den Bestätigungscode ein. Python,
 Terminalbefehle oder eine separate Installation sind nicht nötig. Diese Verbindung ist experimentell,
 bis Anmeldung, Zwei-Faktor-Bestätigung und Token-Erneuerung mit einem echten Konto geprüft sind.
@@ -276,7 +276,7 @@ enden die Coach-Anfragen; Trennen beendet alle Garmin-Anfragen.
 Trainings, die in Google Health aufgezeichnet werden, zum Beispiel von einer Fitbit oder
 Pixel Watch, kommen über dein Google-Konto. Richte zuerst die Google-Health-App auf deinem
 Smartphone mit diesem Konto ein. Wähle dann am Desktop
-**Einstellungen → Sports → Quellen → Smartwatch**, wähle **Google Health** als Gerät und dann **Google Health verbinden** und melde dich
+**Einstellungen → Sports → Quellen → Armbanduhr**, wähle **Google Health** als Gerät und dann **Google Health verbinden** und melde dich
 im Browser bei Google an. Sports fragt nur Lesezugriff auf deine Aktivitäts- und Fitnessdaten an.
 
 Anmeldetoken liegen im geschützten Speicher von Obsidian, getrennt von Plugin-Einstellungen
@@ -293,7 +293,7 @@ verlangt alle 7 Tage eine neue Anmeldung. Einzelheiten stehen in der [Datenschut
 Die Apple Watch und die meisten anderen Uhren lassen sich nicht direkt verbinden,
 können Trainings aber als FIT-, TCX- oder GPX-Dateien speichern. Lege diese Dateien in einen
 freigegebenen Dropbox- oder Nextcloud-Ordner und füge den Freigabelink des Ordners unter
-**Einstellungen → Sports → Quellen → Smartwatch** ein, nachdem du **Apple Watch und andere** als Gerät gewählt hast.
+**Einstellungen → Sports → Quellen → Armbanduhr** ein, nachdem du **Apple Watch und andere** als Gerät gewählt hast.
 Unterordner werden mitgelesen.
 
 Für die Apple Watch kann die iPhone-App HealthFit jedes neue Training automatisch in Dropbox speichern.
