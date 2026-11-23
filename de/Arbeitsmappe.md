@@ -163,7 +163,7 @@ bleiben in Trainingstagebuch. Diese Textverweise ändern weder Satzeingaben noch
 
 | Farbe | Bedeutung | Verwendung |
 | --- | --- | --- |
-| Blassgrün, abwechselnde Töne | Eingabezellen | Trainingswerte eintragen oder anpassen. |
+| Grün, abwechselnde Töne | Eingabezellen | Trainingswerte eintragen oder anpassen. |
 | Weiß / hellgrau, abwechselnde Töne | Referenzangaben und Formeln | Den Plan lesen und Formeln erhalten. |
 | Neutrales Blaugrau | Überschriften | Strukturelle Spaltennamen behalten; Namen der Übungsgruppen sind anpassbar. |
 
