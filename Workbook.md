@@ -164,7 +164,7 @@ remain in Daily. These text links do not change set inputs or Scoring targets.
 
 | Color | Meaning | How to use it |
 | --- | --- | --- |
-| Pale green, alternating tones | Editable entry cells | Enter or adjust your training values. |
+| Green, alternating tones | Editable entry cells | Enter or adjust your training values. |
 | White / light gray, alternating tones | Reference information and formulas | Read the plan and preserve formulas. |
 | Neutral blue-gray | Headings | Keep structural column names; exercise group names are customizable. |
 
