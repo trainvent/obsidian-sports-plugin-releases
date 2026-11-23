@@ -62,8 +62,8 @@ Charts render locally without another community plugin or chart service.
 ## Get started
 
 1. Open **Settings → Sports → Connections → Workbook → Setup → Open guide**. Read
-   [Workbook.md](Workbook.md) before adapting a file; it is also saved under
-   `Guide/Workbook.md` in your Sports notes folder.
+   [Workbook.md](Workbook.md) before adapting a file; **Open guide** shows it on
+   [sports.trainvent.com/docs](https://sports.trainvent.com/docs/), and **Download** saves it as a file.
 2. Under **Setup**, choose **Blank template** to build your own plan or **Example workbook** to
    learn from a filled plan. Both offer **Download XLSX** and **Download ODS**.
 3. Use the guide to fill or adapt the file to your goals, availability, equipment,
@@ -107,16 +107,16 @@ use `sports-dashboard` to keep the full widget. See [embed options](Using-Sports
 | [Using Sports](Using-Sports.md) | Navigate notes, read charts, connect calendars and Garmin, finish or restore plans |
 | [Troubleshooting](Troubleshooting.md) | Cloud links, sync timing, missing data, note conflicts, and recovery |
 
-Guides are also available under `Guide/` in your Sports notes folder. Open the
-workbook guide in settings or any guide from the command palette. Each guide updates its generated section while keeping
-personal notes outside it.
+The guides are also on [sports.trainvent.com/docs](https://sports.trainvent.com/docs/). Open the
+workbook guide in settings or any guide from the command palette. Guide notes from earlier versions
+stay in your vault as your own notes; Sports no longer updates them.
 
 | Starting point | XLSX | ODS |
 | --- | --- | --- |
 | Blank template | [Training-Template.xlsx](templates/Training-Template.xlsx) | [Training-Template.ods](templates/Training-Template.ods) |
 | Filled example | [Training-Example.xlsx](templates/Training-Example.xlsx) | [Training-Example.ods](templates/Training-Example.ods) |
 
-Both blank formats retain all five sheets, tables, and formatting, with training
+Both blank formats retain all six sheets, tables, and formatting, with training
 data and cell formulas cleared. The filled example includes a 12-week calisthenics
 and movement plan, five exercise groups, Cal-Intervals, and set-based intensity
 calculations. Daily A/B plan text links to the weekly Strategy blocks. Both
@@ -149,8 +149,9 @@ Development is maintained in a separate private repository.
 
 External requests start after you add a cloud file, select an ICS
 calendar with a subscription link, add a cloud folder, or connect Garmin or Google Health. Google Health data is read from Google's
-Health API (`health.googleapis.com`) with read-only access to activity and fitness data. Cloud file and cloud folder syncs download only the configured HTTPS source and never upload
-to or edit it. Share URLs are saved in plugin settings and may grant access to
+Health API (`health.googleapis.com`) with read-only access to activity and fitness data. Cloud folder syncs download only the configured HTTPS source and never upload to or edit it.
+Cloud file sync downloads the workbook; when its Nextcloud share allows editing, Sports also uploads it
+with only the weekly review sheet changed. A share password is kept in Obsidian's secret storage. Share URLs are saved in plugin settings and may grant access to
 anyone with the link. The generated template is offered as a browser download;
 the plugin does not read or write files outside the vault.
 

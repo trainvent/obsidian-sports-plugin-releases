@@ -13,20 +13,21 @@ starting point in XLSX or ODS:
 
 | Option | Contents | Choose it when |
 | --- | --- | --- |
-| **Blank XLSX template** (`Training-Template.xlsx`) | Five sheets with a generic three-group Daily layout; training data and formulas cleared | You want to fill the workbook yourself or with a chatbot |
-| **Blank ODS template** (`Training-Template.ods`) | All five sheets, tables and formatting; training data and formulas cleared | You prefer LibreOffice Calc or ODS |
+| **Blank XLSX template** (`Training-Template.xlsx`) | Six sheets with a generic three-group Daily layout; training data and formulas cleared | You want to fill the workbook yourself or with a chatbot |
+| **Blank ODS template** (`Training-Template.ods`) | All six sheets, tables and formatting; training data and formulas cleared | You prefer LibreOffice Calc or ODS |
 | **Example workbook** (`Training-Example`) | A filled 12-week plan, library, exercise weights, and scoring | You want to learn the format or adapt a working example |
 
 Use this guide with either file. Adapt goals, exercises, schedule, equipment and
 training volume before uploading and syncing. The example is not a personalized
-recommendation. Sports reads the workbook and never writes results back to it.
+recommendation. Sports reads the workbook. It writes back only your weekly reviews,
+and only to an editable Nextcloud share (see [Weekly](#weekly)).
 
 ## In this guide
 
 - [Fill the blank template](#fill-the-blank-template)
 - [Check the workbook](#check-before-returning-the-workbook)
 - [Workbook contract](#keep-the-workbook-contract)
-- [Strategy](#strategy), [Recurring](#recurring), and [Daily](#daily)
+- [Strategy](#strategy), [Recurring](#recurring), [Daily](#daily), and [Weekly](#weekly)
 - [Protect recorded history](#protect-recorded-history)
 - [Scoring and Library](#scoring-and-library)
 - [ODS imports](#ods-imports)
@@ -77,13 +78,13 @@ structure only when the user explicitly requests it.
 6. Save calculated formula results, verify the workbook as described below, then
    upload it, configure the sheet mappings and select **Sync now**.
 
-The blank template retains five sheets, including A/B/C set columns,
+The blank template retains six sheets, including A/B/C set columns,
 Cal-Intervals, Library, Scoring, Plan summary and Plan recap. These labels
 and calculation slots are structure, not prescribed exercises. Training data and
 all cell formulas/cached results are empty; layout defaults remain editable.
 Enter dates and prescriptions directly. Build only the calculations agreed with
 the user. The later formula examples describe the filled example, not formulas
-already present in this template. The ODS template has the same full five-sheet
+already present in this template. The ODS template has the same full six-sheet
 layout. See [Tracking.md](Tracking.md) for alternative tracking layouts when a
 user requests a redesign.
 
@@ -333,6 +334,42 @@ completing a session. Without explicit completion, recorded results imply
 `in-progress`. Recording rules and Notes topic destinations are in
 [Tracking](Tracking.md#record-a-session-in-the-supplied-workbook).
 
+## Weekly
+
+The **Weekly** tab holds one row per week with your weekly review. **Week start** is
+the Monday of the week. The other columns match the sections of the week note:
+**What improved**, **Recovery and comfort**, **Repeat or progress** and **What to adjust**.
+**Reviewed** (TRUE or FALSE) matches the note's `reviewed` property, which the dashboard
+shows as reviewed. Each bullet in the note is one line in the cell. Only the review columns and **Reviewed** are green input cells.
+
+In the example, **Week start**, **Program week** and **Phase** are formulas linked to
+**Strategy → Week plans**, so the tab follows your start date. In the blank template
+these cells start empty; Sports fills them from your week plans on the first sync.
+
+Sports keeps the tab and your week notes in step:
+
+- A review written in the note appears in the sheet, and the other way round. Only weeks
+  the tab lists or the strategy plans are synced.
+- A row for a week without a note creates that week's note.
+- If you delete a review on one side, or change the same section differently on both sides
+  before the next sync, Sports changes neither side. It lists these reviews with both
+  versions and lets you choose **Keep notes** or **Keep workbook** for all of them.
+
+Writing to the sheet needs a Nextcloud share link that allows editing. With a
+password-protected share, add the password under **Settings → Sports → Sources →
+Workbook → Share password**. Sports changes only the Weekly tab and checks the rest of
+the file before uploading. While the file is open in Nextcloud Office, Sports checks again
+every minute and updates it once you close it.
+Nextcloud keeps earlier versions of the file if you need to go back. Other links
+import the tab into your notes without writing to the sheet. Writing currently works
+for XLSX workbooks; ODS workbooks import the tab into your notes. Sports writes only the review cells, fills empty reference cells,
+and adds rows only for strategy weeks the tab doesn't list yet. Reviews of other weeks stay
+in your notes. It never changes formulas or existing rows' order.
+
+To add the tab to an existing workbook, add a sheet named **Weekly** with the column
+titles above in one row. Choose another name under **Weekly review sheet**, or leave
+it blank to turn the sync off.
+
 ## Protect recorded history
 
 Never shift the start date, change session identity, or rewrite completed training
@@ -497,5 +534,5 @@ does not evaluate formulas. Verify calculated intensity and Done values after
 conversion. Choose **Download XLSX** or **Download ODS** in settings. Both start next Monday.
 Both starting points use a manual TRUE/FALSE **Session done** dropdown. In the
 filled example, Notes topics, Weight fields, Library, Scoring and Cal-Intervals use the
-same structure in both formats. Both blank templates keep all five sheets and
+same structure in both formats. Both blank templates keep all six sheets and
 their tables, formatting and controls, with training data and cell formulas cleared.

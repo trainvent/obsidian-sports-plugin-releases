@@ -48,7 +48,6 @@ After reflecting on a week, tick **reviewed** in the weekly note's properties. T
 | `Analytics/Watch.md` | Watch volume, running, and swimming graphs |
 | `Goals/<goal_id>.md` | Goal targets, mapped results, matching activities, and reviews |
 | `Routines/` | Routine explanations, exercises, and progressions; linked from Plans and Log |
-| `Guide/` | Workbook, Tracking, Using Sports, and Troubleshooting |
 
 Weekly notes cover the current week, imported sessions, and Week plans.
 Day notes under Journal cover today and earlier dates with workbook or watch
@@ -70,7 +69,6 @@ properties, a weekly-note link on each day, and dated links in logs and plans.
 | Note | Managed properties | Source |
 | --- | --- | --- |
 | `Analytics/Stats.md` | `related` (Sheet and Watch links) | Detailed chart pages |
-| `Guide/` | `related` (other guide links) | Companion guides |
 | `Goals/<goal_id>.md` | `goal_id`, `category`, `garmin_types` | Goals table and resolved source mappings |
 | `Routines/<name>.md` | `targets` (list of goal links) | Part/goal relationships; running and swimming goal mappings |
 | `Journal/Days/YYYY-MM-DD.md` | `date`, `week` (weekly-note link) | Entry date and its Monday-start week |

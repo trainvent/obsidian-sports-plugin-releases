@@ -34,7 +34,8 @@ und wöchentliche Reflexion. Bring eine XLSX- oder ODS-Arbeitsmappe mit und mach
 Calisthenics und Street Workout bis Laufen, Schwimmen und anderen Sportarten.
 
 Sports folgt der Sprache von Obsidian. Ist Obsidian auf Deutsch eingestellt, sind Oberfläche, Notizen,
-Ordnernamen, Anleitungen und Vorlagen deutsch.
+Ordnernamen, Anleitungen und Vorlagen deutsch. Die Sprache heruntergeladener Vorlagen kannst du unter
+**Einstellungen → Sports → Quellen → Arbeitsmappe → Einrichtung** ändern.
 
 ## Installieren
 
@@ -62,8 +63,8 @@ Diagramme werden lokal gezeichnet, ohne weiteres Community-Plugin oder Diagrammd
 ## Loslegen
 
 1. Öffne **Einstellungen → Sports → Quellen → Arbeitsmappe → Einrichtung → Anleitung öffnen**. Lies
-   [Arbeitsmappe.md](de/Arbeitsmappe.md), bevor du eine Datei anpasst; die Anleitung liegt auch unter
-   `Anleitung/Arbeitsmappe.md` in deinem Sports-Notizordner.
+   [Arbeitsmappe.md](de/Arbeitsmappe.md), bevor du eine Datei anpasst; **Anleitung öffnen** zeigt sie auf
+   [sports.trainvent.com/de/docs](https://sports.trainvent.com/de/docs/), **Herunterladen** speichert sie als Datei.
 2. Wähle unter **Einrichtung** die **Leere Vorlage**, um deinen eigenen Plan zu bauen, oder die **Beispiel-Arbeitsmappe**, um
    von einem ausgefüllten Plan zu lernen. Beide gibt es als **XLSX herunterladen** und **ODS herunterladen**.
 3. Fülle die Datei mithilfe der Anleitung aus oder passe sie an deine Ziele, deine verfügbare Zeit, deine Ausrüstung
@@ -106,16 +107,16 @@ auch an Tagen ohne Training. Siehe [Einbettungsoptionen](de/Sports-verwenden.md#
 | [Sports verwenden](de/Sports-verwenden.md) | Notizen, Diagramme, Kalender und Garmin verbinden, Pläne abschließen oder wiederherstellen |
 | [Fehlerbehebung](de/Fehlerbehebung.md) | Cloud-Links, Synchronisierungszeitpunkte, fehlende Daten, Notizkonflikte und Wiederherstellung |
 
-Die Anleitungen liegen auch unter `Anleitung/` in deinem Sports-Notizordner. Öffne die
-Arbeitsmappen-Anleitung in den Einstellungen oder jede Anleitung über die Befehlspalette. Jede Anleitung aktualisiert ihren erstellten Abschnitt
-und behält deine eigenen Notizen außerhalb davon.
+Die Anleitungen stehen auch auf [sports.trainvent.com/de/docs](https://sports.trainvent.com/de/docs/). Öffne die
+Arbeitsmappen-Anleitung in den Einstellungen oder jede Anleitung über die Befehlspalette. Anleitungsnotizen aus früheren
+Versionen bleiben als deine eigenen Notizen im Vault; Sports aktualisiert sie nicht mehr.
 
 | Ausgangspunkt | XLSX | ODS |
 | --- | --- | --- |
-| Leere Vorlage | [Training-Vorlage.xlsx](templates/Training-Vorlage.xlsx) | [Training-Template.ods (Englisch)](templates/Training-Template.ods) |
-| Ausgefülltes Beispiel | [Training-Beispiel.xlsx](templates/Training-Beispiel.xlsx) | [Training-Example.ods (Englisch)](templates/Training-Example.ods) |
+| Leere Vorlage | [Training-Vorlage.xlsx](templates/Training-Vorlage.xlsx) | [Training-Vorlage.ods](templates/Training-Vorlage.ods) |
+| Ausgefülltes Beispiel | [Training-Beispiel.xlsx](templates/Training-Beispiel.xlsx) | [Training-Beispiel.ods](templates/Training-Beispiel.ods) |
 
-Beide leeren Formate behalten alle fünf Blätter, Tabellen und Formatierungen; Trainingsdaten
+Beide leeren Formate behalten alle sechs Blätter, Tabellen und Formatierungen; Trainingsdaten
 und Zellformeln sind geleert. Das ausgefüllte Beispiel enthält einen 12-Wochen-Plan für Calisthenics
 und Bewegung, fünf Übungsgruppen, Cal-Intervals und satzbasierte Intensitätsberechnungen. Die deutschen XLSX-Dateien
 verwenden deutsche Blattnamen, Abschnittstitel, Spaltenüberschriften und Auswahlwerte. Sports erkennt auch die englischen Entsprechungen.
@@ -146,8 +147,9 @@ Passe das Beispiel vor dem Training an deine Bedürfnisse an.
 
 Externe Anfragen beginnen erst, wenn du eine Cloud-Datei einrichtest, einen ICS-Kalender
 mit Abonnementlink wählst, einen Cloud-Ordner einträgst oder Garmin bzw. Google Health verbindest. Google-Health-Daten werden über Googles
-Health API (`health.googleapis.com`) mit reinem Lesezugriff auf Aktivitäts- und Fitnessdaten abgerufen. Die Synchronisierung von Cloud-Datei und Cloud-Ordner lädt nur die eingestellte HTTPS-Quelle herunter und lädt nie etwas hoch
-oder ändert sie. Freigabelinks werden in den Plugin-Einstellungen gespeichert und können jedem Zugriff geben,
+Health API (`health.googleapis.com`) mit reinem Lesezugriff auf Aktivitäts- und Fitnessdaten abgerufen. Die Synchronisierung des Cloud-Ordners lädt nur die eingestellte HTTPS-Quelle herunter und lädt nie etwas hoch
+oder ändert sie. Die Cloud-Datei wird heruntergeladen; erlaubt ihre Nextcloud-Freigabe Bearbeiten, lädt Sports sie
+mit nur geändertem Wochenrückblick-Blatt wieder hoch. Ein Freigabe-Passwort liegt im Geheimnisspeicher von Obsidian. Freigabelinks werden in den Plugin-Einstellungen gespeichert und können jedem Zugriff geben,
 der sie kennt. Die Vorlage wird als Browser-Download angeboten;
 das Plugin liest und schreibt keine Dateien außerhalb des Vaults.
 

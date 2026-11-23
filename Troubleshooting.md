@@ -14,7 +14,8 @@
 
 Use an HTTPS link to the XLSX or ODS file itself. Nextcloud file-share links such
 as `https://cloud.example/s/SHARE_TOKEN` work; Sports adds `/download` automatically.
-The link must allow downloads without a login or password. Folder shares,
+Other links must allow downloads without a login or password. For a password-protected
+Nextcloud share, add the password under **Share password**. Folder shares,
 spreadsheet editor URLs, local paths, and encrypted workbooks are unsupported.
 Downloads are limited to **5 MB** and **30 seconds**, with redirects restricted
 to the same HTTPS server.

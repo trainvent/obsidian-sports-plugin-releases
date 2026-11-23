@@ -48,7 +48,6 @@ Nachdem du über eine Woche nachgedacht hast, hake **reviewed** in den Eigenscha
 | `Auswertung/Armbanduhr.md` | Uhr-Umfang sowie Lauf- und Schwimmdiagramme |
 | `Ziele/<goal_id>.md` | Zielwerte, zugeordnete Ergebnisse, passende Aktivitäten und Rückblicke |
 | `Routinen/` | Erklärungen, Übungen und Steigerungen je Routine; verlinkt aus Plänen und Protokoll |
-| `Anleitung/` | Arbeitsmappe, Erfassung, Sports verwenden und Fehlerbehebung |
 
 Wochennotizen gibt es für die aktuelle Woche, für importierte Einheiten und für Week plans.
 Tagesnotizen unter Journal gibt es für heute und frühere Tage mit Einträgen aus Arbeitsmappe oder Uhr
@@ -70,7 +69,6 @@ der Routinen, ein Link zur Wochennotiz an jedem Tag und datierte Links in Protok
 | Notiz | Verwaltete Eigenschaften | Quelle |
 | --- | --- | --- |
 | `Auswertung/Statistik.md` | `related` (Links zu Tabelle und Armbanduhr) | Ausführliche Diagrammseiten |
-| `Anleitung/` | `related` (Links zu den anderen Anleitungen) | Begleitende Anleitungen |
 | `Ziele/<goal_id>.md` | `goal_id`, `category`, `garmin_types` | Tabelle Goals und aufgelöste Quellenzuordnung |
 | `Routinen/<Name>.md` | `targets` (Liste von Ziel-Links) | Beziehungen zwischen Teilen und Zielen; Lauf- und Schwimmziele |
 | `Journal/Tage/JJJJ-MM-TT.md` | `date`, `week` (Link zur Wochennotiz) | Datum des Eintrags und seine Woche ab Montag |
