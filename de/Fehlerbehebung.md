@@ -14,7 +14,8 @@
 
 Verwende einen HTTPS-Link direkt zur XLSX- oder ODS-Datei. Nextcloud-Freigabelinks
 wie `https://cloud.example/s/SHARE_TOKEN` funktionieren; Sports ergänzt `/download` automatisch.
-Der Link muss Downloads ohne Anmeldung oder Passwort erlauben. Ordnerfreigaben,
+Andere Links müssen Downloads ohne Anmeldung oder Passwort erlauben. Bei einer passwortgeschützten
+Nextcloud-Freigabe trage das Passwort unter **Freigabe-Passwort** ein. Ordnerfreigaben,
 Adressen von Tabellen-Editoren, lokale Pfade und verschlüsselte Arbeitsmappen werden nicht unterstützt.
 Downloads sind auf **5 MB** und **30 Sekunden** begrenzt; Weiterleitungen sind nur
 auf denselben HTTPS-Server erlaubt.

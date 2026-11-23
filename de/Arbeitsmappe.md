@@ -9,13 +9,14 @@ Ausgangspunkt als XLSX oder ODS. Ist Obsidian auf Deutsch eingestellt, lädt Spo
 
 | Option | Inhalt | Wähle sie, wenn |
 | --- | --- | --- |
-| **Leere Vorlage XLSX** (`Training-Vorlage.xlsx`) | Fünf Blätter mit einem allgemeinen Trainingstagebuch-Layout aus drei Gruppen; Trainingsdaten und Formeln geleert | du die Arbeitsmappe selbst oder mit einem Chatbot ausfüllen willst |
-| **Leere Vorlage ODS** (`Training-Template.ods`, Englisch) | Alle fünf Blätter, Tabellen und Formatierungen; Trainingsdaten und Formeln geleert | du LibreOffice Calc oder ODS bevorzugst |
-| **Beispiel-Arbeitsmappe** (`Training-Beispiel.xlsx`; ODS auf Englisch: `Training-Example.ods`) | Ein ausgefüllter 12-Wochen-Plan mit Bibliothek, Übungsgewichten und Bewertung | du das Format kennenlernen oder ein funktionierendes Beispiel anpassen willst |
+| **Leere Vorlage XLSX** (`Training-Vorlage.xlsx`) | Sechs Blätter mit einem allgemeinen Trainingstagebuch-Layout aus drei Gruppen; Trainingsdaten und Formeln geleert | du die Arbeitsmappe selbst oder mit einem Chatbot ausfüllen willst |
+| **Leere Vorlage ODS** (`Training-Vorlage.ods`) | Alle sechs Blätter, Tabellen und Formatierungen; Trainingsdaten und Formeln geleert | du LibreOffice Calc oder ODS bevorzugst |
+| **Beispiel-Arbeitsmappe** (`Training-Beispiel.xlsx` oder `Training-Beispiel.ods`) | Ein ausgefüllter 12-Wochen-Plan mit Bibliothek, Übungsgewichten und Bewertung | du das Format kennenlernen oder ein funktionierendes Beispiel anpassen willst |
 
 Diese Anleitung gilt für beide Dateien. Passe Ziele, Übungen, Zeitplan, Ausrüstung und
 Trainingsumfang an, bevor du hochlädst und synchronisierst. Das Beispiel ist keine persönliche
-Empfehlung. Sports liest die Arbeitsmappe und schreibt nie Ergebnisse hinein.
+Empfehlung. Sports liest die Arbeitsmappe. Zurück schreibt es nur deine Wochenrückblicke,
+und nur in eine bearbeitbare Nextcloud-Freigabe (siehe [Wochenrückblick](#wochenrückblick)).
 
 **Sprache:** Die deutschen XLSX-Vorlagen verwenden deutsche Blattnamen, Abschnittstitel, Spaltenüberschriften und Auswahlwerte.
 Sports erkennt die deutschen und die englischen Bezeichnungen unabhängig von der Sprache der Oberfläche.
@@ -27,7 +28,7 @@ Alles, was du selbst schreibst – Ziele, Übungen, Titel, Vorgaben, Notizen –
 - [Leere Vorlage ausfüllen](#leere-vorlage-ausfüllen)
 - [Arbeitsmappe prüfen](#vor-der-rückgabe-prüfen)
 - [Regeln der Arbeitsmappe](#regeln-der-arbeitsmappe-einhalten)
-- [Strategie](#strategie), [Wochenplan](#wochenplan) und [Trainingstagebuch](#trainingstagebuch)
+- [Strategie](#strategie), [Wochenplan](#wochenplan), [Trainingstagebuch](#trainingstagebuch) und [Wochenrückblick](#wochenrückblick)
 - [Erfassten Verlauf schützen](#erfassten-verlauf-schützen)
 - [Bewertung und Übungsbibliothek](#bewertung-und-übungsbibliothek)
 - [ODS-Importe](#ods-importe)
@@ -77,13 +78,13 @@ und entferne keine Überschriften, um eine Funktion abzuschalten. Ändere die St
 6. Speichere die berechneten Formelergebnisse, prüfe die Arbeitsmappe wie unten beschrieben, lade sie
    hoch, stelle die Blattzuordnung ein und wähle **Jetzt synchronisieren**.
 
-Die leere Vorlage behält fünf Blätter, darunter Satzspalten für A/B/C,
+Die leere Vorlage behält sechs Blätter, darunter Satzspalten für A/B/C,
 Cal-Intervals, Übungsbibliothek, Bewertung, Planübersicht und Planrückblick. Diese Bezeichnungen
 und Berechnungsfelder sind Struktur, keine vorgeschriebenen Übungen. Trainingsdaten und
 alle Zellformeln und gespeicherten Ergebnisse sind leer; die Layoutvorgaben bleiben anpassbar.
 Trage Daten und Vorgaben direkt ein. Baue nur die Berechnungen, die vereinbart wurden.
 Die Formelbeispiele weiter unten beschreiben das ausgefüllte Beispiel, keine Formeln,
-die in dieser Vorlage schon stehen. Die ODS-Vorlage hat dasselbe vollständige Layout mit fünf Blättern.
+die in dieser Vorlage schon stehen. Die ODS-Vorlage hat dasselbe vollständige Layout mit sechs Blättern.
 Andere Erfassungslayouts für einen gewünschten Umbau findest du unter [Erfassung](Erfassung.md).
 
 ## Optionale Abschnitte und Blätter
@@ -332,6 +333,44 @@ Einheit zu erledigen. Ohne ausdrückliches Erledigt gelten erfasste Ergebnisse a
 `Begonnen`. Erfassungsregeln und die Ziele von Notizthema stehen unter
 [Erfassung](Erfassung.md#eine-einheit-in-der-mitgelieferten-arbeitsmappe-erfassen).
 
+## Wochenrückblick
+
+Das Blatt **Wochenrückblick** enthält eine Zeile pro Woche mit deinem Wochenrückblick.
+**Wochenbeginn** ist der Montag der Woche. Die übrigen Spalten entsprechen den Abschnitten
+der Wochennotiz: **Was besser wurde**, **Erholung und Wohlbefinden**, **Wiederholen oder
+steigern** und **Was ich anpasse**. **Reflektiert** (WAHR oder FALSCH) entspricht der
+Eigenschaft `reviewed` der Notiz, die das Dashboard als reflektiert anzeigt. Jeder Stichpunkt der Notiz ist eine Zeile in der Zelle. Nur die Rückblick-Spalten
+und **Reflektiert** sind grüne Eingabezellen.
+
+Im Beispiel sind **Wochenbeginn**, **Programmwoche** und **Phase** Formeln, die auf
+**Strategie → Trainingswochen** verweisen; das Blatt folgt also deinem Startdatum. In der
+leeren Vorlage sind diese Zellen zunächst leer; Sports füllt sie bei der ersten
+Synchronisierung aus deinen Trainingswochen.
+
+Sports hält das Blatt und deine Wochennotizen gleich:
+
+- Ein Rückblick in der Notiz erscheint im Blatt und umgekehrt. Synchronisiert werden nur Wochen,
+  die das Blatt enthält oder die Strategie plant.
+- Eine Zeile für eine Woche ohne Notiz legt die Wochennotiz an.
+- Löschst du einen Rückblick auf einer Seite oder änderst du denselben Abschnitt vor der
+  nächsten Synchronisierung auf beiden Seiten unterschiedlich, ändert Sports keine Seite. Es
+  zeigt diese Rückblicke mit beiden Fassungen, und du wählst für alle **Notizen behalten**
+  oder **Arbeitsmappe behalten**.
+
+Zum Schreiben ins Blatt braucht Sports einen Nextcloud-Freigabelink, der Bearbeiten erlaubt.
+Bei einer passwortgeschützten Freigabe trage das Passwort unter **Einstellungen → Sports →
+Quellen → Arbeitsmappe → Freigabe-Passwort** ein. Sports ändert nur dieses Blatt und prüft den
+Rest der Datei vor dem Hochladen. Solange die Datei in Nextcloud Office geöffnet ist, prüft
+Sports jede Minute erneut und aktualisiert sie, sobald du sie schließt. Nextcloud behält frühere Versionen der Datei, falls du zurück musst. Andere Links
+übernehmen das Blatt nur in deine Notizen. Schreiben funktioniert bisher mit XLSX-Arbeitsmappen; ODS-Arbeitsmappen übernehmen das Blatt nur in deine Notizen.
+Sports schreibt nur die Rückblick-Zellen, füllt leere Bezugszellen und ergänzt nur Zeilen für
+Trainingswochen der Strategie, die noch fehlen. Rückblicke anderer Wochen bleiben in deinen Notizen.
+Formeln und die Reihenfolge bestehender Zeilen ändert es nie.
+
+Für eine bestehende Arbeitsmappe füge ein Blatt **Wochenrückblick** mit den obigen
+Spaltentiteln in einer Zeile hinzu. Unter **Wochenrückblick-Blatt** kannst du einen anderen
+Namen wählen oder das Feld leeren, um die Synchronisierung auszuschalten.
+
 ## Erfassten Verlauf schützen
 
 Verschiebe nie das Startdatum, ändere nie die Identität einer Einheit und schreibe erledigtes Training nicht um,
@@ -496,5 +535,5 @@ Formeln werden nicht ausgewertet. Prüfe berechnete Intensität und Done-Werte n
 Umwandlung. Wähle in den Einstellungen **XLSX herunterladen** oder **ODS herunterladen**. Beide beginnen am nächsten Montag.
 Beide Ausgangspunkte verwenden für **Einheit erledigt** eine manuelle Auswahl WAHR/FALSCH. Im
 ausgefüllten Beispiel verwenden Notizthema, Weight-Felder, Übungsbibliothek, Bewertung und Cal-Intervals in
-beiden Formaten dieselbe Struktur. Beide leeren Vorlagen behalten alle fünf Blätter
+beiden Formaten dieselbe Struktur. Beide leeren Vorlagen behalten alle sechs Blätter
 mit ihren Tabellen, Formatierungen und Eingabehilfen; Trainingsdaten und Zellformeln sind geleert.
