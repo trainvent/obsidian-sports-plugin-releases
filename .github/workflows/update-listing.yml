@@ -32,3 +32,13 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Publish listing for $RELEASE_TAG"
           git push origin HEAD:main
+      - name: Rebuild the website docs
+        env:
+          GH_TOKEN: ${{ secrets.WEBSITE_DISPATCH_TOKEN }}
+        run: |
+          # The website fetches the guides from this repository's main branch on every build.
+          if [ -z "$GH_TOKEN" ]; then
+            echo '::warning::Set WEBSITE_DISPATCH_TOKEN to rebuild the docs on sports.trainvent.com automatically.'
+            exit 0
+          fi
+          gh api repos/trainvent/website-sports/dispatches -f event_type=sports-release
