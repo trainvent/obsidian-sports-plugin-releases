@@ -72,10 +72,24 @@ der Arbeitsmappe noch in den Uhr-Quellen stehen, lassen sich durch Synchronisier
 
 Sicherungen sind Wiederherstellungskopien, keine aktiven Notizen und keine Synchronisierungsquelle. Die normale Synchronisierung
 erstellt keine. Es werden höchstens 10 Kopien behalten; ist der Speicher voll, ersetzt jede neue Kopie
-die älteste. Behalte die Dateinamen verwalteter Notizen bei.
+die älteste. Du kannst verwaltete Notizen verschieben; Sports folgt ihrer Identität und behält eigene Speicherorte bei.
 Jede Kopie speichert den ursprünglichen Notizpfad, den Zeitpunkt und den vollständigen Inhalt
 in der versteckten Plugin-Datei `recovery-backups.json`. Archive abgeschlossener Pläne sind davon getrennt
 und laufen nicht ab; siehe [Plan abschließen oder wiederherstellen](Sports-verwenden.md#plan-abschließen-oder-wiederherstellen).
+
+## Gemischte Sprachen und Planabschluss
+
+Wähle unter **Einstellungen → Sports → Quellen** zuerst die Sports-Sprache für
+einen bestehenden Vault. Sprachwechsel in Obsidian werden erst mit **An … anpassen**
+übernommen. Normales Synchronisieren räumt verbliebene Standardpfade der alten
+Sprache auf. Eigene Notizen und benutzerdefinierte Orte bleiben erhalten. Treffen
+zwei Notizen am Ziel zusammen, bleiben beide erhalten; kläre den Konflikt vor
+dem nächsten Versuch.
+
+**Plan abschließen** erscheint in der letzten Planwoche und öffnet den Rückblick.
+Danach führt **Plan archivieren** zur Ablage. Kann Sports den Planrückblick nicht
+übertragen, behebe den Fehler oder entsperre die Arbeitsmappe. Eine schreibgeschützte
+Freigabe behält den Rückblick nur in den Notizen.
 
 ## Verbindungsprobleme
 

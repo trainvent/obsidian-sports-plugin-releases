@@ -16,6 +16,10 @@ dein **Gerät**; danach erscheinen nur dessen Einstellungen. Mehrere Geräte kö
 liegen in **Einrichtung** die Anleitung und die Vorlagen, in **Blätter** die Blattnamen.
 **Anzeige** steuert Notizordner, Diagramme und Dashboard. **Erweitert → Standardwerte setzen** setzt Synchronisierungs- und Anzeigeeinstellungen zurück und stellt den Verlauf von Garmin und Google Health auf vor 90 Tagen. Notizordner, Quellen und Daten bleiben erhalten. **Erweitert** enthält außerdem die Wiederherstellungswerkzeuge.
 
+**Arbeitsmappe verbinden** öffnet direkt diese Einstellungen, klappt **Arbeitsmappe** auf und fokussiert das Cloud-Link-Feld. Eine zusätzliche Einrichtungsbox gibt es nicht.
+
+Sports speichert seine Sprache pro Vault. Ein Sprachwechsel in Obsidian benennt Notizen nicht automatisch um. **An … anpassen** unter **Quellen** übernimmt die neue Sprache ausdrücklich. Synchronisieren beendet unvollständige Verschiebungen zur gespeicherten Sprache und entfernt nur leere alte Ordner; eigene Speicherorte und persönliche Texte bleiben erhalten.
+
 ## In dieser Anleitung
 
 - [Deine Notizen](#deine-notizen)
@@ -38,6 +42,7 @@ Nachdem du über eine Woche nachgedacht hast, hake **reviewed** in den Eigenscha
 | Pfad | Inhalt |
 | --- | --- |
 | `Struktur/Sports.base` (vorhandene Übersicht) | Sortierbare Ansichten für Wochen und Routinen über Notizeigenschaften |
+| `Auswertung/Aktivität.md` | Tägliche Heatmap der erfassten Trainingsminuten |
 | `Auswertung/Statistik.md` | Summen je Quelle und Trainingstrends |
 | `Journal/Wochen/JJJJ-MM-TT.md` | Wichtigste Notiz für Wochenplanung, Ergebnisse und Rückblick |
 | `Struktur/Pläne.md` | Ziele, wöchentliche Steigerung und anstehende Einheiten |
@@ -150,8 +155,15 @@ Wiederholungen und Runden teilen sich eine Zählachse; Zeit wird als min:ss ange
 Die Reihenfolge der Übungen bleibt in jedem Diagramm erhalten; Höhen verschiedener Einheiten sind nicht vergleichbar. Zeilenbasierte Erfassung verwendet die eingestellte Zusammenfassung
 (standardmäßig die Summe); einzelne Satzwerte bleiben verfügbar. Teilsummen sind gekennzeichnet.
 
-**Statistik** hält Summen aus Arbeitsmappe und Uhr getrennt und vergleicht die gefühlte Anstrengung mit
-vorhandenen HF-Zonen der Uhr. Dasselbe Training kann in beiden Quellen erscheinen.
+**Statistik** zeigt Wochenminuten als gestapelte Balken aus Arbeitsmappe und Uhr,
+den Minutenanteil je Sport als Ring und die gefühlte Anstrengung mit verfügbaren
+HF-Zonen. A/B/T/X zählen gemeinsam als Kraft und Technik. Eindeutig doppelte
+Aufzeichnungen werden für die Minutensummen ausgeschlossen; mehrdeutige bleiben getrennt.
+**Aktivität** ist eine eigene Notiz mit täglicher Heatmap und einer Skala von 0 bis
+90+ Minuten. Ein leeres Feld bedeutet keine erfassten Minuten, nicht bestätigte Ruhe.
+Zielseiten zeigen vergleichbare erledigte Übungsergebnisse über die Übungs-ID aus
+der Bibliothek. Wähle Messgrößen und Zusatzlasten getrennt; fehlende oder mehrdeutige
+Übungen werden nicht als Fortschritt ausgegeben.
 **Auswertung/Armbanduhr** zeigt aufgezeichneten Umfang, Lauf- und Schwimmpace, Herzfrequenz
 und vorhandene Zonendaten. Uhr-Aufzeichnungen erledigen nie manuelle Einheiten.
 
@@ -181,6 +193,13 @@ Kommentare außerhalb der geschützten erstellten Abschnitte.
 
 Diagramme werden lokal in der Leseansicht oder in Live Preview gezeichnet, solange Sports aktiviert ist.
 Der Quellmodus zeigt lesbare Codeblöcke; ein externer Diagrammdienst wird nicht verwendet.
+
+HF-Zonen verwenden aufgezeichnete Zonenzeiten, wenn vorhanden. Sonst schätzt
+Sports die Zone aus der durchschnittlichen Herzfrequenz des Trainings anhand
+der vier **HF-Zonengrenzen (bpm)** in Strategie. Das ist eine geschätzte Zone
+des Durchschnitts, keine gemessene Zeitverteilung. Die geplante Intensität
+erscheint als gestrichelte Linie mit zwei Zielmarken; kleinere Ergebnispunkte
+liegen davor. Die gestrichelte Linie lässt den Platz zwischen den Marken frei.
 
 ## Zeitpläne und Kalender
 
@@ -313,7 +332,19 @@ Warnung übersprungen; andere Aktivitäten bleiben sichtbar.
 
 ## Plan abschließen oder wiederherstellen
 
-Führe **Sports: Plan abschließen** in der Befehlspalette aus. Als Ziel ist
+Wähle in der letzten Planwoche **Plan abschließen** im Dashboard oder führe den
+gleichnamigen Befehl aus. Sports erstellt und öffnet `Summary.md` mit Summen und
+sechs Rückblickfragen. Schreibe deine Antworten unter die Überschriften; sie
+synchronisieren sich mit **Strategie → Planrückblick**. Es erscheint kein
+automatisches Popup nach dem letzten Training.
+
+Kehre zu **Plan archivieren** im Kalender zurück. Vor der Ablage synchronisiert
+Sports den Planrückblick erneut. Unterschiede müssen geklärt werden; Sperren
+und Übertragungsfehler stoppen die Ablage. Bei einer schreibgeschützten Freigabe
+bleibt die Zusammenfassung in den Notizen. Das ist kein vollständiger Abruf
+aller Quellen: Synchronisiere neue Trainingsdaten vorher über das Sync-Symbol.
+
+Als Ziel ist
 `Archive/<Planname>` vorgeschlagen; du kannst es ändern. **Abschließen und Notizen verschieben** verschiebt die
 aktuellen Notizen dorthin (auch verwaltete Notizen, die an anderer Stelle im Vault liegen), trennt die Arbeitsmappe und beendet den aktiven Plan.
 

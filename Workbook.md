@@ -19,8 +19,9 @@ starting point in XLSX or ODS:
 
 Use this guide with either file. Adapt goals, exercises, schedule, equipment and
 training volume before uploading and syncing. The example is not a personalized
-recommendation. Sports reads the workbook. It writes back only your weekly reviews,
-and only to an editable Nextcloud share (see [Weekly](#weekly)).
+recommendation. Sports reads plans and results. On an editable Nextcloud share it
+writes back weekly reviews and the final plan recap, leaving training inputs and
+formulas unchanged (see [Weekly](#weekly) and [End-of-plan recap](#end-of-plan-recap)).
 
 ## In this guide
 
@@ -206,8 +207,8 @@ Leave unused section data empty; remove structure only at the user’s request:
 | --- | --- |
 | Plan | `schema_version`, `plan_id`, `plan_name`, `timezone`, `start_date`, `max_sets`, `max_reps` |
 | Goals | `goal_id`, `title`, `benchmark`, `baseline`, `test`, `category`, `garmin_types` |
-| Parts | `part_id`, `version`, `title`, `prescription`, `goal_ids` |
-| Week plans | `Week`, `Start`, `Phase`, `Focus`, `Targets`, `Advance when`, `Minutes`, `A`, `B` |
+| Parts | `part_id`, `name`, `title`, `prescription`, `goal_ids` |
+| Week plans | `Week`, `Start`, `Phase`, `Focus`, `Targets`, `Advance when`, `Minutes`, `A`, `B`, `T1`, `T2` |
 | Plan summary | `Metric`, `Value` |
 | Plan recap | `Prompt`, `Response` |
 
@@ -216,6 +217,13 @@ timezone, such as `Europe/Berlin`. Choose a stable `plan_id`; switching an impor
 plan ID requires clearing the cached plan. `start_date` stays at **E3**. Set a
 Monday before recording history. Plugin-created workbooks start next Monday in
 the user's local calendar and use the user's local timezone.
+
+`hr_zone_boundaries` holds four increasing cutoffs in bpm, separated by spaces,
+for example `120 140 160 180`. A cutoff starts the next zone: below 120 is zone 1,
+120–139 is zone 2, and so on. When recorded zone times are missing, Sports estimates
+the zone from each workout's average heart rate. This does not recover time spent
+in each zone. Available recorded zone times take priority; leave the field blank
+to show only recorded zones.
 
 The example's `max_sets` and `max_reps` cells describe its example layout only.
 They do not impose an exercise count, require A/B/C/Cal-Intervals, or limit set counts.
@@ -248,19 +256,22 @@ status and shared session notes.
 - The example includes swimming as a maintenance goal. Its starting routine is
   reported background, not a recorded performance or a change to Recurring.
 
-**Parts:** `part_id` and `version` together identify a training block. Daily `Block`
-values refer to these IDs. In `goal_ids`, separate goal IDs with commas, for example
-`muscle-up, pistol`. Each must exist in Goals. A legacy `PartGoals` table with
-`part_id`, `version`, `goal_id` is also supported.
+**Parts:** `part_id` identifies a training block. Daily `Block` refers to that ID.
+`name` is the routine note name, without a path or `.md` extension; for example,
+`T` with `Technique` creates `Routines/Technique.md`. `title` describes the workout.
+Keep names unique. In `goal_ids`, separate existing goal IDs with commas,
+for example `muscle-up, pistol`. You do not need a version column.
 
 **Week plans:** use unique positive week numbers and unique Monday Start dates.
 In the filled example, Start formulas link to `$E$3`; preserve or adapt those
 when using that example. Enter explicit Start dates in the formula-free template.
 `Minutes` is the manual training
-budget; recurring tracker activities are separate. `A` and `B` contain the weekly
-block prescriptions and feed Daily Plan formulas. Changing block names or adding
+budget; recurring tracker activities are separate. `A` and `B` contain strength
+prescriptions; `T1` and `T2` hold the two weekly technique variants, both linked to
+Part T. X identifies the separate Cal-Intervals block, whose fixed circuit lives
+in Library. These columns feed Daily Plan formulas. Changing block names or adding
 other block columns requires adapting the Daily formulas as well. The plugin
-currently imports A and B as weekly prescriptions. Keep a full description in
+imports A, B, T1 and T2 as weekly prescriptions. Keep a full description in
 Parts and Daily Plan for any other blocks.
 
 ## Recurring
@@ -307,8 +318,7 @@ subcolumn alignment when adding or moving fields.
 
 **Session identity:** Date plus Block identifies a session unless you add an
 explicit Session ID. Use distinct stable IDs for sessions sharing a date and
-block. Block refers to a Strategy Parts `part_id`; use Part version when that ID
-has several versions. Blank or `empty` Block means no linked strategy part.
+block. Block refers to a Strategy Parts `part_id`. Blank or `empty` Block means no linked strategy part.
 
 **Plan:** put each exercise on its own actual line, with its group name matching
 the input columns. Session Block A/B and exercise groups A–E are separate labels.
@@ -357,12 +367,12 @@ Sports keeps the tab and your week notes in step:
 
 Writing to the sheet needs a Nextcloud share link that allows editing. With a
 password-protected share, add the password under **Settings → Sports → Sources →
-Workbook → Share password**. Sports changes only the Weekly tab and checks the rest of
+Workbook → Share password**. A weekly-review sync changes only the Weekly tab and checks the rest of
 the file before uploading. While the file is open in Nextcloud Office, Sports checks again
 every minute and updates it once you close it.
 Nextcloud keeps earlier versions of the file if you need to go back. Other links
-import the tab into your notes without writing to the sheet. Writing currently works
-for XLSX workbooks; ODS workbooks import the tab into your notes. Sports writes only the review cells, fills empty reference cells,
+import the tab into your notes without writing to the sheet. Writing works for XLSX
+and ODS workbooks. Sports writes only the review cells, fills empty reference cells,
 and adds rows only for strategy weeks the tab doesn't list yet. Reviews of other weeks stay
 in your notes. It never changes formulas or existing rows' order.
 
@@ -373,11 +383,10 @@ it blank to turn the sync off.
 ## Protect recorded history
 
 Never shift the start date, change session identity, or rewrite completed training
-when adapting future weeks. Preserve completed rows, dates, IDs, results and part
-versions. If a part has completed history, preserve that part definition and add a
-new version for future sessions. Keep the old version and select versions in Daily.
-The plugin rejects changes to linked part definitions and dates it can recognize
-as completed history, and retains missing completed sessions. Stable explicit
+when adapting future weeks. Preserve completed rows, dates, IDs and results.
+Keep a part's workout definition unchanged once it has completed history; adjust
+future targets in Week plans. Routine names can change without changing the linked
+training history. Missing completed sessions remain cached. Stable explicit
 Session IDs make those checks more reliable.
 
 Write reflections outside generated sections in Obsidian. Sync protects those
@@ -428,10 +437,10 @@ Base intensity and Growth per kg may stay blank when you are not using scoring.
 
 | Table | Headers |
 | --- | --- |
-| Exercise arsenal | `Group`, `Exercise`, `Unit`, `Base intensity (0–10)`, `Growth per kg` |
+| Exercise arsenal | `Group`, `Exercise`, `Unit`, `Base intensity (0–10)`, `Growth per kg`, `Exercise ID` |
 | Equipment | `Equipment`, `Min kg`, `Max kg`, `Notes` |
 
-The XLSX arsenal occupies **Library!A2:E58**. Units are in **C**, base intensity in
+The XLSX arsenal occupies **Library!A2:F58**. Units are in **C**, base intensity in
 **D**, and growth per kg in **E**. Growth is an editable relative multiplier:
 4% means each added kg increases the exercise rating by 4% of its base rating.
 The seeded rates are planning estimates, not measured physiological effects.
@@ -454,6 +463,8 @@ in block prescriptions, and are required as separators in `goal_ids`.
 The arsenal is imported as reference information; it does not automatically
 rewrite or validate the free-text prescriptions. Update matching text yourself.
 The legacy `Exercises` table is not supported.
+
+**Exercise ID:** give each exercise a unique, language-independent ID in column F, such as `pull_up`. Keep it when renaming or translating an exercise; variants need distinct IDs. Sports resolves exercise names through this library. Missing or ambiguous matches are omitted from goal trends. The blank template contains no invented exercise data or results.
 
 ### Exercise weights
 
@@ -524,6 +535,13 @@ recorded manual minutes, and median recorded performance. **Plan recap** has six
 short response fields for goal progress, what worked, changes, recovery, load
 observations, and the next plan. Completion uses **Session done** in the provided files, or explicit **Status** in other
 layouts. Tracker imports and exercise-specific Done flags do not complete a session.
+
+In the final plan week, **Finish plan** in the dashboard opens `Summary.md` with
+these totals and prompts. Answers sync with Strategy’s Plan recap table. Return
+to **Archive plan** after writing; Sports attempts another recap sync before
+archiving. Conflicts, locks and transfer failures stop the move. Read-only shares
+keep the summary in the archived notes. Finishing the last workout does not open
+a popup automatically.
 
 ## ODS imports
 

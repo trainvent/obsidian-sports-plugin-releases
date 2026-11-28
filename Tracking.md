@@ -49,6 +49,12 @@ partial results can still produce a score, so check **Scored metrics / Planned
 metrics**. Felt effort does not change performance. Formula inputs and calculations
 are documented in [Scoring and Library](Workbook.md#scoring-and-library).
 
+For exercise trends on goal pages, the exercise name must resolve to one Library
+row with a unique **Exercise ID**. A), B), C) markers separate exercises even if
+a spreadsheet formula joins their line breaks. Only explicitly completed
+exercises with numeric results contribute; recording a workout alone does not
+prove goal progress.
+
 ## Alternative Daily layouts
 
 The filled example uses A–E exercise groups; the blank template starts with A/B/C.
@@ -70,7 +76,7 @@ remain gated by the corresponding Done flag.
 
 For a flat session layout, required headers are `Date`, `Block`, and `Plan`.
 Optional fields include `Title`, `Planned minutes`, `Actual minutes`, `Status`,
-`Notes`, `Session ID`, `Part version`, and `Sport`. Custom measurement columns end
+`Notes`, `Session ID`, and `Sport`. Custom measurement columns end
 with ` result`; completion columns end with ` done` and contain TRUE, FALSE, or
 blank. Use `Reps result` rather than an arbitrary `Reps` header. Grouped headings
 are the exception: their subcolumns are imported as `<group> 1 result`, etc.
@@ -132,9 +138,9 @@ These rows are illustrative, not imported training achievements.
 - With a **Done** column, only TRUE records a result. FALSE and blank are distinct
   unrecorded states. Without that column, a nonblank Result is an explicit result.
   Targets alone never become achievements.
-- Optional session fields: **Block, Part version, Title, Sport, Plan, Status,
+- Optional session fields: **Block, Title, Sport, Plan, Status,
   Planned minutes, Actual minutes, Notes**, and custom columns ending in ` result`.
-  Set Block and Part version on the first row of a linked session. Other shared
+  Set Block on the first row of a linked session. Other shared
   metadata may appear once or repeat consistently. Conflicting values are rejected;
   notes from different rows are retained. Date is required on every row.
 - **Plan** is free text. Structured targets and results drive the graphs without
