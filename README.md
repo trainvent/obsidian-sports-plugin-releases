@@ -31,10 +31,17 @@
 
 ---
 
-Sports connects your **training plans, workout results, calendars, and Garmin
+Sports connects your **training plans, workout results, calendars, and watch
 recordings** in one Obsidian dashboard, with linked notes for goals, progress,
-and weekly reflections. Bring an XLSX or ODS workbook and make it your own—from
+and weekly reflections. Review weekly training volume, a sport-minute breakdown,
+and a daily activity heatmap; follow comparable exercise results on goal pages. Bring an XLSX or ODS workbook and make it your own—from
 calisthenics and street workout to running, swimming, and other sports.
+
+Sports keeps its selected language when Obsidian's language changes. Use the
+**Adapt to …** button in **Settings → Sports → Sources** to update the Sports
+interface and notes. Existing vaults choose their language there once after this update.
+Change the language of downloaded templates under
+**Settings → Sports → Sources → Workbook → Setup**.
 
 ## Install
 
@@ -42,7 +49,7 @@ Sports is available in Obsidian's community plugins directory.
 
 1. Open **Settings → Community plugins → Browse**.
 2. Search for **Sports**, select **Install**, then **Enable**.
-3. Open **Settings → Sports** to set up your workbook, calendar, or Garmin connection.
+3. Open **Settings → Sports** to set up your workbook, calendar, or watch.
 
 Requires **Obsidian 1.11.4 or later** on desktop. Mobile is not supported.
 Garmin integration is experimental and uses unofficial endpoints.
@@ -52,16 +59,22 @@ Garmin integration is experimental and uses unofficial endpoints.
 - **Plan:** connect goals, training parts, weekly targets, and dated sessions.
 - **Record:** enter sets, time, rounds, added weight, and other measurements in your workbook.
 - **Review:** compare plans and results, follow training trends, and write weekly reflections.
-- **Combine sources:** see workbook sessions, recurring activities, calendar events, and Garmin recordings together.
+- **Combine sources:** see workbook sessions, recurring activities, calendar events, and watch recordings (Garmin, Google Health, workout files) together.
 - **Keep your notes:** browse ordinary Markdown files with space for your own commentary.
 
-Sync flows **workbook → Obsidian**. Edit plans and results in your spreadsheet;
-write reflections in Obsidian. Sports never uploads changes to your workbook.
+Plans and results flow **workbook → Obsidian**: edit them in your spreadsheet and
+write reflections in Obsidian. Weekly reviews and the final plan recap sync both ways
+with **Weekly** and **Strategy → Plan recap** when the Nextcloud share allows editing.
+Sports changes only the review and recap cells; plans and recorded results stay in the workbook.
 Charts render locally without another community plugin or chart service.
 
 ## Get started
 
-1. Open **Settings → Sports → Connections → Workbook → Setup → Open guide**. Read
+Select **Connect workbook** on an empty dashboard to open Sports settings with
+**Workbook** expanded and the cloud-link field focused. Setup and later changes
+use the same controls.
+
+1. Open **Settings → Sports → Sources → Workbook → Setup → Open guide**. Read
    [Workbook.md](Workbook.md) before adapting a file; **Open guide** shows it on
    [sports.trainvent.com/docs](https://sports.trainvent.com/docs/), and **Download** saves it as a file.
 2. Under **Setup**, choose **Blank template** to build your own plan or **Example workbook** to
@@ -70,9 +83,11 @@ Charts render locally without another community plugin or chart service.
    and preferred activities. You can do this yourself or give the file and guide
    to your chatbot. Keep future results blank.
 4. Upload the completed file to Nextcloud or another service with an HTTPS
-   download link. Paste it into **Cloud file** and keep the sheet
-   mappings under **Sources** at **Strategy**, **Daily**, and **Recurring**.
-5. Select **Connections → Sync → Sync now**, then **Display → Open dashboard**.
+   download link. Paste it into **Cloud file**; add the **Share password** if the share has one.
+   Keep the sheet mappings under **Sheets** and **Schedule** at **Strategy**, **Daily**,
+   **Weekly**, and **Recurring**.
+5. Select the sync icon at the top of **Sources**, then run **Sports: Open dashboard**
+   from the command palette or the ribbon.
 6. Record training in the workbook, recalculate and save if it uses formulas,
    then sync again.
 7. **Optional: use [Calcrow](https://calcrow.com/) for everyday Daily-sheet edits.**
@@ -104,7 +119,7 @@ use `sports-dashboard` to keep the full widget. See [embed options](Using-Sports
 | --- | --- |
 | [Workbook](Workbook.md) | Fill the template, define goals and sheets, configure scoring, validate a plan |
 | [Tracking](Tracking.md) | Record workouts, handle completion and weights, customize Daily layouts |
-| [Using Sports](Using-Sports.md) | Navigate notes, read charts, connect calendars and Garmin, finish or restore plans |
+| [Using Sports](Using-Sports.md) | Navigate notes, read charts, connect calendars and watches, finish or restore plans |
 | [Troubleshooting](Troubleshooting.md) | Cloud links, sync timing, missing data, note conflicts, and recovery |
 
 The guides are also on [sports.trainvent.com/docs](https://sports.trainvent.com/docs/). Open the
@@ -131,16 +146,30 @@ formats contain the same data. Adapt the example to your needs before training.
   [Google Health activity sync](Using-Sports.md#google-health-activity-sync).
 - **Apple Watch and other watches:** save workouts as FIT, TCX or GPX files to a shared cloud folder,
   for example with HealthFit and Dropbox, and paste its link into **Cloud folder** under **Sources → Smartwatch → Apple Watch and others**. See [Workout files](Using-Sports.md#workout-files-apple-watch-and-other-watches).
-- **Calendar:** select **ICS calendar** under **Connections → Workbook → Sources** for a Google Calendar,
+- **Calendar:** select **ICS calendar** under **Sources → Schedule** for a Google Calendar,
   Nextcloud, or other ICS training feed. See [Schedules and calendars](Using-Sports.md#schedules-and-calendars).
+
+## Finish a plan
+
+In the final plan week, select **Finish plan** in the dashboard calendar. Sports opens
+`Summary.md` with your plan totals and recap prompts. Write your reflections there;
+the answers sync with the **Plan recap** table in your Strategy sheet.
+
+Return to the calendar and select **Archive plan** to choose the finished plan's
+folder. The summary and detailed notes stay together. Editable Nextcloud shares
+support two-way recap sync; read-only shares keep your written summary in the notes.
+Sports syncs the recap again immediately before moving the notes. Conflicts, locks
+and failed transfers block archiving; read-only shares keep the summary in the notes.
+If both copies changed, Sports asks which answers to keep before archiving.
 
 ## Current limits
 
 - Desktop only, with one active workbook plan. Finish the current plan before starting or restoring another.
-- No workbook write-back, watch workout uploads, calendar write-back, or automatic coaching.
+- Workbook write-back covers weekly reviews and plan recap answers on editable Nextcloud shares.
+- No watch workout uploads, calendar write-back, or automatic coaching.
 - Sheet names are configurable; arbitrary column mapping and import previews are not available.
 - Recurring activities use a weekly schedule; per-occurrence edits and schedule-timezone conversion are not implemented.
-- Completed sessions and linked part versions are protected. Removed completed sessions remain cached; removed unfinished rows leave the active plan.
+- Completed sessions and their linked workout definitions are protected. Removed completed sessions remain cached; removed unfinished rows leave the active plan.
 - Generated-note conflicts require manual recovery; there is no conflict-resolution interface.
 
 Development is maintained in a separate private repository.
@@ -151,7 +180,7 @@ External requests start after you add a cloud file, select an ICS
 calendar with a subscription link, add a cloud folder, or connect Garmin or Google Health. Google Health data is read from Google's
 Health API (`health.googleapis.com`) with read-only access to activity and fitness data. Cloud folder syncs download only the configured HTTPS source and never upload to or edit it.
 Cloud file sync downloads the workbook; when its Nextcloud share allows editing, Sports also uploads it
-with only the weekly review sheet changed. A share password is kept in Obsidian's secret storage. Share URLs are saved in plugin settings and may grant access to
+with only weekly review cells or Strategy recap answers changed. A share password is kept in Obsidian's secret storage. Share URLs are saved in plugin settings and may grant access to
 anyone with the link. The generated template is offered as a browser download;
 the plugin does not read or write files outside the vault.
 
@@ -184,4 +213,4 @@ saxen-derived parser, worker-f, garminconnect-js, and ical.js.
 your Obsidian and Sports versions, the error, and steps to reproduce it. Remove
 private share links, credentials, and personal training data from attachments.
 You can also use [Trainvent support](https://next.trainvent.com/de/software-support/)
-or [sponsor development](https://github.com/sponsors/trainvent).
+or [sponsor development](https://github.com/sponsors/leonmarq).

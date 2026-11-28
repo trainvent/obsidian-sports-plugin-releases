@@ -15,8 +15,9 @@ Ausgangspunkt als XLSX oder ODS. Ist Obsidian auf Deutsch eingestellt, lädt Spo
 
 Diese Anleitung gilt für beide Dateien. Passe Ziele, Übungen, Zeitplan, Ausrüstung und
 Trainingsumfang an, bevor du hochlädst und synchronisierst. Das Beispiel ist keine persönliche
-Empfehlung. Sports liest die Arbeitsmappe. Zurück schreibt es nur deine Wochenrückblicke,
-und nur in eine bearbeitbare Nextcloud-Freigabe (siehe [Wochenrückblick](#wochenrückblick)).
+Empfehlung. Sports liest Pläne und Ergebnisse. In eine bearbeitbare Nextcloud-Freigabe
+schreibt es Wochenrückblicke und den abschließenden Planrückblick zurück. Trainingsdaten
+und Formeln bleiben unverändert (siehe [Wochenrückblick](#wochenrückblick) und [Rückblick am Planende](#rückblick-am-planende)).
 
 **Sprache:** Die deutschen XLSX-Vorlagen verwenden deutsche Blattnamen, Abschnittstitel, Spaltenüberschriften und Auswahlwerte.
 Sports erkennt die deutschen und die englischen Bezeichnungen unabhängig von der Sprache der Oberfläche.
@@ -205,8 +206,8 @@ Lass Daten ungenutzter Abschnitte leer; entferne Struktur nur auf Wunsch:
 | --- | --- |
 | Plan | `Formatversion`, `Plan-ID`, `Planname`, `Zeitzone`, `Startdatum`, `Max. Sätze`, `Max. Wiederholungen` |
 | Ziele | `Ziel-ID`, `Titel`, `Zielwert`, `Ausgangswert`, `Prüfung`, `Kategorie`, `Garmin-Typen` |
-| Bausteine | `Baustein-ID`, `Version`, `Titel`, `Trainingsvorgabe`, `Ziel-IDs` |
-| Trainingswochen | `Woche`, `Beginn`, `Phase`, `Schwerpunkt`, `Wochenziele`, `Steigern wenn`, `Minuten`, `A`, `B` |
+| Bausteine | `Baustein-ID`, `Name`, `Titel`, `Trainingsvorgabe`, `Ziel-IDs` |
+| Trainingswochen | `Woche`, `Beginn`, `Phase`, `Schwerpunkt`, `Wochenziele`, `Steigern wenn`, `Minuten`, `A`, `B`, `T1`, `T2` |
 | Planübersicht | `Kennzahl`, `Wert` |
 | Planrückblick | `Frage`, `Antwort` |
 
@@ -215,6 +216,13 @@ wie `Europe/Berlin`. Wähle eine stabile `Plan-ID`; wechselt die ID eines import
 muss der zwischengespeicherte Plan gelöscht werden. `Startdatum` bleibt in **E3**. Wähle einen
 Montag, bevor du Verlauf erfasst. Vom Plugin erstellte Arbeitsmappen beginnen am nächsten Montag im
 lokalen Kalender und verwenden deine lokale Zeitzone.
+
+`HF-Zonengrenzen (bpm)` enthält vier aufsteigende Grenzen mit Leerzeichen,
+zum Beispiel `120 140 160 180`. An der Grenze beginnt die nächste Zone: unter 120
+ist Zone 1, 120–139 ist Zone 2 und so weiter. Fehlen erfasste Zonenzeiten, schätzt
+Sports die Zone aus der durchschnittlichen Herzfrequenz je Trainingseinheit.
+Damit lassen sich keine Zeiten je Zone rekonstruieren. Erfasste Zonenzeiten haben
+Vorrang; ein leeres Feld zeigt nur erfasste Zonen.
 
 Die Zellen `Max. Sätze` und `Max. Wiederholungen` im Beispiel beschreiben nur dessen Layout.
 Sie legen keine Übungszahl fest, verlangen kein A/B/C/Cal-Intervals und begrenzen keine Satzzahlen.
@@ -247,19 +255,23 @@ und gemeinsamen Notizen übernommen.
 - Das Beispiel enthält Schwimmen als Ziel der Erhaltung. Seine Ausgangsroutine ist eine
   Hintergrundangabe, keine erfasste Leistung und keine Änderung an Wochenplan.
 
-**Bausteine:** `Baustein-ID` und `Version` bezeichnen zusammen einen Trainingsblock. Werte in `Baustein`
-in Trainingstagebuch verweisen auf diese IDs. In `Ziel-IDs` trennst du Ziel-IDs mit Kommas, zum Beispiel
-`muscle-up, pistol`. Jede ID muss in Ziele stehen. Eine ältere Tabelle `Bausteinziele` mit
-`Baustein-ID`, `Version`, `Ziel-ID` wird ebenfalls unterstützt.
+**Bausteine:** `Baustein-ID` bezeichnet einen Trainingsblock. `Baustein` im
+Trainingstagebuch verweist auf diese ID. `Name` ist der Name der Routinen-Notiz,
+ohne Pfad oder `.md`-Endung; `T` mit `Technik` erzeugt zum Beispiel
+`Routinen/Technik.md`. `Titel` beschreibt das Training. Halte Namen eindeutig.
+In `Ziel-IDs` trennst du vorhandene Ziel-IDs mit Kommas, etwa `muscle-up, pistol`.
+Eine Versionsspalte brauchst du nicht.
 
 **Trainingswochen:** Verwende eindeutige positive Wochennummern und eindeutige Montage als Beginn.
 Im ausgefüllten Beispiel verweisen die Start-Formeln auf `$E$3`; behalte oder passe sie
 an, wenn du dieses Beispiel nutzt. In der formelfreien Vorlage trägst du ausdrückliche Startdaten ein.
 `Minuten` ist das Zeitbudget für manuelles Training;
-wiederkehrende Aktivitäten sind getrennt. `A` und `B` enthalten die wöchentlichen
-Blockvorgaben und speisen die Plan-Formeln in Trainingstagebuch. Benennst du Blöcke um oder ergänzt
+wiederkehrende Aktivitäten sind getrennt. `A` und `B` enthalten Kraftvorgaben,
+`T1` und `T2` die beiden Technikvarianten der Woche; beide gehören zu Baustein T.
+X bezeichnet die getrennten Cal-Intervals, deren fester Zirkel in Übungsbibliothek
+steht. Diese Spalten speisen die Plan-Formeln in Trainingstagebuch. Benennst du Blöcke um oder ergänzt
 weitere Blockspalten, musst du auch die Formeln in Trainingstagebuch anpassen. Das Plugin
-importiert derzeit A und B als Wochenvorgaben. Für andere Blöcke steht die vollständige Beschreibung
+importiert A, B, T1 und T2 als Wochenvorgaben. Für andere Blöcke steht die vollständige Beschreibung
 in Bausteine und im Plan in Trainingstagebuch.
 
 ## Wochenplan
@@ -306,8 +318,7 @@ die Ausrichtung der Unterspalten bei, wenn du Felder ergänzt oder verschiebst.
 
 **Identität einer Einheit:** Datum und Baustein bezeichnen eine Einheit, sofern du keine
 ausdrückliche Einheit-ID ergänzt. Verwende eigene stabile IDs für Einheiten mit gleichem Datum und
-Baustein. Baustein verweist auf eine `Baustein-ID` in den Bausteine von Strategie; nutze Bausteinversion, wenn diese ID
-mehrere Versionen hat. Ein leerer Baustein oder `empty` bedeutet keinen verknüpften Strategieteil.
+Baustein. Baustein verweist auf eine `Baustein-ID` in den Bausteinen von Strategie. Ein leerer Baustein oder `empty` bedeutet keinen verknüpften Strategieteil.
 
 **Plan:** Jede Übung steht in einer eigenen echten Zeile, ihr Gruppenname passt zu
 den Eingabespalten. Trainingseinheit Baustein A/B und die Übungsgruppen A–E sind getrennte Bezeichnungen.
@@ -359,10 +370,10 @@ Sports hält das Blatt und deine Wochennotizen gleich:
 
 Zum Schreiben ins Blatt braucht Sports einen Nextcloud-Freigabelink, der Bearbeiten erlaubt.
 Bei einer passwortgeschützten Freigabe trage das Passwort unter **Einstellungen → Sports →
-Quellen → Arbeitsmappe → Freigabe-Passwort** ein. Sports ändert nur dieses Blatt und prüft den
+Quellen → Arbeitsmappe → Freigabe-Passwort** ein. Beim Wochenrückblick ändert Sports nur dieses Blatt und prüft den
 Rest der Datei vor dem Hochladen. Solange die Datei in Nextcloud Office geöffnet ist, prüft
 Sports jede Minute erneut und aktualisiert sie, sobald du sie schließt. Nextcloud behält frühere Versionen der Datei, falls du zurück musst. Andere Links
-übernehmen das Blatt nur in deine Notizen. Schreiben funktioniert bisher mit XLSX-Arbeitsmappen; ODS-Arbeitsmappen übernehmen das Blatt nur in deine Notizen.
+übernehmen das Blatt nur in deine Notizen. Schreiben funktioniert mit XLSX- und ODS-Arbeitsmappen.
 Sports schreibt nur die Rückblick-Zellen, füllt leere Bezugszellen und ergänzt nur Zeilen für
 Trainingswochen der Strategie, die noch fehlen. Rückblicke anderer Wochen bleiben in deinen Notizen.
 Formeln und die Reihenfolge bestehender Zeilen ändert es nie.
@@ -373,13 +384,13 @@ Namen wählen oder das Feld leeren, um die Synchronisierung auszuschalten.
 
 ## Erfassten Verlauf schützen
 
-Verschiebe nie das Startdatum, ändere nie die Identität einer Einheit und schreibe erledigtes Training nicht um,
-wenn du künftige Wochen anpasst. Behalte erledigte Zeilen, Daten, IDs, Ergebnisse und Teilversionen.
-Hat ein Teil erledigte Einheiten, behalte dessen Definition und lege für künftige Einheiten eine
-neue Version an. Behalte die alte Version und wähle die Versionen in Trainingstagebuch.
-Das Plugin lehnt Änderungen an verknüpften Teildefinitionen und Daten ab, die es als
-erledigten Verlauf erkennt, und behält fehlende erledigte Einheiten. Stabile, ausdrückliche
-Trainingseinheit IDs machen diese Prüfungen zuverlässiger.
+Verschiebe nie das Startdatum, ändere nie die Identität einer Einheit und schreibe
+erledigtes Training nicht um, wenn du künftige Wochen anpasst. Behalte erledigte
+Zeilen, Daten, IDs und Ergebnisse. Hat ein Baustein erledigte Einheiten, behalte
+seine Trainingsvorgabe und passe künftige Ziele in Trainingswochen an.
+Routinennamen dürfen sich ändern, ohne den verknüpften Verlauf zu ändern.
+Fehlende erledigte Einheiten bleiben erhalten. Stabile, ausdrückliche
+Einheit-IDs machen diese Prüfungen zuverlässiger.
 
 Schreibe Reflexionen in Obsidian außerhalb der erstellten Abschnitte. Die Synchronisierung schützt diese
 Abschnitte vor versehentlichen Änderungen; Pläne änderst du in der Arbeitsmappe.
@@ -429,10 +440,10 @@ Grundintensität und Zuwachs je kg dürfen leer bleiben, wenn du keine Bewertung
 
 | Tabelle | Überschriften |
 | --- | --- |
-| Übungsauswahl | `Gruppe`, `Übung`, `Einheit`, `Grundintensität (0–10)`, `Zuwachs je kg` |
+| Übungsauswahl | `Gruppe`, `Übung`, `Einheit`, `Grundintensität (0–10)`, `Zuwachs je kg`, `Übungs-ID` |
 | Ausrüstung | `Ausrüstung`, `Minimale kg`, `Maximale kg`, `Notizen` |
 
-Das Arsenal in XLSX belegt **Übungsbibliothek!A2:E58**. Einheiten stehen in **C**, die Grundintensität in
+Das Arsenal in XLSX belegt **Übungsbibliothek!A2:F58**. Einheiten stehen in **C**, die Grundintensität in
 **D** und der Zuwachs pro kg in **E**. Der Zuwachs ist ein anpassbarer relativer Faktor:
 4 % bedeutet, dass jedes zusätzliche kg die Bewertung der Übung um 4 % ihrer Grundbewertung erhöht.
 Die vorgegebenen Werte sind Planungsschätzungen, keine gemessenen physiologischen Effekte.
@@ -455,6 +466,8 @@ und in `Ziel-IDs` als Trenner erforderlich.
 Das Arsenal wird als Referenz importiert; es schreibt freie Vorgaben nicht um
 und prüft sie nicht. Passenden Text aktualisierst du selbst.
 Die ältere Tabelle `Übungen` wird nicht unterstützt.
+
+**Übungs-ID:** Vergib in Spalte F eine eindeutige, sprachunabhängige ID wie `pull_up`. Behalte sie bei Umbenennungen und Übersetzungen bei; Varianten bekommen eigene IDs. Sports löst Übungsnamen über diese Bibliothek auf. Fehlende oder mehrdeutige Zuordnungen erscheinen nicht als Zieltrend. Die leere Vorlage enthält keine erfundenen Übungen oder Ergebnisse.
 
 ### Übungsgewichte
 
@@ -525,6 +538,14 @@ erfasste manuelle Minuten und den Median der erfassten Leistung. **Planrückblic
 kurze Antwortfelder für Zielfortschritt, was funktioniert hat, Änderungen, Erholung, Beobachtungen zur Last
 und den nächsten Plan. Als erledigt zählt **Einheit erledigt** in den mitgelieferten Dateien oder ein ausdrücklicher **Status** in anderen
 Layouts. Tracker-Importe und Erledigt-Markierungen je Übung erledigen keine Einheit.
+
+In der letzten Planwoche öffnet **Plan abschließen** im Dashboard `Summary.md`
+mit diesen Summen und Fragen. Die Antworten synchronisieren sich mit dem
+Planrückblick in Strategie. Danach führt **Plan archivieren** zur Ablage; zuvor
+versucht Sports erneut, den Rückblick zu synchronisieren. Konflikte, Sperren und
+Übertragungsfehler stoppen das Verschieben. Bei schreibgeschützten Freigaben
+bleibt der Rückblick in den archivierten Notizen. Das letzte erledigte Training
+öffnet kein automatisches Popup.
 
 ## ODS-Importe
 

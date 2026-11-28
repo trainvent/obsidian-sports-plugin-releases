@@ -73,10 +73,22 @@ the workbook and watch sources cannot be restored by syncing.
 Backups are recovery copies, not active notes or sync inputs. Normal sync does
 not create them. At most 10 recovery copies are retained; each new copy replaces
 the oldest when storage is full.
-Keep managed note filenames stable.
+You can move managed notes; Sports follows their identity and preserves custom locations.
 Each recovery copy records the original note path, timestamp, and full content
 in the plugin's hidden `recovery-backups.json`. Finished-plan archives are separate
 and do not expire automatically; see [Finish or restore a plan](Using-Sports.md#finish-or-restore-a-plan).
+
+## Mixed languages and finishing a plan
+
+Choose the Sports language under **Settings → Sports → Sources** for an existing
+vault. Obsidian language changes are adopted only through **Adapt to …**. Normal
+sync repairs leftover standard paths from the old language. Personal notes and
+custom locations stay intact. If two notes occupy a destination, both are kept;
+resolve that collision before retrying.
+
+**Finish plan** appears during the final plan week and opens the recap. Afterwards
+use **Archive plan** to move the notes. If recap upload fails, resolve the error
+or unlock the workbook. Read-only shares keep the recap in the notes only.
 
 ## Connection problems
 

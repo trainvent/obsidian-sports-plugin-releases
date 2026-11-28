@@ -28,13 +28,19 @@
 
 ---
 
-Sports verbindet deine **Trainingspläne, Workout-Ergebnisse, Kalender und Garmin-Aufzeichnungen**
+Sports verbindet deine **Trainingspläne, Workout-Ergebnisse, Kalender und Uhr-Aufzeichnungen**
 in einem Obsidian-Dashboard, mit verknüpften Notizen für Ziele, Fortschritt
 und wöchentliche Reflexion. Bring eine XLSX- oder ODS-Arbeitsmappe mit und mach sie zu deiner – von
 Calisthenics und Street Workout bis Laufen, Schwimmen und anderen Sportarten.
 
-Sports folgt der Sprache von Obsidian. Ist Obsidian auf Deutsch eingestellt, sind Oberfläche, Notizen,
-Ordnernamen, Anleitungen und Vorlagen deutsch. Die Sprache heruntergeladener Vorlagen kannst du unter
+Die Statistik ergänzt Wochenbalken um Sportanteile; die eigene Notiz Aktivität zeigt
+eine tägliche Heatmap. Auf Zielseiten lassen sich vergleichbare erledigte Übungswerte
+über sprachunabhängige Übungs-IDs verfolgen.
+
+Sports behält seine gewählte Sprache, wenn sich die Sprache von Obsidian ändert.
+Mit **An … anpassen** unter **Einstellungen → Sports → Quellen** passt du die
+Sports-Oberfläche und Notizen bewusst an. Bestehende Vaults wählen dort nach diesem Update einmal ihre Sprache.
+Die Sprache heruntergeladener Vorlagen kannst du unter
 **Einstellungen → Sports → Quellen → Arbeitsmappe → Einrichtung** ändern.
 
 ## Installieren
@@ -43,7 +49,7 @@ Sports ist im Verzeichnis der Community-Plugins von Obsidian verfügbar.
 
 1. Öffne **Einstellungen → Community-Plugins → Durchsuchen**.
 2. Suche nach **Sports**, wähle **Installieren** und dann **Aktivieren**.
-3. Öffne **Einstellungen → Sports**, um Arbeitsmappe, Kalender oder Garmin-Verbindung einzurichten.
+3. Öffne **Einstellungen → Sports**, um Arbeitsmappe, Kalender oder Armbanduhr einzurichten.
 
 Erfordert **Obsidian 1.11.4 oder neuer** auf dem Desktop. Mobilgeräte werden nicht unterstützt.
 Die Garmin-Anbindung ist experimentell und nutzt inoffizielle Schnittstellen.
@@ -53,14 +59,20 @@ Die Garmin-Anbindung ist experimentell und nutzt inoffizielle Schnittstellen.
 - **Planen:** Ziele, Trainingsteile, Wochenziele und datierte Einheiten verbinden.
 - **Erfassen:** Sätze, Zeiten, Runden, Zusatzgewicht und andere Messwerte in deiner Arbeitsmappe eintragen.
 - **Auswerten:** Pläne und Ergebnisse vergleichen, Trainingstrends verfolgen und Wochenrückblicke schreiben.
-- **Quellen zusammenführen:** Einheiten aus der Arbeitsmappe, wiederkehrende Aktivitäten, Kalendertermine und Garmin-Aufzeichnungen gemeinsam sehen.
+- **Quellen zusammenführen:** Einheiten aus der Arbeitsmappe, wiederkehrende Aktivitäten, Kalendertermine und Uhr-Aufzeichnungen (Garmin, Google Health, Trainingsdateien) gemeinsam sehen.
 - **Notizen behalten:** normale Markdown-Dateien mit Platz für eigene Kommentare.
 
-Die Synchronisierung läuft **Arbeitsmappe → Obsidian**. Pläne und Ergebnisse bearbeitest du in deiner Tabelle,
-Reflexionen schreibst du in Obsidian. Sports lädt nie Änderungen in deine Arbeitsmappe hoch.
+Pläne und Ergebnisse fließen **Arbeitsmappe → Obsidian**: Du bearbeitest sie in deiner Tabelle und
+schreibst Reflexionen in Obsidian. Wochenrückblicke und der abschließende Planrückblick synchronisieren sich
+in beide Richtungen mit **Wochenrückblick** und **Strategie → Planrückblick**, wenn die Nextcloud-Freigabe
+Bearbeiten erlaubt. Sports ändert nur die Rückblick-Zellen; Pläne und erfasste Ergebnisse bleiben in der Arbeitsmappe.
 Diagramme werden lokal gezeichnet, ohne weiteres Community-Plugin oder Diagrammdienst.
 
 ## Loslegen
+
+Wähle auf dem leeren Dashboard **Arbeitsmappe verbinden**. Sports öffnet die Einstellungen,
+klappt **Arbeitsmappe** auf und setzt den Cursor ins Cloud-Link-Feld. Einrichtung und
+spätere Änderungen nutzen dieselben Felder.
 
 1. Öffne **Einstellungen → Sports → Quellen → Arbeitsmappe → Einrichtung → Anleitung öffnen**. Lies
    [Arbeitsmappe.md](de/Arbeitsmappe.md), bevor du eine Datei anpasst; **Anleitung öffnen** zeigt sie auf
@@ -71,9 +83,11 @@ Diagramme werden lokal gezeichnet, ohne weiteres Community-Plugin oder Diagrammd
    und deine Sportarten an. Das kannst du selbst tun oder Datei und Anleitung
    deinem Chatbot geben. Lass künftige Ergebnisse leer.
 4. Lade die fertige Datei zu Nextcloud oder einem anderen Dienst mit HTTPS-Download-Link hoch. Füge den Link unter
-   **Cloud-Datei** ein und lass die Blattzuordnungen unter **Blätter** und **Zeitplan**
-   auf **Strategie**, **Trainingstagebuch** und **Wochenplan**.
-5. Wähle **Jetzt synchronisieren** und dann in der Befehlspalette **Sports: Dashboard öffnen**.
+   **Cloud-Datei** ein; hat die Freigabe ein Passwort, trag es unter **Freigabe-Passwort** ein. Lass die
+   Blattzuordnungen unter **Blätter** und **Zeitplan** auf **Strategie**, **Trainingstagebuch**,
+   **Wochenrückblick** und **Wochenplan**.
+5. Wähle das Synchronisieren-Symbol oben unter **Quellen** und dann in der Befehlspalette oder der Seitenleiste
+   **Sports: Dashboard öffnen**.
 6. Erfasse Training in der Arbeitsmappe, berechne neu und speichere, falls sie Formeln verwendet,
    und synchronisiere erneut.
 7. **Optional: Nutze [Calcrow](https://calcrow.com/) für alltägliche Änderungen im Blatt Trainingstagebuch.**
@@ -104,7 +118,7 @@ auch an Tagen ohne Training. Siehe [Einbettungsoptionen](de/Sports-verwenden.md#
 | --- | --- |
 | [Arbeitsmappe](de/Arbeitsmappe.md) | Vorlage ausfüllen, Ziele und Blätter festlegen, Bewertung einrichten, Plan prüfen |
 | [Erfassung](de/Erfassung.md) | Workouts erfassen, Erledigt-Status und Gewichte, eigene Trainingstagebuch-Layouts |
-| [Sports verwenden](de/Sports-verwenden.md) | Notizen, Diagramme, Kalender und Garmin verbinden, Pläne abschließen oder wiederherstellen |
+| [Sports verwenden](de/Sports-verwenden.md) | Notizen, Diagramme, Kalender und Uhren verbinden, Pläne abschließen oder wiederherstellen |
 | [Fehlerbehebung](de/Fehlerbehebung.md) | Cloud-Links, Synchronisierungszeitpunkte, fehlende Daten, Notizkonflikte und Wiederherstellung |
 
 Die Anleitungen stehen auch auf [sports.trainvent.com/de/docs](https://sports.trainvent.com/de/docs/). Öffne die
@@ -134,13 +148,26 @@ Passe das Beispiel vor dem Training an deine Bedürfnisse an.
 - **Kalender:** Wähle unter **Quellen → Zeitplan** den **ICS-Kalender** für einen Trainings-Feed aus Google Calendar,
   Nextcloud oder einer anderen ICS-Quelle. Siehe [Zeitpläne und Kalender](de/Sports-verwenden.md#zeitpläne-und-kalender).
 
+## Einen Plan abschließen
+
+Wähle in der letzten Planwoche **Plan abschließen** im Dashboard-Kalender. Sports öffnet
+`Summary.md` mit deinen Plankennzahlen und den Fragen zum Planrückblick. Schreibe dort
+deine Gedanken auf; die Antworten werden mit dem **Planrückblick** im Strategie-Blatt synchronisiert.
+
+Kehre zum Kalender zurück und wähle **Plan archivieren**, um den Zielordner auszuwählen.
+Zusammenfassung und detaillierte Notizen bleiben zusammen. Bearbeitbare Nextcloud-Freigaben
+unterstützen die Synchronisierung in beide Richtungen. Bei schreibgeschützten Freigaben bleibt
+deine Zusammenfassung in den Notizen. Wurden beide Fassungen geändert, fragt Sports vor dem
+Archivieren, welche Antworten du behalten möchtest.
+
 ## Aktuelle Grenzen
 
 - Nur Desktop, mit einem aktiven Plan aus einer Arbeitsmappe. Schließe den aktuellen Plan ab, bevor du einen anderen beginnst oder wiederherstellst.
-- Kein Zurückschreiben in die Arbeitsmappe, kein Hochladen von Workouts auf die Uhr, kein Zurückschreiben in den Kalender und kein automatisches Coaching.
+- In die Arbeitsmappe schreibt Sports Wochenrückblicke und Antworten zum Planrückblick, und nur bei bearbeitbaren Nextcloud-Freigaben.
+- Kein Hochladen von Workouts auf die Uhr, kein Zurückschreiben in den Kalender und kein automatisches Coaching.
 - Blattnamen sind einstellbar; beliebige Spaltenzuordnung und eine Importvorschau gibt es nicht.
 - Wiederkehrende Aktivitäten folgen einem Wochenplan; Änderungen einzelner Vorkommen und Zeitzonenumrechnung des Zeitplans sind nicht umgesetzt.
-- Erledigte Einheiten und verknüpfte Teilversionen sind geschützt. Entfernte erledigte Einheiten bleiben zwischengespeichert; entfernte unerledigte Zeilen verlassen den aktiven Plan.
+- Erledigte Einheiten und ihre verknüpften Trainingsvorgaben sind geschützt. Entfernte erledigte Einheiten bleiben zwischengespeichert; entfernte unerledigte Zeilen verlassen den aktiven Plan.
 - Konflikte in erstellten Notizen müssen manuell gelöst werden; eine Oberfläche dafür gibt es nicht.
 
 ## Datenschutz
@@ -149,7 +176,7 @@ Externe Anfragen beginnen erst, wenn du eine Cloud-Datei einrichtest, einen ICS-
 mit Abonnementlink wählst, einen Cloud-Ordner einträgst oder Garmin bzw. Google Health verbindest. Google-Health-Daten werden über Googles
 Health API (`health.googleapis.com`) mit reinem Lesezugriff auf Aktivitäts- und Fitnessdaten abgerufen. Die Synchronisierung des Cloud-Ordners lädt nur die eingestellte HTTPS-Quelle herunter und lädt nie etwas hoch
 oder ändert sie. Die Cloud-Datei wird heruntergeladen; erlaubt ihre Nextcloud-Freigabe Bearbeiten, lädt Sports sie
-mit nur geändertem Wochenrückblick-Blatt wieder hoch. Ein Freigabe-Passwort liegt im Geheimnisspeicher von Obsidian. Freigabelinks werden in den Plugin-Einstellungen gespeichert und können jedem Zugriff geben,
+mit nur geänderten Wochenrückblick-Zellen oder Antworten zum Planrückblick wieder hoch. Ein Freigabe-Passwort liegt im Geheimnisspeicher von Obsidian. Freigabelinks werden in den Plugin-Einstellungen gespeichert und können jedem Zugriff geben,
 der sie kennt. Die Vorlage wird als Browser-Download angeboten;
 das Plugin liest und schreibt keine Dateien außerhalb des Vaults.
 
@@ -182,4 +209,4 @@ Parser, worker-f, garminconnect-js und ical.js.
 deiner Obsidian- und Sports-Version, der Fehlermeldung und den Schritten zum Nachstellen. Entferne
 private Freigabelinks, Zugangsdaten und persönliche Trainingsdaten aus Anhängen.
 Du kannst dich auch an den [Trainvent-Support](https://next.trainvent.com/de/software-support/) wenden
-oder die [Entwicklung unterstützen](https://github.com/sponsors/trainvent).
+oder die [Entwicklung unterstützen](https://github.com/sponsors/leonmarq).

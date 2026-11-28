@@ -52,6 +52,12 @@ auch Teilergebnisse können eine Bewertung ergeben, prüfe daher **Erfasste Mess
 metrics**. Die gefühlte Anstrengung ändert die Leistung nicht. Formeln und Berechnungen
 sind unter [Bewertung und Übungsbibliothek](Arbeitsmappe.md#bewertung-und-übungsbibliothek) beschrieben.
 
+Für Übungstrends auf Zielseiten muss der Übungsname genau einer Bibliothekszeile
+mit eindeutiger **Übungs-ID** entsprechen. A), B), C) trennen Übungen auch dann,
+wenn eine Tabellenformel Zeilenumbrüche zusammenzieht. Nur ausdrücklich erledigte
+Übungen mit Zahlenwerten tragen zu Trends bei; ein erfasstes Workout allein
+beweist keinen Zielfortschritt.
+
 ## Andere Trainingstagebuch-Layouts
 
 Das ausgefüllte Beispiel verwendet die Übungsgruppen A–E, die leere Vorlage beginnt mit A/B/C.
@@ -73,7 +79,7 @@ zählen nur mit der zugehörigen Erledigt-Markierung.
 
 Für ein flaches Layout sind die Überschriften `Datum`, `Baustein` und `Plan` erforderlich.
 Optional sind `Titel`, `Geplante Minuten`, `Tatsächliche Minuten`, `Status`,
-`Notizen`, `Einheit-ID`, `Bausteinversion` und `Sportart`. Eigene Messspalten enden
+`Notizen`, `Einheit-ID` und `Sportart`. Eigene Messspalten enden
 auf ` Ergebnis`; Erledigt-Spalten enden auf ` erledigt` und enthalten WAHR, FALSCH oder
 nichts. Verwende `Reps Ergebnis` statt einer beliebigen Überschrift `Reps`. Gruppierte Überschriften
 sind die Ausnahme: Ihre Unterspalten werden als `<Gruppe> 1 Ergebnis` usw. importiert.
@@ -135,9 +141,9 @@ Diese Zeilen sind Beispiele, keine importierten Trainingsleistungen.
 - Mit einer Spalte **Erledigt** zählt nur WAHR als Ergebnis. FALSCH und leer sind verschiedene
   unerfasste Zustände. Ohne diese Spalte ist ein nicht leeres Ergebnis ein ausdrückliches Ergebnis.
   Zielwerte allein werden nie zu Leistungen.
-- Optionale Felder der Einheit: **Baustein, Bausteinversion, Titel, Sportart, Plan, Status,
+- Optionale Felder der Einheit: **Baustein, Titel, Sportart, Plan, Status,
   Geplante Minuten, Tatsächliche Minuten, Notizen** und eigene Spalten, die auf ` Ergebnis` enden.
-  Setze Baustein und Bausteinversion in der ersten Zeile einer verknüpften Einheit. Andere gemeinsame
+  Setze Baustein in der ersten Zeile einer verknüpften Einheit. Andere gemeinsame
   Angaben dürfen einmal stehen oder sich gleichlautend wiederholen. Widersprüchliche Werte werden abgelehnt;
   Notizen aus verschiedenen Zeilen bleiben erhalten. Datum ist in jeder Zeile Pflicht.
 - **Plan** ist freier Text. Strukturierte Zielwerte und Ergebnisse speisen die Diagramme, ohne

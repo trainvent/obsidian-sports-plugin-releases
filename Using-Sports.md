@@ -16,6 +16,10 @@ your **Device** first; only that device's settings are shown. Several devices ca
 **Setup** holds the guide and templates; **Sheets** sets sheet names.
 **Display** controls the notes folder, charts and the dashboard. **Advanced → Set defaults** resets sync and display preferences and sets the Garmin and Google Health history to 90 days ago, keeping your notes folder, source setup, and data. **Advanced** also contains recovery tools.
 
+**Connect workbook** opens these settings directly, expands **Workbook**, and focuses the cloud-link field. Setup uses the same controls as later changes.
+
+Sports saves its language per vault. Changing Obsidian’s language does not rename notes automatically; use **Adapt to …** under **Sources** to adopt it explicitly. Sync finishes partial moves to the saved language and removes only empty old folders, preserving custom locations and personal writing.
+
 ## In this guide
 
 - [Your notes](#your-notes)
@@ -38,6 +42,7 @@ After reflecting on a week, tick **reviewed** in the weekly note's properties. T
 | Path | Contents |
 | --- | --- |
 | `Structure/Sports.base` (existing browser) | Sortable Weeks and Routines views over note properties |
+| `Analytics/Activity.md` | Daily heatmap of recorded training minutes |
 | `Analytics/Stats.md` | Source totals and training trends |
 | `Journal/Weeks/YYYY-MM-DD.md` | Primary weekly planning, results, and review |
 | `Structure/Plans.md` | Goals, weekly progression, and upcoming sessions |
@@ -150,8 +155,15 @@ Reps/rounds share a count axis; time uses min:ss. A third unit type gets a separ
 Exercise order stays unchanged within each plot; heights across different units are not comparable. Row-based tracking uses the configured aggregation
 (total by default); individual set values remain available. Partial totals are labelled.
 
-**Stats** keeps workbook and watch totals separate and compares felt effort with
-available watch HR zones. The same workout can appear in both sources.
+**Stats** shows weekly minutes as stacked workbook/watch bars, a donut of minutes
+by sport, and felt effort against available watch HR zones. A/B/T/X are grouped
+as Strength & technique. Clear duplicate recordings are excluded from volume
+totals; ambiguous matches stay separate.
+**Activity** is a separate daily heatmap note with a 0–90+ minute tone scale.
+Empty squares mean no recorded minutes, not confirmed rest. Goal pages show
+comparable completed exercise results, resolved through Library Exercise IDs.
+Select measurements and added loads separately; missing or ambiguous exercise
+matches are omitted rather than presented as progress.
 **Analytics/Watch** shows recorded volume, running and swimming pace, heart
 rate, and available zone data. Watch recordings never complete manual sessions.
 
@@ -181,6 +193,12 @@ commentary outside protected generated sections.
 
 Charts render locally in Reading view or Live Preview with Sports enabled.
 Source mode shows readable code blocks; no external chart service is used.
+
+HR zones use recorded zone times where available. Otherwise Sports estimates
+a zone from workout-average heart rate using the four **hr_zone_boundaries**
+in Strategy. This describes the average, not a measured time-in-zone distribution.
+Planned intensity uses a dashed line with two target ticks; smaller recorded
+points sit in front. The dashed line leaves the space between the ticks clear.
 
 ## Schedules and calendars
 
@@ -311,7 +329,17 @@ Files that can't be read are skipped with a warning; other activities stay visib
 
 ## Finish or restore a plan
 
-Run **Sports: Finish plan** from the command palette. The destination defaults
+In the final plan week, select **Finish plan** in the dashboard calendar or run
+the command. Sports creates and opens `Summary.md` with totals and six recap
+prompts. Write below the headings; answers sync with **Strategy → Plan recap**.
+Completing the last workout does not open a popup.
+
+Return to **Archive plan** in the calendar. Sports syncs the recap once more
+before moving the notes. Resolve conflicting answers first; locks and transfer
+errors stop the move. Read-only shares keep the summary in the notes. This is
+not a full refresh of every source: sync new training data before archiving.
+
+The destination defaults
 to `Archive/<plan name>` and can be changed. **Finish and move notes** moves the
 current notes there (including managed notes moved elsewhere in the vault), disconnects the workbook, and clears the active plan.
 
